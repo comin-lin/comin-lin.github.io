@@ -1,0 +1,172 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>Java基础知识 | comin-lin&#39;s blog</title>
+  <meta name="author" content="comin-lin">
+  
+  <meta name="description" content="数据类型java中的八个基本类型和大小（单位：比特）
+
+boolean&amp;#x2F;1
+byte&amp;#x2F;8
+char&amp;#x2F;16
+short&amp;#x2F;16
+int&amp;#x2F;32
+float&amp;#x2F;32
+long&amp;#x2F;64
+double&amp;#x2F;64
+
+基本类型有对应的包装类型，">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="Java基础知识"/>
+  <meta property="og:site_name" content="comin-lin&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">comin-lin&#39;s blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-Java基础知识" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-06-28T04:22:43.000Z"><a href="/2023/06/28/Java%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">2023-06-28</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">Java基础知识</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>java中的八个基本类型和大小（单位：比特）</p>
+<ul>
+<li>boolean&#x2F;1</li>
+<li>byte&#x2F;8</li>
+<li>char&#x2F;16</li>
+<li>short&#x2F;16</li>
+<li>int&#x2F;32</li>
+<li>float&#x2F;32</li>
+<li>long&#x2F;64</li>
+<li>double&#x2F;64</li>
+</ul>
+<p>基本类型有对应的包装类型，基本类型与其对应的包装类型之间的赋值使用自动装箱与拆箱完成。</p>
+<h3 id="缓存池"><a href="#缓存池" class="headerlink" title="缓存池"></a>缓存池</h3><p>new Integer(123) 与 Integer.valueOf(123) 的区别：</p>
+<ul>
+<li>new Integer(123) 每次都会新建一个对象</li>
+<li>Integer.valueOf(123) 会使用缓存池中的对象，多次调用会取得同一个对象的引用</li>
+</ul>
+<p>valueOf会先判断值是否在缓存池中，如果存在直接返回缓存池中的内容</p>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><h6 id="String不可变"><a href="#String不可变" class="headerlink" title="String不可变"></a>String不可变</h6><ul>
+<li>String声明为final类，无法被继承</li>
+<li>String内部使用final修饰的char数组存储数据，意味着该数组初始化后不能再引用其他数组。并且String 内部没有改变 value 数组的方法，因此可以保证 String 不可变。</li>
+</ul>
+<h6 id="不可变的好处"><a href="#不可变的好处" class="headerlink" title="不可变的好处"></a>不可变的好处</h6><ul>
+<li>可以缓存 hash 值：String 的 hash 值经常被使用，例如 String 用做 HashMap 的 key。不可变的特性可以使得 hash 值也不可变，因此只需要进行一次计算。</li>
+<li>String Pool 的需要：如果一个 String 对象已经被创建过了，那么就会从 String Pool 中取得引用。只有 String 是不可变的，才可能使用 String Pool。</li>
+<li>安全性：String 经常作为参数，String 不可变性可以保证参数不可变。例如在作为网络连接参数的情况下如果 String 是可变的，那么在网络连接过程中，String 被改变，改变 String 对象的那一方以为现在连接的是其它主机，而实际情况却不一定是。</li>
+<li>线程安全：String 不可变性天生具备线程安全，可以在多个线程中安全地使用。</li>
+</ul>
+<h3 id="String-StringBuffer-和-StringBuilder-的区别"><a href="#String-StringBuffer-和-StringBuilder-的区别" class="headerlink" title="String, StringBuffer 和 StringBuilder 的区别"></a>String, StringBuffer 和 StringBuilder 的区别</h3><ul>
+<li>可变性：String 不可变，StringBuffer 和 StringBuilder 可变</li>
+<li>线程安全：String 不可变，因此是线程安全的，StringBuilder 不是线程安全的，StringBuffer 是线程安全的，内部使用 synchronized 进行同步</li>
+</ul>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><ul>
+<li>参数传递：Java 的参数是以值传递的形式传入方法中，而不是引用传递。</li>
+<li>float 与 double：1.1字面量属于double类型，不能直接float f&#x3D;1.1，需要float f&#x3D;1.1f。Java不能隐式执行向下转型，因为这会使得精度降低</li>
+<li>隐式类型转换：字面量1是int类型，它比short类型精度要高，因此不能隐式地将 int 类型下转型为 short 类型。但是使用 +&#x3D; 运算符可以执行隐式类型转换，s1+&#x3D;1等价于s1&#x3D;(short)(s1+1)</li>
+<li>switch：switch 不支持 long，是因为 switch 的设计初衷是对那些只有少数的几个值进行等值判断，如果值过于复杂，那么还是用 if 比较合适</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/java/">java</a>
+  </div>
+
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/java/">java</a><small>1</small></li>
+  
+    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2023 comin-lin
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+</body>
+</html>
