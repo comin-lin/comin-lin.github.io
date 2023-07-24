@@ -1,0 +1,283 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>苍穹外卖笔记 | comin-lin&#39;s blog</title>
+  <meta name="author" content="comin-lin">
+  
+  <meta name="description" content="p1
+项目效果展示
+2023-07-18 17:44:13
+
+p2
+软件开发流程介绍
+需求分析阶段：需求规格说明书、产品原型（使用静态网页展示）
+设计阶段：UI设计、数据库设计、接口设计
+编码阶段：项目代码、单元测试
+测试阶段：测试用例、测试报告
+上线运维：软件环境安装、配置
+软件环境：开发环境、测">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="苍穹外卖笔记"/>
+  <meta property="og:site_name" content="comin-lin&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">comin-lin&#39;s blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-苍穹外卖笔记" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-07-18T09:25:42.000Z"><a href="/2023/07/18/%E8%8B%8D%E7%A9%B9%E5%A4%96%E5%8D%96%E7%AC%94%E8%AE%B0/">2023-07-18</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">苍穹外卖笔记</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h1 id="p1"><a href="#p1" class="headerlink" title="p1"></a>p1</h1><ul>
+<li>项目效果展示</li>
+<li>2023-07-18 17:44:13</li>
+</ul>
+<h1 id="p2"><a href="#p2" class="headerlink" title="p2"></a>p2</h1><ul>
+<li>软件开发流程介绍</li>
+<li>需求分析阶段：需求规格说明书、产品原型（使用静态网页展示）</li>
+<li>设计阶段：UI设计、数据库设计、接口设计</li>
+<li>编码阶段：项目代码、单元测试</li>
+<li>测试阶段：测试用例、测试报告</li>
+<li>上线运维：软件环境安装、配置</li>
+<li>软件环境：开发环境、测试环境、生产环境</li>
+<li>2023-07-18 17:52:05</li>
+</ul>
+<h1 id="p3"><a href="#p3" class="headerlink" title="p3"></a>p3</h1><ul>
+<li>项目介绍</li>
+<li>前端分为管理端（vue实现）和用户端（微信小程序）</li>
+<li>技术选型<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">用户层 node.js vue.js elementUI 微信小程序 apache-echarts</span><br><span class="line">网关层 nginx</span><br><span class="line">应用层 SpringBoot SpringMVC SpringTask httpclient SpringCache</span><br><span class="line">	   JWT 阿里云OSS Swagger POI WebSocket</span><br><span class="line">数据层 Mysql Redis mybatis pagehelper spring-data-redis	 </span><br><span class="line">工具   Git maven Junit postman  </span><br></pre></td></tr></table></figure></li>
+<li>2023-07-18 18:03:27</li>
+</ul>
+<h1 id="p4"><a href="#p4" class="headerlink" title="p4"></a>p4</h1><ul>
+<li>前端环境搭建</li>
+<li>前端代码已打包部署到nginx中 运行nginx.exe即可启动前端项目，访问端口号为80</li>
+<li>2023-07-18 18:09:09</li>
+</ul>
+<h1 id="p5"><a href="#p5" class="headerlink" title="p5"></a>p5</h1><ul>
+<li>后端环境搭建</li>
+<li>后端工程使用maven进行分模块开发</li>
+<li>模块信息<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sky-take-out  maven父工程，统一管理依赖版本，聚合其他子模块</span><br><span class="line">sky-common 子模块，存放公共类（工具类、常量类、异常类）</span><br><span class="line">sky-pojo 子模块，存放实体类</span><br><span class="line">sky-server 子模块，后端服务，存放配置文件、Controller、Service、Mapper等</span><br></pre></td></tr></table></figure></li>
+<li>2023-07-18 18:31:17</li>
+</ul>
+<h1 id="p6"><a href="#p6" class="headerlink" title="p6"></a>p6</h1><ul>
+<li>使用git进行版本控制</li>
+<li>将项目初始代码推送到git仓库</li>
+<li>2023-07-18 18:32:29</li>
+</ul>
+<h1 id="p7"><a href="#p7" class="headerlink" title="p7"></a>p7</h1><ul>
+<li>数据库环境搭建</li>
+<li>建表语句已提供，直接执行sky.sql即可</li>
+<li>2023-07-18 18:33:57</li>
+</ul>
+<h1 id="p8"><a href="#p8" class="headerlink" title="p8"></a>p8</h1><ul>
+<li>前后端联调测试</li>
+<li>外卖管理后台账号admin 密码123456 </li>
+<li>修改数据库的配置后，启动springboot主程序类</li>
+<li>测试外卖管理后台的登录</li>
+<li>2023-07-18 20:56:04</li>
+</ul>
+<h1 id="p9"><a href="#p9" class="headerlink" title="p9"></a>p9</h1><ul>
+<li>前端发送的请求端口为80，而后端的端口为8080，后端能接收到前端的请求，是因为nginx转发了请求</li>
+<li>nginx反向代理的好处：提高访问速度、进行负载均衡、保证后端服务的安全（不暴露后端服务器）</li>
+<li>2023-07-20 11:40:16</li>
+</ul>
+<h1 id="p10-p11"><a href="#p10-p11" class="headerlink" title="p10-p11"></a>p10-p11</h1><ul>
+<li>配置nginx反向代理</li>
+<li>listen： 监听端口号 </li>
+<li>location：监听到的请求</li>
+<li>proxy_pass指令： 转发的路径</li>
+<li>配置nginx负载均衡</li>
+<li>upstream webservers：指定多个后端服务器地址</li>
+<li>server 192.168.100.128:8080：指定一个后端服务器地址</li>
+<li>2023-07-20 11:43:32</li>
+</ul>
+<h1 id="p12"><a href="#p12" class="headerlink" title="p12"></a>p12</h1><ul>
+<li>完善登录功能</li>
+<li>不使用明文来存储密码，将密码加密后存储，使用MD5加密</li>
+<li>2023-07-20 11:50:12</li>
+</ul>
+<h1 id="p13"><a href="#p13" class="headerlink" title="p13"></a>p13</h1><ul>
+<li>导入接口文档</li>
+<li>把接口.json文件导入到YApi平台</li>
+<li><a target="_blank" rel="noopener" href="https://yapi.pro/">https://yapi.pro/</a></li>
+<li>账号shengshui 密码shengshui </li>
+<li>2023-07-20 11:54:59</li>
+</ul>
+<h1 id="p14"><a href="#p14" class="headerlink" title="p14"></a>p14</h1><ul>
+<li>根据接口文档开发后端接口</li>
+<li>使用Postman或者Swagger进行接口测试</li>
+<li>knife4j是为Java MVC框架集成Swagger生成Api文档的增强解决方案</li>
+<li>1.导入knife4j的maven坐标</li>
+<li>2.在配置类中加入knife4j相关配置</li>
+<li>3.设置静态资源映射，否则接口文档页面无法访问</li>
+<li>启动项目后，访问localhost:8080&#x2F;doc.html查看接口文档</li>
+<li>2023-07-20 12:02:08</li>
+</ul>
+<h1 id="pp15"><a href="#pp15" class="headerlink" title="pp15"></a>pp15</h1><ul>
+<li>Swagger常用注解</li>
+<li>@Api 用在类上，对类进行说明</li>
+<li>@ApiModel 用在类上，例如entity、DTO&#x2F;VO</li>
+<li>@ApiModelProperty 用在属性上，描述属性信息</li>
+<li>@ApiOperation 用在方法上，例如Controller的方法，说明方法用途和作用</li>
+<li>2023-07-20 12:04:52</li>
+</ul>
+<h1 id="p16"><a href="#p16" class="headerlink" title="p16"></a>p16</h1><ul>
+<li>新增员工接口的需求分析</li>
+<li>2023-07-21 14:43:50</li>
+</ul>
+<p>#p17</p>
+<ul>
+<li>使用DTO来封装数据</li>
+<li>2023-07-21 14:58:18</li>
+</ul>
+<h1 id="p18"><a href="#p18" class="headerlink" title="p18"></a>p18</h1><ul>
+<li>使用接口文档测试接口</li>
+<li>通过登录接口获取JWT令牌，在接口文档的全局参数设置中添加token，以测试新增员工接口</li>
+<li>2023-07-21 15:03:14</li>
+</ul>
+<h1 id="p19-p20"><a href="#p19-p20" class="headerlink" title="p19-p20"></a>p19-p20</h1><ul>
+<li>完善新增员工接口</li>
+<li>通过新增自定义异常，给前端返回异常的提示信息</li>
+<li>使用ThreadLocal动态获取当前登录的用户id，为新增员工时添加操作者id</li>
+<li>2023-07-21 15:39:39</li>
+</ul>
+<h1 id="p21-p24"><a href="#p21-p24" class="headerlink" title="p21-p24"></a>p21-p24</h1><ul>
+<li>员工分页查询</li>
+<li>使用分页插件完成</li>
+<li>在员工实体类的属性上添加JsonFormat注解，让日期类型转化为指定格式</li>
+<li>2023-07-21 16:24:25</li>
+</ul>
+<h1 id="p25-p26"><a href="#p25-p26" class="headerlink" title="p25-p26"></a>p25-p26</h1><ul>
+<li>启用&#x2F;禁用员工账号</li>
+<li>2023-07-22 18:41:25</li>
+</ul>
+<h1 id="p27-p29"><a href="#p27-p29" class="headerlink" title="p27-p29"></a>p27-p29</h1><ul>
+<li>编辑员工</li>
+<li>1.根据id查询员工信息以回显到前端 2.更新员工信息</li>
+<li>2023-07-22 19:50:52</li>
+</ul>
+<h1 id="p30"><a href="#p30" class="headerlink" title="p30"></a>p30</h1><ul>
+<li>导入分类管理模块功能源码</li>
+<li>2023-07-22 20:05:52</li>
+</ul>
+<h1 id="p31-p34"><a href="#p31-p34" class="headerlink" title="p31-p34"></a>p31-p34</h1><ul>
+<li>公共字段自动填充</li>
+<li>公共字段使用java代码来填充，会造成代码冗余</li>
+<li>解决方案：自定义注解AutoFill，自定义切面类统一拦截</li>
+<li>使用技术：枚举、注解、AOP、反射</li>
+<li>2023-07-23 13:40:26</li>
+</ul>
+<h1 id="p35-p39"><a href="#p35-p39" class="headerlink" title="p35-p39"></a>p35-p39</h1><ul>
+<li>新增菜品功能</li>
+<li>涉及接口：根据类型查询分类、文件上传、新增菜品</li>
+<li>2023-07-24 17:06:10</li>
+</ul>
+<h1 id="p40-p41"><a href="#p40-p41" class="headerlink" title="p40-p41"></a>p40-p41</h1><ul>
+<li>菜品分页查询</li>
+<li>2023-07-24 17:19:56</li>
+</ul>
+<h1 id="p42-p48"><a href="#p42-p48" class="headerlink" title="p42-p48"></a>p42-p48</h1><ul>
+<li>删除菜品、修改菜品</li>
+<li>起售中的菜品、被套餐关联的菜品不能删除</li>
+<li>菜品成功删除后，关联的口味数据也需要删除 </li>
+<li>p43</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/java/">java</a><small>1</small></li>
+  
+    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>1</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2023 comin-lin
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+</body>
+</html>
