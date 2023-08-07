@@ -215,6 +215,7 @@ p2
 <h1 id="p35-p39"><a href="#p35-p39" class="headerlink" title="p35-p39"></a>p35-p39</h1><ul>
 <li>新增菜品功能</li>
 <li>涉及接口：根据类型查询分类、文件上传、新增菜品</li>
+<li>实现文件上传接口时，在JWT校验拦截器中放行文件下载请求<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//判断是否为文件下载接口，如果是直接放行</span><br><span class="line">        HandlerMethod handlerMethod = (HandlerMethod) handler;</span><br><span class="line">        if (handlerMethod.hasMethodAnnotation(GetMapping.class)) &#123;</span><br><span class="line">            GetMapping getMapping = handlerMethod.getMethodAnnotation(GetMapping.class);</span><br><span class="line">            if (getMapping != null &amp;&amp; Arrays.asList(getMapping.value()).contains(&quot;/download/&#123;name&#125;&quot;)) &#123;</span><br><span class="line">                // 当前请求为下载文件接口，直接放行</span><br><span class="line">                log.info(&quot;放行文件下载接口&quot;);</span><br><span class="line">                return true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li>
 <li>2023-07-24 17:06:10</li>
 </ul>
 <h1 id="p40-p41"><a href="#p40-p41" class="headerlink" title="p40-p41"></a>p40-p41</h1><ul>
@@ -225,7 +226,37 @@ p2
 <li>删除菜品、修改菜品</li>
 <li>起售中的菜品、被套餐关联的菜品不能删除</li>
 <li>菜品成功删除后，关联的口味数据也需要删除 </li>
-<li>p43</li>
+<li>2023-07-27 13:41:59</li>
+</ul>
+<h1 id="p49-65"><a href="#p49-65" class="headerlink" title="p49-65"></a>p49-65</h1><ul>
+<li>使用Redis来设置店铺营业状态</li>
+<li>Redis常用数据类型<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">这些数据类型都是相对于value而言的，key一直是字符串</span><br><span class="line">字符串 string</span><br><span class="line">哈希 hash</span><br><span class="line">列表 list</span><br><span class="line">集合 set</span><br><span class="line">有序集合 sorted set/zset</span><br></pre></td></tr></table></figure></li>
+<li>使用Spring Data Redis框架实现在java中操作redis</li>
+<li>redis连接过程（自己的电脑为例）<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">虚拟机ip地址：http://192.168.169.128/</span><br><span class="line">打开虚拟机 打开终端</span><br><span class="line">关闭防火墙systemctl stop firewalld.service</span><br><span class="line">.cd /usr/local/redis/bin/ 进入redis安装目录</span><br><span class="line">./redis-server在前台启动redis</span><br><span class="line">再打开一个终端</span><br><span class="line">cd /usr/local/redis/bin/ 进入redis安装目录</span><br><span class="line">./redis-cli连接redis</span><br><span class="line">ping 出现pong说明连接成功</span><br><span class="line">config set protected-mode no 关闭redis的保护模式</span><br><span class="line">接下来可以在java中使用Spring Data Redis连接到redis进行操作了</span><br></pre></td></tr></table></figure></li>
+<li>相关接口：设置营业状态 管理端查询营业状态 用户端查询营业状态</li>
+<li>在controller下创建user软件包，复制admin软件包下的ShopController，由于两个Controller名字一样会冲突，在@RestController中指定bean的名字避免冲突</li>
+<li>@RestController(“userShopController”) @RestController(“adminShopController”)</li>
+<li>2023-07-30 15:21:29</li>
+</ul>
+<h1 id="p66-p69"><a href="#p66-p69" class="headerlink" title="p66-p69"></a>p66-p69</h1><ul>
+<li>HttpClient：是一个开源的、用于发送 HTTP 请求的 Java 库</li>
+<li>使用该库可以在java中发送http请求，以调用一些第三方的工具或接口。在本项目中用来实现向微信登录接口发送请求，得到登录用户的openid（微信用户的唯一标识）</li>
+<li>2023-07-30 17:15:02</li>
+</ul>
+<h1 id="p70-p85"><a href="#p70-p85" class="headerlink" title="p70-p85"></a>p70-p85</h1><ul>
+<li>实现用户端的微信登录和商品浏览</li>
+<li>小程序目录结构<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">小程序文件</span><br><span class="line">app.js  必需 小程序逻辑文件</span><br><span class="line">app.json 必需 小程序公共配置</span><br><span class="line">app.wxss 非必需 小程序公共样式表</span><br><span class="line"></span><br><span class="line">页面文件</span><br><span class="line">js 必需 页面逻辑</span><br><span class="line">wxml 必需 页面结构</span><br><span class="line">json 非必需 页面配置</span><br><span class="line">wsxx 非必需 页面样式表</span><br></pre></td></tr></table></figure></li>
+<li>导入已写好的微信小程序代码</li>
+<li>使用官方提供的登录api实现微信登录，小程序会向生成并向后端发送微信登录授权码，后端拿到</li>
+<li>2023-07-31 14:13:35</li>
+</ul>
+<h1 id="p86-p104"><a href="#p86-p104" class="headerlink" title="p86-p104"></a>p86-p104</h1><ul>
+<li>缓存商品、购物车</li>
+<li>使用Spring Cache框架：纯注解使用缓存</li>
+<li>2023-08-01 12:55:31</li>
+</ul>
+<h1 id="p105-p122"><a href="#p105-p122" class="headerlink" title="p105-p122"></a>p105-p122</h1><ul>
+<li>用户下单、订单支付</li>
 </ul>
 
       
