@@ -45,6 +45,93 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-黑马头条笔记" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-08-23T02:47:42.000Z"><a href="/2023/08/23/%E9%BB%91%E9%A9%AC%E5%A4%B4%E6%9D%A1%E7%AC%94%E8%AE%B0/">2023-08-23</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2023/08/23/%E9%BB%91%E9%A9%AC%E5%A4%B4%E6%9D%A1%E7%AC%94%E8%AE%B0/">黑马头条笔记</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <p>当前进度 p5</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3>
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-数据库" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-08-20T15:09:33.000Z"><a href="/2023/08/20/%E6%95%B0%E6%8D%AE%E5%BA%93/">2023-08-20</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2023/08/20/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h3 id="数据库基础概念"><a href="#数据库基础概念" class="headerlink" title="数据库基础概念"></a>数据库基础概念</h3><p>事务：满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚</p>
+<p>ACID（事务的4个属性）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原子性（Atomicity） 事务要么全部完成，要么全部取消</span><br><span class="line">一致性（Consistency） 合法的数据（根据关系约束、函数约束来判断是否合法）才能写入数据库</span><br><span class="line">隔离性（Isolation） 多个并发执行的事务操作相互隔离，互不影响，避免不一致和脏读</span><br><span class="line">持久性（Durability） 事务提交成功对数据库的改变是永久性的</span><br></pre></td></tr></table></figure>
+
+<p>范式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一范式：属性不可再分</span><br><span class="line">第二范式：每个非主属性完全函数依赖于主码</span><br><span class="line">第三范式：每个非主属性不传递函数依赖于主码</span><br></pre></td></tr></table></figure>
+
+<p>关系型数据库设计流程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">有以下6个阶段</span><br><span class="line"></span><br><span class="line">需求分析：分析用户的需求，包括数据、功能和性能需求</span><br><span class="line"></span><br><span class="line">概念结构设计：主要采用E-R模型进行设计，包括画E-R图</span><br><span class="line"></span><br><span class="line">逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换</span><br><span class="line"></span><br><span class="line">数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径</span><br><span class="line"></span><br><span class="line">数据库的实施：包括编程、测试和试运行</span><br><span class="line"></span><br><span class="line">数据库运行与维护：系统的运行与数据库的日常维护</span><br></pre></td></tr></table></figure>
+
+<p>并发一致性问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">丢失修改：两个事务都对一个数据进行修改，事务1修改后事务2再次修改，事务2的修改覆盖了事务1的修改，导致事务1的修改丢失</span><br><span class="line"></span><br><span class="line">读脏数据：事务1对一个数据进行了修改，此时事务2读取了该数据，若事务1进行回滚，那么事务2读到的数据就是脏数据</span><br><span class="line"></span><br><span class="line">不可重复读：事务1读取一个数据，事务2对该数据进行了修改，此时事务1再读一遍该数据，发现两次读取的结果不同</span><br><span class="line"></span><br><span class="line">幻影读：事务1对数据集进行查询，事务2修改了该数据集，事务1再次查询发现两次查询得到的结果不同</span><br></pre></td></tr></table></figure>
+
+<p>产生并发不一致性问题主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性</p>
+<p>封锁粒度：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MySQL 中提供了两种封锁粒度: 行级锁以及表级锁</span><br><span class="line">应该尽量只锁定需要修改的那部分数据，而不是所有的资源。锁定的数据量越少，发生锁争用的可能就越小，系统的并发程度就越高</span><br><span class="line">但是加锁需要消耗资源，锁的各种操作(包括获取锁、释放锁、以及检查锁状态)都会增加系统开销。因此封锁粒度越小，系统开销就越大</span><br><span class="line">在选择封锁粒度时，需要在锁开销和并发程度之间做一个权衡</span><br></pre></td></tr></table></figure>
+
+<p>封锁类型：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排它锁(Exclusive)，简写为 X 锁，又称写锁：一个事务对数据对象 A 加了 X 锁，就可以对 A 进行读取和更新。加锁期间其它事务不能对 A 加任何锁</span><br><span class="line">共享锁(Shared)，简写为 S 锁，又称读锁：一个事务对数据对象 A 加了 S 锁，可以对 A 进行读取操作，但是不能进行更新操作。加锁期间其它事务能对 A 加 S 锁，但是不能加 X 锁</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/db/sql-mysql/sql-mysql-overview.html">https://www.pdai.tech/md/db/sql-mysql/sql-mysql-overview.html</a></p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/db/nosql-redis/db-redis-overview.html">https://www.pdai.tech/md/db/nosql-redis/db-redis-overview.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-Spring框架的IOC、AOP" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -133,23 +220,1189 @@
 
 
 
-  <article id="post-力扣1880-2000" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <article id="post-力扣1880-2050" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
     <header>
       
         <div class="icon"></div>
-        <time class="dt-published" datetime="2023-07-23T16:15:26.000Z"><a href="/2023/07/24/%E5%8A%9B%E6%89%A31880-2000/">2023-07-24</a></time>
+        <time class="dt-published" datetime="2023-07-23T16:15:26.000Z"><a href="/2023/07/24/%E5%8A%9B%E6%89%A31880-2050/">2023-07-24</a></time>
       
       
   
-    <h1 class="title"><a href="/2023/07/24/%E5%8A%9B%E6%89%A31880-2000/">力扣1880-2000</a></h1>
+    <h1 class="title"><a href="/2023/07/24/%E5%8A%9B%E6%89%A31880-2050/">力扣1880-2050</a></h1>
   
 
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br></pre></td><td class="code"><pre><span class="line">2023.07.24</span><br><span class="line"></span><br><span class="line">2101. 引爆最多的炸弹</span><br><span class="line">BFS</span><br><span class="line">数据量较小，注意引爆条件</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">754. 到达终点数字</span><br><span class="line">数学+分类讨论</span><br><span class="line">1.target正负不影响答案（所有步骤反着来为-target的答案），取abs(target)来讨论</span><br><span class="line">2.一直往右走，若最后恰好到达target，得到答案</span><br><span class="line">3.最后一步超过终点，且与终点距离为偶数，则将前面的其中一步改为往左得到答案</span><br><span class="line">4.如果与终点距离为奇数，继续向前走，直到相距为偶数，再改一步往左得到答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1106. 解析布尔表达式</span><br><span class="line">栈</span><br><span class="line">1.遇到逗号，跳过</span><br><span class="line">2.遇到右括号，进行计算（直到左括号的上一个运算符）</span><br><span class="line">3.遇到其他字符，入栈</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1536. 排布二进制网格的最少交换次数</span><br><span class="line">贪心</span><br><span class="line">1.需要后缀有n-1个0的行，n-2个0的行...0个0的行</span><br><span class="line">2.从上到下确定，找到最近的满足情况的行，模拟交换</span><br><span class="line">3.由于从上到下确定行，越下面的行限制条件越宽松，贪心正确</span><br><span class="line">4.最后一行无需判断</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1255. 得分最高的单词集合</span><br><span class="line">DFS</span><br><span class="line">words长度较小，可以对每个单词枚举 选/不选 最终判断该选择是否合法 最多枚举 pow(2,n) 种情况，n为words长度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2054. 两个最好的不重叠活动</span><br><span class="line">排序</span><br><span class="line">1.把活动的开始时间点和结束时间点提取出来进行排序,时间相同时先处理开始事件,否则可能让第一个活动的结束时间等于第二个活动的开始时间</span><br><span class="line">2.遍历时间点，遇到结束时间点维护已结束活动的最大价值，遇到开始时间点维护答案=已结束活动的最大价值+当前开始时间点的价值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.25</span><br><span class="line"></span><br><span class="line">1326. 灌溉花园的最少水龙头数目</span><br><span class="line">模拟</span><br><span class="line">类似于跳跃游戏，位于i的水龙头，范围为r，预处理:i-r最大能到达i+r</span><br><span class="line">即 maxPos[i-r] = max(maxPos[i-r],i+r) 当i-r&lt;=0时，则更新maxPos[0]</span><br><span class="line">接下来模拟跳跃，cur表示当前最大能跳跃的位置，当i==cur时：将cur更新为max，max为之前所有的位置中最大能到达的位置，同时ans+=1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2064. 分配给商店的最多商品的最小值</span><br><span class="line">二分</span><br><span class="line">最大值最小化，使用二分查找。需要把所有商品分配出去，商店可以接收0件商品，但分配后不能有多余商品</span><br><span class="line">每个商店最多分到max件，计算最多能分给count个商店。当商店数n&gt;=count时，不会让商品多余，为合法的分配，缩小右边界，答案为最后一次合法的右边界</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2305. 公平分发饼干</span><br><span class="line">DFS+回溯</span><br><span class="line">数据量较小，枚举哪个孩子得到当前饼干</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2537. 统计好子数组的数目</span><br><span class="line">滑动窗口</span><br><span class="line">使用哈希表统计相同元素的出现次数，从而获取满足条件的下标对的个数cnt</span><br><span class="line">注意当相同元素有n个时，减少1个该元素，会减少多少个满足条件的下标对？会减少(n-1)个</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1722. 执行交换操作后的最小汉明距离</span><br><span class="line">并查集</span><br><span class="line">allowedSwaps[i] = [ai, bi]说明ai和bi这两个下标的元素可以互通</span><br><span class="line">对于互通的下标集，大小为m，尽可能让更多的下标与target对应下标的元素相同，假设有k个下标符合条件，得到最小汉明距离为m-k，累加所有互通下标集的最小汉明距离即为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2327. 知道秘密的人数</span><br><span class="line">动态规划</span><br><span class="line">dp[i]表示第i天结束时，新增的知道秘密的人数，dp[i]=dp[begin,end]的累加，其中begin为i-forget+1，end为i-delay</span><br><span class="line">第n天时知道秘密的人数为最后forget天的新增人数之和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1871. 跳跃游戏 VII</span><br><span class="line">动态规划+前缀和</span><br><span class="line">1.定义dp[i]表示i位置是否能够到达，在区间[i-maxJump,i-minJump]中若存在j，满足dp[j]为true，则dp[i]为true</span><br><span class="line">2.通过枚举区间来得到dp[i]的算法时间复杂度为o(n^2)，会超出时间限制，因此使用前缀和来优化。</span><br><span class="line">3.当dp[i]为true时对前缀和的贡献为0，反之贡献为1</span><br><span class="line">3.当pre[right+1]-pre[left]!=(right-left+1)时说明出现了0，即出现了true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">878. 第 N 个神奇数字</span><br><span class="line">数学+二分</span><br><span class="line">1.设f(x)表示&lt;=x的神奇数字的个数。在&lt;=x的数中，有x/a个数能被a整除，有x/b个数能被b整数，有x/lcm(a,b)个数能被lcm(a,b)整除，lcm为最小公倍数函数</span><br><span class="line">2.可以写出f(x)的表达式f(x)=x/a+x/b-x/lcm(a,b),在题目条件下f(x)是单调递增函数</span><br><span class="line">3.设f(x)==k,那么x就是第k个神奇数字,要得到第n个神奇数字，可以使用二分查找，当f(x)&lt;n时缩小左边界，最后得到的右边界right有f(right)==n，right即为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2360. 图中的最长环</span><br><span class="line">模拟</span><br><span class="line">使用一个时钟记录全局时间，尝试从每一个点出发寻找环。若该点不是首次访问，则跳过。若该点是首次访问，记录当前时间startTime，再开始寻找环。</span><br><span class="line">如果找到某个节点其访问时间visitTme满足visitTime&gt;=startTime，说明找到了一个环，动态更新最长环的长度即可得到答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">780. 到达终点</span><br><span class="line">模拟</span><br><span class="line">反向计算：位于(x,y)的点可以转换为(x,y-x)或(x-y,y)</span><br><span class="line">由于x，y&gt;=1，那么能够继续转换的条件是：当前的x大于目标x，当前的y大于目标y，当前的x不等于当前的y</span><br><span class="line">当前x&gt;当前y且能够继续转换时，x不断减去y；反之y不断减去x，直到无法继续转换</span><br><span class="line">如果当前x，y与目标x，y完全相同返回true，否则判断x和y是否其中一个与目标相同，若没有其中一个相同，返回false。若其中一个相同，进一步判断能否通过不断减的操作让其也与目标相同。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1878. 矩阵中最大的三个菱形和</span><br><span class="line">暴力枚举</span><br><span class="line">枚举所有可能的菱形和，使用TreeSet及其pollLast方法可以维护最大的三个菱形和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">823. 带因子的二叉树</span><br><span class="line">排序+枚举</span><br><span class="line">先对arr进行排序，因为较大的元素只能由两个较小元素相乘得到，优先计算以较小元素为根的构造方案数</span><br><span class="line">遍历arr数组，枚举每一个元素作为二叉树的根节点时，有多少种构造方案</span><br><span class="line">设根节点为root，如果arr中存在元素x以及root/x，则：</span><br><span class="line">以root为根的构造方案数 += 以x为根的方案数 * 以root/x为根的方案数</span><br><span class="line">以root为根的初始构造方案数为1，即没有左子树也没有右子树</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.26</span><br><span class="line"></span><br><span class="line">1665. 完成所有任务的最少初始能量</span><br><span class="line">排序</span><br><span class="line">由于门槛&gt;=耗能，对每个任务提炼一个虚报值=门槛-耗能</span><br><span class="line">对任务按照虚报值从小到大排序，虚报值越大的任务越需要前面的耗能来支撑虚报，若前面的能量还不够则补到足够为止。</span><br><span class="line">遍历每个任务，累加实际耗能，若实际耗能仍不够虚报，则补到虚报后的值。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2602. 使数组元素全部相等的最少操作次数</span><br><span class="line">排序+二分查找+前缀和</span><br><span class="line">首先对数组进行排序，记数组长度为n。对于每个查询queries[i]，二分查找最后一个&lt;=queries[i]的下标，记为left</span><br><span class="line">将数组分成[0,left]以及[left+1,n-1]两部分，要把数组中所有元素变成queries[i]：</span><br><span class="line">对于[0,left]而言，相当于把所有元素增加至queries[i]；</span><br><span class="line">对于[left+1,n-1]而言，相当于把所有元素减少至queries[i]；</span><br><span class="line">使用前缀和维护区间的值，通过整体计算可以快速获得答案。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2608. 图中的最短环</span><br><span class="line">BFS</span><br><span class="line">首先建立无向图。由于顶点总数较小，从每个节点出发寻找环，同时记录到不同节点的距离，当重复遇到节点时说明找到了环，动态维护最短环的长度作为答案</span><br><span class="line">进行BFS时，数据格式为&#123;节点id,当前节点的父节点&#125;,不能走回头路(即不能重新回到父节点)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1124. 表现良好的最长时间段</span><br><span class="line">枚举+前缀和</span><br><span class="line">hours的长度不超过1e4，可以使用双重循环枚举表现良好的时间段</span><br><span class="line">工作时间大于8小时，记为1，反之记为0，通过前缀和可快速判断某个区间是否为表现良好时间段</span><br><span class="line">动态维护表现良好时间段的最大长度作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">991. 坏了的计算器</span><br><span class="line">数学+模拟</span><br><span class="line">反向计算：当Y大于X时，对Y进行操作向X趋近，Y为奇数时进行加一操作，为偶数时进行除2操作</span><br><span class="line">最后对Y进行（X-Y）次加一操作得到X</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2585. 获得分数的方法数</span><br><span class="line">动态规划</span><br><span class="line">分组背包模板题。定义dp[i][j]表示前i道题目获得target分的方案数</span><br><span class="line">使用三重循环，枚举前i道题目，枚举第i道题目做的数量j，枚举分数k进行状态转移，最后dp[n][target]就是答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">873. 最长的斐波那契子序列的长度</span><br><span class="line">动态规划</span><br><span class="line">定义dp[j][k]表示最后两项为下标j和下标k的元素时最长的斐波那契子序列长度</span><br><span class="line">对于每个k，枚举可能的下标i和j满足arr[i]+arr[j]==arr[k]</span><br><span class="line">找到满足这样条件的下标i,j,k时，如果以下标i,j为最后两项的斐波那契子序列长度为0，那么下标i,j,k组成了新的斐波那契初始序列，令dp[j][k]=3，否则dp[j][k]=max(dp[j][k],dp[i][j]+1)，同时更新ans</span><br><span class="line">如果arr[i]+arr[j]&lt;arr[k]，增加i，反之减少j，直到i&gt;=j时枚举下一个k</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2049. 统计最高分的节点数目</span><br><span class="line">DFS</span><br><span class="line">0节点是根，从0出发进行dfs</span><br><span class="line">对于每一个节点，计算出左子树的节点数量leftCnt以及右子树的节点数量rightCnt，那么该节点的分数为：</span><br><span class="line">leftCnt * rightCnt * (sum-leftCnt-rightCnt-1)，这三部分中出现0的部分取1</span><br><span class="line">动态维护最高分及其个数，最高分的个数作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2296. 设计一个文本编辑器</span><br><span class="line">双向链表</span><br><span class="line">光标不会主动移动到某个下标位置，只会相对移动（向左或向右），可以用双向链表模拟，每个节点存储一个字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2680. 最大或值</span><br><span class="line">枚举+前缀后缀优化</span><br><span class="line">选择一个数并将它乘2等价于将其二进制表示左移1位</span><br><span class="line">进行k次操作一定是移动同一个数字，才能得到最大的结果</span><br><span class="line">枚举对每一个数字左移k次，取最大值作为答案</span><br><span class="line">对于下标i，使用前缀或、后缀或数组可以快速计算出[0,i-1]中元素的按位或以及[i,n-1]中元素的按位或</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1147. 段式回文</span><br><span class="line">贪心+递归</span><br><span class="line">当前缀与后缀相同时，立即分离出来，再对剩余字符串继续递归，直到无法分离</span><br><span class="line">为什么要立即分离？因为对于更长的相同前后缀，一定可以分解为更多的子串，题目需要求出k的最大值，因此需要贪心地分离相同的前后缀。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1898. 可移除字符的最大数目</span><br><span class="line">二分</span><br><span class="line">移除的字符越少，越可能满足p是s的子序列，而假设移除n个下标后仍满足p是s的子序列，那么移除更少的下标例如n-1个，一定也满足该条件。</span><br><span class="line">二分查找最大的k，找到满足条件的临界值作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1671. 得到山形数组的最少删除次数</span><br><span class="line">枚举+动态规划</span><br><span class="line">题目定义山形数组的长度至少为3。记nums长度为n，枚举[1,n-2]作为山顶，当山顶为i时，问题转化为：</span><br><span class="line">求[0,i]中最长上升子序列的长度len1以及[i,n-1]中最长下降子序列的长度len2</span><br><span class="line">此时删除次数为n-(len1+len2-1)，动态维护最少删除次数作为答案</span><br><span class="line">定义upper[i]表示到下标i为止的最长上升子序列的长度</span><br><span class="line">定义lower[i]表示以下标i开始的最长下降子序列的长度</span><br><span class="line">注意点：</span><br><span class="line">不能把山顶的左边或右边全部删掉了，左右两边至少留有一个元素，即最长上升/下降子序列都&gt;1时，才更新答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.27</span><br><span class="line"></span><br><span class="line">1373. 二叉搜索子树的最大键值和</span><br><span class="line">递归</span><br><span class="line">每棵子树返回：这棵子树的最小节点值、这棵子树的最大节点值、这棵子树的所有节点值之和</span><br><span class="line">对于空节点，返回&#123;max,min,0&#125;，对于不是二叉搜索树的节点，返回&#123;min,max,0&#125;</span><br><span class="line">这是由二叉搜索树的判断决定的，当一个节点root的孩子child不是二叉搜索树，该节点也不会是二叉搜索树，非二叉搜索树的判断条件为：</span><br><span class="line">root的值&lt;=child的最大值(当child为左孩子) 或者 root的值&gt;=child的最小值(当child为右孩子)</span><br><span class="line">需要让以上式子成立，因此child不是二叉搜索树时返回&#123;min,max,0&#125;，使其父节点也被判定为非二叉搜索树</span><br><span class="line">同理，空节点返回&#123;max,min,0&#125;是为了让父节点无条件被判定为二叉搜索树</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2147. 分隔长廊的方案数</span><br><span class="line">模拟</span><br><span class="line">如果座位的总数为0或者为奇数，那么不存在划分方案，返回0</span><br><span class="line">模拟划分，每遇到两个座位后，统计中间间隔的植物数量count，该段的划分方案为(count+1)，</span><br><span class="line">对ans而言应乘上(count+1)，再对mod取余</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2594. 修车的最少时间</span><br><span class="line">二分</span><br><span class="line">给定m分钟，计算所有机械工可以修好的汽车总数cnt，当cnt&gt;=cars时缩小右边界right，最后right作为答</span><br><span class="line">案</span><br><span class="line">能力值为 r 的机械工可以在 r * n * n 分钟内修好 n 辆车，那么给定m分钟，可以修好sqrt(m/r)辆车</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1043. 分隔数组以得到最大和</span><br><span class="line">动态规划</span><br><span class="line">定义dp[i]表示前i个元素可以得到的最大和</span><br><span class="line">dp[i]由dp[j]+max*(i-j)转移而来</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2673. 使二叉树所有路径值相等的最小代价</span><br><span class="line">递归</span><br><span class="line">对于两个有着相同父节点的叶子节点来说，他们到达根节点的路径上只有本身的cost不同，要满足到达根节点的路径值相同，只能将两个节点的cost改为相同，由于只能进行增加操作，应增加较小的cost</span><br><span class="line">通过递归，获取每个node经过操作后到每个叶子节点的路径值，叶子节点的路径值为本身的cost值</span><br><span class="line">具体来说，先获取node的左、右孩子到其每个节点的路径值left、right，为答案增加abs(left-right)次，让左右孩子的路径值相同，返回给上一级的数据为max(left,right)+本身的cost值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2398. 预算内的最多机器人数目</span><br><span class="line">二分+滑动窗口</span><br><span class="line">题目要求的是可以连续运行的机器人数目，枚举连续的个数m，二分查找满足条件的边界值作为答案</span><br><span class="line">对于连续个数m，具体实现是使用固定长度的滑动窗口+TreeMap维护窗口内最大值，找到满足cost&lt;=budget的窗口则返回true，遍历完所有可行的窗口仍未找到返回false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2069. 模拟行走机器人 II</span><br><span class="line">模拟</span><br><span class="line">根据题目描述，机器人只会在网格图的最外圈移动。</span><br><span class="line">定义方向，记录机器人的坐标以及朝向，模拟进行移动</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.28</span><br><span class="line"></span><br><span class="line">2050. 并行课程 III</span><br><span class="line">记忆化搜索</span><br><span class="line">定义dfs函数返回第i门课程所需要的最少月份数：</span><br><span class="line">若第i门课程没有先修课，完成该课程的最少月份数为time[i-1];</span><br><span class="line">若第i门课程有先修课，完成该课程的最少月份数为max(先修课需要的最少月份数)+time[i-1];</span><br><span class="line">使用记忆化搜索减少重复搜索</span><br><span class="line">所有课程中最大的最少需要月份数作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1130. 叶值的最小代价生成树</span><br><span class="line">单调栈</span><br><span class="line">问题可以转化为：给定一个数组arr，不断地合并相邻的数，合并代价为两个数的乘积，合并之后的数为两个数的最大值，直到数组只剩一个数，求最小合并代价和</span><br><span class="line">在合并时，优先合并较小的两个数能得到最小代价</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1552. 两球之间的磁力</span><br><span class="line">排序+二分</span><br><span class="line">对pos进行排序后，二分枚举答案</span><br><span class="line">具体实现：枚举最小磁力为k时，是否为合法放置。</span><br><span class="line">统计成功放置的个数cnt，使用pre记录上一个放置的位置，从下标1开始枚举位置，当前位置pos[i]-pre&gt;=k时，可以在pos[i]放置，cnt+=1。最后如果cnt&gt;=m为合法放置</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2731. 移动机器人</span><br><span class="line">排序+前缀和</span><br><span class="line">当两个机器人相撞时，它们开始沿着原本相反的方向移动，等价于没有相撞</span><br><span class="line">分别计算出每个机器人最后的位置,排序后再计算两两距离之和</span><br><span class="line">为什么需要排序？对于i下标，保证pos[i,n-1]都大于pos[i]，那么计算距离和时相当于pos[i,n-1]之和减去(n-1-i+1)个pos[i]，如果不排序，那么计算出的距离可能为负数。</span><br><span class="line">由于(i,j) 和 (j,i) 视为相同的坐标对，因此遍历到i时，只需计算i与后面下标的距离，不用计算与前面下标的距离。使用前缀和快速计算距离</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1416. 恢复数组</span><br><span class="line">动态规划</span><br><span class="line">定义f[i]表示s的前i个字符能恢复的方案数</span><br><span class="line">k&lt;=1e9 对于第i个字符，只需枚举下标[i-10,i-1]是否能够形成有效的数字</span><br><span class="line">注意前导0的判断</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1745. 分割回文串 IV</span><br><span class="line">动态规划+枚举</span><br><span class="line">使用动态规划预处理所有区间，找出回文区间。再使用双重循环枚举分割点</span><br><span class="line">具体实现：枚举区间长度len，枚举区间左端点i，计算出区间右端点j=i+len-1，若s[i]==s[j]：当len==2时，dp[i][j]为true，否则dp[i][j]=dp[i+1][j-1]</span><br><span class="line">题目需要分割成非空子字符串，注意割点的范围</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">85. 最大矩形</span><br><span class="line">预处理+枚举</span><br><span class="line">对于位于(i,j)的1，预处理len[i][j]，表示其左边连续1的个数(包括本身)</span><br><span class="line">遍历矩阵，找到1说明找到了矩形的底边，向上枚举矩形的高度，同时底边的长度取min(len[k][j])，其中k为向上枚举的行下标，从而得到面积，维护最大面积作为答案</span><br><span class="line">具体实现：当mat[i][j]==1时，记录底边长度a=len[i][j]，矩形高度b=1，矩形面积s=a*b，在想上枚举高度的过程中b不断+1，a取最小的len[k][j]，s取最大的a*b，最后用s来更新答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1727. 重新排列后的最大子矩阵</span><br><span class="line">预处理+排序+枚举</span><br><span class="line">对于(i,j)的1，预处理len[i][j]表示其上面连续1的个数（包括自身）</span><br><span class="line">对每一行的len[i][j]进行排序，对于i行，找到一个len[i][j]!=0后向左扩展矩阵的宽度，维护最大高度，同时维护最大矩阵面积作为答案，同时跳出i行的循环，因为经过排序，后面的len[i][j]只会更小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.29</span><br><span class="line"></span><br><span class="line">1562. 查找大小为 M 的最新分组</span><br><span class="line">模拟</span><br><span class="line">使用正难则反的思想。反向遍历进行操作，当出现恰好长度为m的一组连续1时，直接返回答案</span><br><span class="line">通过TreeSet可快速记录最近的前面的1的位置以及最近的后面的1的位置</span><br><span class="line">注意步骤与下标之间的映射,以及可以直接返回结果的特判</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2654. 使数组所有元素变成 1 的最少操作次数</span><br><span class="line">模拟</span><br><span class="line">出现一个1就可以一直传播，直到整个数组所有元素等于1</span><br><span class="line">遍历数组，统计1出现的次数cnt，如果cnt不等于0，答案为n-cnt，n为数组长度</span><br><span class="line">否则，需要找到一个最短子数组，满足其元素的最大公约数为1，从而构造出1，答案为(len-1)+(n-1),其中len为子数组的长度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1802. 有界数组中指定下标处的最大值</span><br><span class="line">贪心+二分</span><br><span class="line">要让nums[index]最大，那么其他元素应尽可能小，即nums[index]的左边的元素大小不断递减，右边的元素大小也是不断递减，[0,index]形成递增数列，[index,n-1]形成递减数列</span><br><span class="line">二分枚举nums[index]的值，计算所有元素之和是否小于等于maxSum，若满足为合法赋值，缩小左边界。最后的左边界作为答案</span><br><span class="line">注意点</span><br><span class="line">2.题目要求数组全部为正整数，等差数列小于1</span><br><span class="line">1.用到了高中的等差数列求和公式的部分记为1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2018. 判断单词是否能放入填字游戏内</span><br><span class="line">模拟</span><br><span class="line">1 &lt;= m * n &lt;= 2 * 1e5 数据量较小，模拟是否能够将单词填入矩阵中</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1705. 吃苹果的最大数目</span><br><span class="line">优先队列</span><br><span class="line">把苹果的过期时间放入优先队列中，模拟每一天吃苹果，直到队列中所有苹果都已过期</span><br><span class="line">在一边新增苹果时就一边吃苹果，遍历完新增苹果数组后，继续模拟吃苹果</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1798. 你能构造出连续值的最大数目</span><br><span class="line">排序+贪心</span><br><span class="line">对硬币进行排序，初始时ans=0，表示数字0必定能得到。</span><br><span class="line">遍历硬币，当前正在构造的数为ans+1，若coins[i]&gt;ans+1，而后面的硬币值只会更大，说明ans+1无法被构造，只能构造[0,ans]的数，返回ans+1作为答案。</span><br><span class="line">否则可以将可以构造[0,ans+coins[i]]中的所有整数。那么如何证明？</span><br><span class="line">仔细想想，之前可以构造[0,ans]区间的数，现在来了一个coins[i]，我把coins[i]与前面可以构造出来的1组合，是不是得到了coins[i]+1?与之前的2再组合，得到coins[i]+2,再与3,与4...一直组合，最后可以构造出ans+coins[i]。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.07.31</span><br><span class="line"></span><br><span class="line">996. 正方形数组的数目</span><br><span class="line">建图+dfs+回溯+排序</span><br><span class="line">对于下标a，如果与下标b各自对应的元素之和为完全平方数，则为下标a与b之间添加一条无向边</span><br><span class="line">dfs同时记录路径情况，将所有节点遍历得到顺序后，放入哈希表去重</span><br><span class="line">使用排序进行剪枝，当相邻元素相同，且visit[i-1]为false时，说明i-1已经作为同层元素（想象一下搜索树长什么样子）使用过一次（经过回溯其visit又变成了false），直接跳过</span><br><span class="line">最后哈希表的长度作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1964. 找出到每个位置为止最长的有效障碍赛跑路线</span><br><span class="line">二分</span><br><span class="line">维护一个列表，列表中元素为非递减，遍历数组</span><br><span class="line">当前元素大于等于列表中所有元素时，放入列表末尾，ans[i]为当前列表长度</span><br><span class="line">否则，在列表中二分查找第一个大于当前元素的位置，并将其改为当前元素，ans[i]为该位置+1</span><br><span class="line">这样做的原因是在保持非递减序列最长的同时，序列中每一项尽可能小。</span><br><span class="line">答案是不会错的，但是我们实际匹配的序列与列表中的序列并不一定相同，</span><br><span class="line">例如输入数组&#123;1,2,3,5,2,6&#125;</span><br><span class="line">当遍历到下标4，列表中的元素&#123;1,2,3,5&#125;会被修改为&#123;1,2,2,5&#125;</span><br><span class="line">接着遍历下标5，我们知道设置的障碍应该是&#123;1,2,3,5,6&#125;,而此时将6放入列表末尾，列表为&#123;1,2,2,5,6&#125;</span><br><span class="line">但是毫无疑问的是，对于下标5的答案是5，我们通过维护的非递减列表长度依然得到了正确的答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">827. 最大人工岛</span><br><span class="line">dfs+枚举</span><br><span class="line">先对所有的岛进行dfs并记录岛的编号及其大小（为了与初始矩阵中的0、1区分开，岛的编号从1001开始），并初始化答案为最大的岛屿面积</span><br><span class="line">再遍历矩阵，枚举每个0，计算将其变成1后可以合并的岛屿的最大面积，注意：翻转后，当前0的位置会变成1，也算岛屿面积</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1818. 绝对差值和</span><br><span class="line">排序+二分</span><br><span class="line">先将nums1中所有元素复制一份样本并排序，并计算每一对下标i对应的两个数组的绝对差值</span><br><span class="line">遍历nums2中的元素，从nums1的排序副本中二分查找最接近的元素，维护替换后能产生最大变化的差值及其下标</span><br><span class="line">最后统计绝对差值和，对于替换后能产生最大变化的下标进行替换，其余下标按原来的diff计算</span><br><span class="line">为什么要选择替换后能产生最大变化的下标？</span><br><span class="line">由于使用二分查找，那么进行替换后的差值一定小于等于原差值，替换后的差值相比与原差值的变化越大，说明替换后能使差值和越小</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">813. 最大平均值和的分组</span><br><span class="line">前缀和+动态规划</span><br><span class="line">结论：对于给定的k，分成k个非空子数组能得到最大分数。如何证明？</span><br><span class="line">可以这样想，求平均值时相当于每个元素都要除去一个分母再相加，这个分母是划分出的子数组的长度，要让平均值更大，就要让每个元素除去的分母更小，所以划分更多的子数组，可以得到更大的分数</span><br><span class="line">定义dp[i][j]表示前i个元素划分为j个子数组的最大平均值和，使用前缀和快速获取区间总和</span><br><span class="line">最后答案为dp[n][k]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.01</span><br><span class="line"></span><br><span class="line">777. 在LR字符串中交换相邻字符</span><br><span class="line">思维题</span><br><span class="line">可以转换需要满足的条件：</span><br><span class="line">1.字符L和R的相对顺序相同</span><br><span class="line">2.每个L在end中的下标小于等于对应的L在start中的下标</span><br><span class="line">3.每个R在end中的下标大于等于对应的R在start中的下标</span><br><span class="line">三个条件都满足时返回true，否则返回false</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1760. 袋子里最少数目的球</span><br><span class="line">二分</span><br><span class="line">根据操作的定义，袋子中的球可以被拆分而不能合并，且求的是最小的单个袋子最大球数，使用二分查找</span><br><span class="line">具体实现：每个袋子的最大球数为max时，求出此时所需要的操作次数needOp,若needOp&lt;=maxOp,说明当前操作可行，缩小右边界。最后一次右边界作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2762. 不间断子数组</span><br><span class="line">滑动窗口+TreeMap</span><br><span class="line">使用TreeMap快速获取窗口内的最大值与最小值，每一次循环都先增加右边界，再计算窗口内的差值，当差值不满足条件时进行缩窗，缩窗后如果当前窗口满足条件，对答案加上当前窗口的长度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2111. 使数组 K 递增的最少操作次数</span><br><span class="line">分组+二分</span><br><span class="line">将arr分成k组，分别求每一组变成非递减的最少次数，最后累加得到答案</span><br><span class="line">对于某一组元素，设长度为n，则将其变成非递减序列的最少次数=n-最长非严格递增子序列长度</span><br><span class="line">由于数组长度达到1e5，不能使用时间复杂度为o(n^2)的动态规划算法，可以使用维护有序序列+二分查找来获取最长非严格递增子序列的长度</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2227. 加密解密字符串</span><br><span class="line">模拟</span><br><span class="line">对于一个字符串，其解密结果可能不唯一，其加密结果唯一。可以逆向思考：</span><br><span class="line">对dictionary中的每个字符串进行加密，记录加密得到的 字符串及其出现的次数</span><br><span class="line">那么对于word2，想知道其解密结果，获取其在加密记录表中的出现次数即可</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.02</span><br><span class="line"></span><br><span class="line">1482. 制作 m 束花所需的最少天数</span><br><span class="line">二分</span><br><span class="line">二分枚举等待的天数，判断是否能满足条件</span><br><span class="line">具体实现：遍历数组，当开花时间&lt;=等待时间，说明该朵花可以采摘，count++。每当count&gt;=k时，count-=k，并为find+1说明完成了一束花的制作。如果遇到一朵花其开花时间&gt;等待时间，立即重置count的数量为0。最后返回find是否&gt;=m</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1793. 好子数组的最大分数</span><br><span class="line">预处理+单调栈+枚举</span><br><span class="line">分数由子数组中的最小值以及子数组的长度决定，为了得到最大分数，可以枚举最小值。</span><br><span class="line">当最小值固定后，尽可能让子数组长度更大</span><br><span class="line">使用单调栈预处理每个下标i，其左右两边比自己更小的数字出现的下标，那么当下标i作为最小值时，就可以快速得到子数组的最大长度，再计算出分数，维护最大分数作为答案</span><br><span class="line">分数计算的具体细节：设上一个更大值的下标为left，下一个更大值的下标为right，那么该子数组的范围为[left+1,right-1]，长度为right-1-left-1+1=right-left-1，分数为nums[i]*(right-left-1),注意合法的子数组需要满足左右端点与k的关系</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1631. 最小体力消耗路径</span><br><span class="line">BFS+二分</span><br><span class="line">二分枚举体力消耗值，判断是否能找到终点</span><br><span class="line">对于限定最大值max，使用BFS从起点出发搜索是否能到达终点，当相邻格子未被访问且高度差绝对值小于max时放入队列，能到达终点说明当前max合法</span><br><span class="line"></span><br><span class="line">2516. 每种字符至少取 K 个</span><br><span class="line">滑动窗口</span><br><span class="line">先统计出每个字符分别有多少个，如果存在某字符个数少于k，直接返回-1。获取一个最长的窗口，窗口内每个字符的个数&lt;=cnt-k，cnt是字符对应的总数，那么n-窗口长度就是答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2509. 查询树中环的长度</span><br><span class="line">最近公共祖先</span><br><span class="line">对于每个查询获取其最近的公共祖先，答案为两个节点分别到与公共祖先的距离+1</span><br><span class="line">由于本题是数组表示的完全二叉树，可以通过下标快速获取最近公共祖先的位置</span><br><span class="line">具体实现：对于编号a和b</span><br><span class="line">如果 a&gt;b，说明 a 的深度大于等于 b 的深度，把 a 移动到其父节点，即 a=a/2；</span><br><span class="line">如果 a&lt;b，说明 a 的深度小于等于 b 的深度，把 b 移动到其父节点，即 b=b/2；</span><br><span class="line">如果 a=b，则找到了 LCA，退出循环</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1690. 石子游戏 VII</span><br><span class="line">前缀和+动态规划</span><br><span class="line">定义dp[i][j]表示对于数组区间[i,j]两人得分的差值</span><br><span class="line">使用前缀和快速计算石头的价值之和</span><br><span class="line">具体实现：从小到大枚举区间长度，dp[i,j]可由更小的区间dp[i+1,j]或dp[i,j-1]转移而来，二者取最大</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1737. 满足三条件之一需改变的最少字符数</span><br><span class="line">模拟</span><br><span class="line">枚举a的最大值，b的最小值的各种情况，取最少操作次数</span><br><span class="line">枚举b的最大值，a的最小值的各种情况，取最少操作次数</span><br><span class="line">枚举a和b每个字母都相同时的各种情况，取最少操作次数</span><br><span class="line">答案取上面三个方案中的最少操作次数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2434. 使用机器人打印字典序最小的字符串</span><br><span class="line">贪心+栈</span><br><span class="line">遍历s，不断从s中取出ch，放入栈中。</span><br><span class="line">什么时候将字符写到纸上？</span><br><span class="line">当栈顶元素&lt;=当前s中剩余字符的最小值时，将其写在纸上。</span><br><span class="line">否则应继续从s取到那个更小值ch&#x27;，让ch&#x27;在答案字符串的前排</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1696. 跳跃游戏 VI</span><br><span class="line">动态规划+优先队列</span><br><span class="line">使用maxScore记录到达每个位置的最大得分</span><br><span class="line">对于位置x，需要知道[x-k,x-1]的最大得分，可以使用优先队列快速获取该区间内的最大得分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.03</span><br><span class="line"></span><br><span class="line">1463. 摘樱桃 II</span><br><span class="line">动态规划</span><br><span class="line">两个机器人同时移动，任意时刻两个机器人都在同一行中</span><br><span class="line">定义dp[i][j][k]表示在移动到下标为i的行时，机器人1位于(i,j)，机器人2位于(i,k)可以收集的最多樱桃数目</span><br><span class="line">初始化：除了dp[0][0][n-1],所有状态初始化为-1</span><br><span class="line">当机器人1与机器人2位于同一列时，只能摘取一次（摘取顺序不影响答案）</span><br><span class="line">枚举机器人1的上一个状态以及机器人2的上一个状态，当两个机器人的上一个状态都合法（不等于-1）时，进行状态转移，取最大的状态</span><br><span class="line">枚举到达m-1行时，机器人1和机器人2分别位于不同位置时可以收集的最多樱桃数目，取最大作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2564. 子字符串异或查询</span><br><span class="line">预处理</span><br><span class="line">需要找到一个二进制字符串str，满足：str对应的十进制值 ^ firsti == secondi</span><br><span class="line">根据异或的性质，等价于str对应的十进制值 == firsti ^ secondi</span><br><span class="line">由于0 &lt;= firsti, secondi &lt;= 1e9 那么满足条件的str字符串对应的十进制值也会在该范围中</span><br><span class="line">预处理所有长度&lt;=30的子字符串及其位置，通过哈希表快速匹配字符串</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2392. 给定条件下构造矩阵</span><br><span class="line">拓扑排序</span><br><span class="line">矩阵的大小为 k × k ，需要填充k个数字，让每个数字独占一行，可以尽可能的使矩阵满足条件</span><br><span class="line">分别对行和列的约束关系进行拓扑排序，从而确定数字的位置</span><br><span class="line">如果行和列的拓扑排序后得到的序列长度&lt;k，说明出现了环（所有节点的入度都不为0），则无法构造矩阵</span><br><span class="line">注意：题目给的约束条件是有重复的！比如[a,b]可能出现多次，需要去重处理</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2350. 不可能得到的最短骰子序列</span><br><span class="line">思维+哈希表</span><br><span class="line">一开始，可以表示的最长子序列长度len为0</span><br><span class="line">遍历数组，每当某个时刻1~k都出现至少一次，那么len+=1，并清空对所有数字的计数</span><br><span class="line">最后无法表示的长度为len+1 </span><br><span class="line">使用哈希表快速判断每个数字是否都出现至少一次</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1537. 最大得分</span><br><span class="line">贪心+前缀和</span><br><span class="line">两个数组都有序，那么不论怎么走，所有的公共点都至少经过一次</span><br><span class="line">记录公共点的位置，当遇到公共点时，根据前缀和判断是否要切换路径（比较两条路径中，当前公共点与下一个公共点之间的所有数字的和，贪心地选择和更大的路径）</span><br><span class="line">1.所有公共点只统计一次</span><br><span class="line">2.第一个公共点之前、最后一个公共点之后的路径怎么走，需要额外讨论</span><br><span class="line">3.两个数组没有任何公共点时，也需要额外讨论</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1642. 可以到达的最远建筑</span><br><span class="line">二分+贪心+排序</span><br><span class="line">一架梯子相当于无限量的砖块，因此梯子应该用在高度差尽可能大的地方</span><br><span class="line">二分枚举到达最远的下标，将其中每次需要梯子或砖块的地方的高度差统计出来，进行排序</span><br><span class="line">排序后，在最大的ladders个高度差上使用梯子，其余的高度差使用bricks</span><br><span class="line">如果使用后bricks&gt;=0说明该下标可达，缩小左边界，否则缩小右边界</span><br><span class="line">最后一个合法的左边界作为答案</span><br><span class="line">获取高度差时，可以遍历，也可以预处理+二分(这里直接从下标0开始遍历到下标mid获取高度差)</span><br><span class="line"></span><br><span class="line">2023.08.07</span><br><span class="line"></span><br><span class="line">815. 公交路线</span><br><span class="line">BFS</span><br><span class="line">先遍历所有的线路，若该线路中存在起始点source，则将该线路中所有点放入队列中</span><br><span class="line">进行BFS，路线不需要重复访问，每访问到一条路线时将其标记为已访问</span><br><span class="line">进入新的路线时将整个路线的点入队。找到终点target时返回答案</span><br><span class="line">特判：source==target时，不需要乘坐任何公交车，返回0</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2439. 最小化数组中的最大值</span><br><span class="line">二分</span><br><span class="line">枚举经过操作后，数组的最大值为x，遍历数组判断是否可行</span><br><span class="line">进行操作相当于可以把后面大于x的元素全部改为x，并分配给前面小于x的元素</span><br><span class="line">遍历数组：</span><br><span class="line">当nums[i]&lt;x时，可以为后面的元素分担x-nums[i]</span><br><span class="line">当nums[i]&gt;x时，需要前面的元素分担nums[i]-x</span><br><span class="line">记当前剩余可分担的大小为cnt，任何时刻cnt&lt;0说明令最大元素为x不可行</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1293. 网格中的最短路径</span><br><span class="line">BFS </span><br><span class="line">对于每个状态，记录当前状态的行下标、列下标和已经消除的障碍物个数，记已经消除的障碍物个数是 eliminations，记当前状态的最少步数是distance</span><br><span class="line">如果当前状态已经到达右下角，则返回distance。如果当前状态尚未到达右下角，则对于四个方向上的每个相邻单元格执行BFS：</span><br><span class="line">1.如果相邻单元格是空白，且该相邻单元格对应的消除eliminations个障碍物的状态未访问，则将该相邻状态的最少步数更新为 distance+1，继续访问该相邻状态。</span><br><span class="line">2.如果相邻单元格是障碍物，且满足eliminations&lt;k、该相邻单元格对应消除eliminations+1 个障碍物的状态未访问，则将该相邻状态的最少步数更新为distance+1，继续访问该相邻状态。</span><br><span class="line">3.遍历结束之后，如果未到达右下角，则不存在从左上角到右下角的路径，返回 −1</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1943. 描述绘画结果</span><br><span class="line">差分</span><br><span class="line">注意到 1 &lt;= start_i &lt; end_i &lt;= 1e5 那么只需要开一个差分数组就可以知道某下标的颜色之和</span><br><span class="line">但是颜色值相同可能是由不同颜色混合而来的，如何区分？</span><br><span class="line">将差分数组开成二维，分别记录加和减，某位置如果有加或有减，那么它就是不同颜色的边界</span><br><span class="line">将color初始化为0，每遇到颜色边界时，如果color不为0，添加答案，更新color，并更新color的左边界pre为当前的下标i</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">835. 图像重叠</span><br><span class="line">思维+模拟</span><br><span class="line">将所有的1上下左右移动相当于img1的(0,0)位置可以贴在img2的任意坐标(可以超出img2的范围)，img1自身相对位置保持不变</span><br><span class="line">枚举帖在img2的任意坐标位置，计算最大重叠数</span><br><span class="line">实际上枚举img1贴在img2中的x坐标(-n,n),y坐标(-n,n)即可，因为超出该范围的坐标即使贴上去两张图片也不会有重叠</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1250. 检查「好数组」</span><br><span class="line">裴蜀定理</span><br><span class="line">对于不全为零的任意整数 a 和 b，记 g = 最大公约数(a, b)，则对于任意整数 x 和 y 都满足 a×x + b×y 是 g 的倍数</span><br><span class="line">特别地，存在整数 x 和 y 满足 a×x + b×y=g</span><br><span class="line">裴蜀定理可以推广到任意个整数的情况，本题等价于求出nums数组中所有元素的最大公约数，若最大公约数为1返回true</span><br><span class="line"></span><br><span class="line">1032. 字符流</span><br><span class="line">字典树</span><br><span class="line">1.把words中所有单词放入字典树</span><br><span class="line">2.使用StringBuilder记录当前的字符流</span><br><span class="line">3.对于每一次查询，枚举StringBuilder中的所有后缀，如果能找到返回true</span><br><span class="line">使用字典树可以通过现有的StringBuilder进行后缀匹配，不需要截取字符串，因此省下许多时间</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1488. 避免洪水泛滥</span><br><span class="line">贪心+TreeSet</span><br><span class="line">由于湖泊编号较大，可以使用哈希表来存储哪些湖泊是满的</span><br><span class="line">每次遇到不下雨的天气，先存储抽干湖泊的机会，具体操作是将该机会的下标放入TreeSet中</span><br><span class="line">当湖泊未满时，记录湖泊的满水日期</span><br><span class="line">当遇到湖泊已满时，使用湖泊满水日期之后最近的抽水机会，具体使用TreeSet的higher方法查找，并更新湖泊的满水日期</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.08</span><br><span class="line"></span><br><span class="line">1092. 最短公共超序列</span><br><span class="line">动态规划</span><br><span class="line">str1、str2长度最大为1000，可以根据数据量推测解题使用的算法</span><br><span class="line">定义dp[i][j]表示同时以str1中[i,m-1]的字符和str2中的[j,n-1]的字符作为子序列的最短字符串的长度</span><br><span class="line">初始化：其中一个字符串不选取任何字符时，dp值为另一个字符串的长度</span><br><span class="line">状态转移：</span><br><span class="line">ch1==ch2时，最短字符串的开头为ch1，dp[i][j] = dp[i+1][j+1] + 1 </span><br><span class="line">ch1!=ch2时，最短字符串的开头为ch1或ch2，dp[i][j] = min(dp[i+1][j],dp[i][j+1])+1</span><br><span class="line">最后根据字符的相同情况以及dp值的转移过程构造答案字符串</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">907. 子数组的最小值之和</span><br><span class="line">单调栈</span><br><span class="line">最容易想到的是使用双循环枚举每个子数组的最小值计算答案，超出时间限制</span><br><span class="line">如果枚举arr[i]作为最小值时对答案的贡献呢？那么就需要使用单调栈来维护arr[i]作为最小值时子数组的左右边界</span><br><span class="line">假设左边更小值出现在下标left，右边更小值出现在right 则对答案的贡献为(i-left)*(right-i)*arr[i]</span><br><span class="line">但是这样计算会导致子区间的重复计算，因此需要使用左开右闭或者左闭右开区间</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1882. 使用服务器处理任务</span><br><span class="line">优先队列</span><br><span class="line">服务器分配规则：</span><br><span class="line">1.需要处于空闲状态，优先分配给权重最小的服务器</span><br><span class="line">2.权重相同时，分配给下标最小的服务器</span><br><span class="line">使用两个优先队列分别存放空闲服务器、繁忙服务器</span><br><span class="line">使用time来标记全局时间，遍历任务数组并处理任务，每遍历一次time+=1</span><br><span class="line">遍历完任务数组后，可能还有任务没有完成，这时候继续处理，此时time应该直接“加速”到又有繁忙服务器变为空闲的时间，而不是简单+1（每个任务的完成时间可能会很长）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2151. 基于陈述统计最多好人数</span><br><span class="line">二进制枚举</span><br><span class="line">人数至少为2，那么可以认为好人数至少为1（可以枚举所有的4种情况来证明）</span><br><span class="line">情况一：</span><br><span class="line">1 认为2 是好人</span><br><span class="line">2 认为1 是好人</span><br><span class="line">最佳情况是两人都是好人</span><br><span class="line">情况二：</span><br><span class="line">1 认为2 是坏人</span><br><span class="line">2 认为1 是好人</span><br><span class="line">至少1可以是好人，此时2是坏人</span><br><span class="line">情况三：</span><br><span class="line">1 认为2 是好人</span><br><span class="line">2 认为1 是坏人</span><br><span class="line">至少2可以是好人，此时1是坏人</span><br><span class="line">情况四：</span><br><span class="line">1 认为2 是坏人</span><br><span class="line">2 认为1 是坏人</span><br><span class="line">可以认为1或2是好人，那么另一个人是坏人而且说假话</span><br><span class="line">人数至多为15，可以通过二进制枚举[1,1&lt;&lt;n-1]，二进制位上为1代表是好人，0代表是坏人</span><br><span class="line">对于i，一边统计好人个数cnt，一边判断好人的陈述是否出现矛盾，若出现直接跳出循环，不出现矛盾时根据cnt维护答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1278. 分割回文串 III</span><br><span class="line">预处理+动态规划</span><br><span class="line">先预处理每个区间[left,right]构成回文子串需要的最少修改字符数</span><br><span class="line">定义dp[i][j]表示[0,i]区间分割为j个回文子串时需要的最少字符数</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.09</span><br><span class="line"></span><br><span class="line">805. 数组的均值分割</span><br><span class="line">折半搜索+二进制枚举</span><br><span class="line">数组长度最大为30,由于A、B不能为空，考虑可行方案下，A、B的长度：A长度为[1,29], B长度为30-A长度</span><br><span class="line">此时进行pow(2,30)次搜索会超出时间限制，可以使用折半搜索达到空间换时间的效果</span><br><span class="line">具体实现是先对数组的前一半进行搜索，并记录相关信息，再对数组后一半进行搜索，判断是否存在前一半的一种方案与后一半的一种方案可以组合出答案</span><br><span class="line">折半搜索时，对于数组长度n，使用n/2位的二进制数来表示A、B中的元素情况</span><br><span class="line">如果前半段和后半段能组合出一种数组A使得平均值为整个数组的平均值all/n，则数组B自然也满足条件</span><br><span class="line">设前半段的长度为j，和为ele，那么有等式(ele+sum)/(j+cnt)==all/n，移项可得ele的表达式：</span><br><span class="line">ele=all(j+cnt)/n-sum，从哈希表中判断是否存在该ele即可，由于除法可能导致整数计算精度不正确，可以使用乘法再验算一遍</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1733. 需要教语言的最少人数</span><br><span class="line">贪心+模拟</span><br><span class="line">数据量较小，可以把所有是好友且无法沟通的关系找出来，再枚举教学的语言</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">940. 不同的子序列 II</span><br><span class="line">枚举</span><br><span class="line">字符串仅由小写英文字母组成，枚举以26个小写字母为结尾的子序列的个数，最后答案就是以26个小写字母为结尾的子序列个数之和</span><br><span class="line">具体实现：每遇到一个字符ch，先统计之前以a~z为结尾的子序列的总数sum，那么现在以ch为结尾的子序列总数应更新为sum+1。</span><br><span class="line">可以在每次遍历时都统计总数sum，也可以把总数sum作为全局变量来维护</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">928. 尽量减少恶意软件的传播 II</span><br><span class="line">并查集</span><br><span class="line">在924题尽量减少恶意软件的传播I中，只是让某个节点初始时不再是感染状态，并不影响联通分量的状态</span><br><span class="line">本题中，让某个节点被完全删除，可能将原来的联通分量拆分成多个联通分量</span><br><span class="line">对健康节点进行建图，合并，得到多个联通分量</span><br><span class="line">枚举每一个初始感染节点，统计对哪些联通分量进行了感染</span><br><span class="line">对于健康的连通分量，如果它的感染源只有1个，说明它是可被拯救的</span><br><span class="line">再次枚举初始感染节点，计算移除当前初始感染节点后最终感染的节点数，取可以得到最少节点数的感染节点作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">902. 最大为 N 的数字组合</span><br><span class="line">数位dp</span><br><span class="line">将n转化为字符数组进行记忆化数位dp计算</span><br><span class="line">当前填的位置不受限制时，才可以返回缓存中的答案，同时算出结果时继续缓存</span><br><span class="line">当前填好的数字处在不合法的状态时，可以跳过当前数位</span><br><span class="line">当前可以填的数字上限取决于当前位置是否受限制（n为数字上限，当上一位数字与n中对应位数字相同时，当前位置就是受限状态）</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">756. 金字塔转换矩阵</span><br><span class="line">DFS</span><br><span class="line">数据量较小，dfs搜索是否能完成金字塔的构建</span><br><span class="line">把允许的三角形图案进行状态压缩存入哈希表，方便查找合法图案</span><br><span class="line">dfs参数：上一层的图案pre，当前层的图案now，当前层正在构建的下标index</span><br><span class="line">当前层已构造完毕，递归是否可以构造再上一层，出口为上一层的长度为1，代表金字塔顶部已构建完毕</span><br><span class="line">对于当前层的index下标，枚举可以构建的图案，只要存在一种图案最终到达终点则返回true</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">963. 最小面积矩形 II</span><br><span class="line">枚举</span><br><span class="line">数据量较小，枚举三个点，判断是否存在第四个点与其组成矩阵</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1625. 执行操作后字典序最小的字符串</span><br><span class="line">枚举</span><br><span class="line">无法改变字符串的长度，那么字典序越小就是对应的数字越小，分情况枚举答案</span><br><span class="line">如果 b 是偶数，无论轮转多少次，都只能给奇数位的元素做累加操作</span><br><span class="line">如果 b 是奇数，可以给奇数位和偶数位的元素都做加法，且操作次数可以不同</span><br><span class="line">由于加法超过9会变回0，那么可操作次数也是极小的，很快就会恢复到原来的状态</span><br><span class="line">直接枚举操作的次数，维护字典序最小的字符串作为答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2023.08.10</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">927. 三等分</span><br><span class="line">枚举</span><br><span class="line">先统计arr中1的个数sum，若个数为0则返回任意答案，若个数%3不等于0，说明无法做到</span><br><span class="line">将arr分成三部分，每部分中1的个数partial=sum/3，根据每部分中1的个数寻找分割点</span><br><span class="line">由于第一部分和第二部分首尾的0的划分不确定，但是第三部分的尾部是固定的，用第三部分的值来反推是否可以划分为三部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1986. 完成任务的最少工作时间段</span><br><span class="line">状态压缩+动态规划</span><br><span class="line">数据量较小，可以使用二进制数表示任务完成的状态</span><br><span class="line">定义dp[mask]表示任务完成状态为mask时需要的最小工作时间段</span><br><span class="line">初始化：</span><br><span class="line">1.先初始化所有dp值为最大值</span><br><span class="line">2.枚举mask，若工作时长之和&lt;=sessionTime，可以在一个工作时间段内完成，dp[mask]初始化为1</span><br><span class="line">状态转移：</span><br><span class="line">对于mask，枚举其子集subset，如果dp[subset]==1，则dp[mask]可由dp[mask^subset]+1转移而来，取最小的dp[mask]</span><br><span class="line">返回答案：dp[(1&lt;&lt;n)-1]，表示所有任务都完成所需要的最少工作时间段</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2250. 统计包含每个点的矩形数目</span><br><span class="line">枚举+排序+二分</span><br><span class="line">横坐标最大为1e9，纵坐标最大只有100</span><br><span class="line">首先对矩阵的右上角按横坐标从小到大排序</span><br><span class="line">对矩阵的右上角按纵坐标分组，每个纵坐标对应一个或多个横坐标，存入哈希表中</span><br><span class="line">对于查询点(x,y)，纵坐标&lt;y的矩阵必然不会包含该点</span><br><span class="line">枚举纵坐标，从y遍历到100，对每一个纵坐标进行二分查找大于等于x的个数，就是该纵坐标上包含查询点的矩阵的个数，累加即可得到答案</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2488. 统计中位数为 K 的子数组</span><br><span class="line">前缀和</span><br><span class="line">数组由1到n的不同整数组成，k只出现一次，对于其他数，只考虑与k相比的大小，具体大小不影响答案</span><br><span class="line">中位数为k的子数组满足以下条件的任意一条：</span><br><span class="line">1.包含k，小于k的个数 与 大于k的个数相等</span><br><span class="line">2.包含k，只有一个大于k的元素，没有任何一个小于k的元素</span><br><span class="line">3.只包含k，没有其他任何元素</span><br><span class="line">将小于k的数记作-1，大于k的数记作1，等于k的数记作0，则有：</span><br><span class="line">对于上述的条件1，等价于子数组元素和为0</span><br><span class="line">对于上述的条件2，等价于子数组元素和为1</span><br><span class="line">对于上述的条件3，等价于子数组元素和为0</span><br><span class="line">对于当前的前缀和sum，若之前出现过一个前缀和pre，满足sum-pre=0或sum-pre=1，就可以构成满足题意的子数组，移项可得pre的表达式：pre=sum或pre=sum-1</span><br><span class="line">使用哈希表记录前缀和出现的次数获取答案</span><br><span class="line">注意:</span><br><span class="line">1.需要在包含k时和包含k之后才可以开始记录答案（满足子数组要包含k的条件）</span><br><span class="line">2.在k出现之后，不需要再向哈希表中记录前缀和</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">765. 情侣牵手</span><br><span class="line">贪心+并查集</span><br><span class="line">对于一对情侣，假设编号为a，b，那么让a，b并肩坐在一起即可，与具体顺序是a，b还是b，a无关，因此可以将同一对情侣编上相同的号，以简化代码</span><br><span class="line">由于座位没有循环，最终0，1下标的座位必然是同一对情侣，而不会出现1，2下标是同一对情侣，因为这样0下标的人无法与Ta的对象牵手</span><br><span class="line">将n对情侣看做图中的n个节点，对于每两个相邻的节点，如果是第 i 对与第 j 对坐在了一起，则在 i 号节点与 j 号节点之间连接一条边，代表需要交换这两对情侣的位置</span><br><span class="line">最终每一个联通分量都是一个环，交换次数为这个联通分量的大小减1</span><br><span class="line">统计所有联通分量的交换次数作为答案</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <pre><code class="text">2023.07.24
+
+2101. 引爆最多的炸弹
+BFS
+数据量较小，注意引爆条件
+
+
+754. 到达终点数字
+数学+分类讨论
+1.target正负不影响答案（所有步骤反着来为-target的答案），取abs(target)来讨论
+2.一直往右走，若最后恰好到达target，得到答案
+3.最后一步超过终点，且与终点距离为偶数，则将前面的其中一步改为往左得到答案
+4.如果与终点距离为奇数，继续向前走，直到相距为偶数，再改一步往左得到答案
+
+
+1106. 解析布尔表达式
+栈
+1.遇到逗号，跳过
+2.遇到右括号，进行计算（直到左括号的上一个运算符）
+3.遇到其他字符，入栈
+
+
+1536. 排布二进制网格的最少交换次数
+贪心
+1.需要后缀有n-1个0的行，n-2个0的行...0个0的行
+2.从上到下确定，找到最近的满足情况的行，模拟交换
+3.由于从上到下确定行，越下面的行限制条件越宽松，贪心正确
+4.最后一行无需判断
+
+
+1255. 得分最高的单词集合
+DFS
+words长度较小，可以对每个单词枚举 选/不选 最终判断该选择是否合法 最多枚举 pow(2,n) 种情况，n为words长度
+
+
+2054. 两个最好的不重叠活动
+排序
+1.把活动的开始时间点和结束时间点提取出来进行排序,时间相同时先处理开始事件,否则可能让第一个活动的结束时间等于第二个活动的开始时间
+2.遍历时间点，遇到结束时间点维护已结束活动的最大价值，遇到开始时间点维护答案=已结束活动的最大价值+当前开始时间点的价值
+
+
+2023.07.25
+
+1326. 灌溉花园的最少水龙头数目
+模拟
+类似于跳跃游戏，位于i的水龙头，范围为r，预处理:i-r最大能到达i+r
+即 maxPos[i-r] = max(maxPos[i-r],i+r) 当i-r&lt;=0时，则更新maxPos[0]
+接下来模拟跳跃，cur表示当前最大能跳跃的位置，当i==cur时：将cur更新为max，max为之前所有的位置中最大能到达的位置，同时ans+=1
+
+
+2064. 分配给商店的最多商品的最小值
+二分
+最大值最小化，使用二分查找。需要把所有商品分配出去，商店可以接收0件商品，但分配后不能有多余商品
+每个商店最多分到max件，计算最多能分给count个商店。当商店数n&gt;=count时，不会让商品多余，为合法的分配，缩小右边界，答案为最后一次合法的右边界
+
+
+2305. 公平分发饼干
+DFS+回溯
+数据量较小，枚举哪个孩子得到当前饼干
+
+
+2537. 统计好子数组的数目
+滑动窗口
+使用哈希表统计相同元素的出现次数，从而获取满足条件的下标对的个数cnt
+注意当相同元素有n个时，减少1个该元素，会减少多少个满足条件的下标对？会减少(n-1)个
+
+
+1722. 执行交换操作后的最小汉明距离
+并查集
+allowedSwaps[i] = [ai, bi]说明ai和bi这两个下标的元素可以互通
+对于互通的下标集，大小为m，尽可能让更多的下标与target对应下标的元素相同，假设有k个下标符合条件，得到最小汉明距离为m-k，累加所有互通下标集的最小汉明距离即为答案
+
+
+2327. 知道秘密的人数
+动态规划
+dp[i]表示第i天结束时，新增的知道秘密的人数，dp[i]=dp[begin,end]的累加，其中begin为i-forget+1，end为i-delay
+第n天时知道秘密的人数为最后forget天的新增人数之和
+
+
+1871. 跳跃游戏 VII
+动态规划+前缀和
+1.定义dp[i]表示i位置是否能够到达，在区间[i-maxJump,i-minJump]中若存在j，满足dp[j]为true，则dp[i]为true
+2.通过枚举区间来得到dp[i]的算法时间复杂度为o(n^2)，会超出时间限制，因此使用前缀和来优化。
+3.当dp[i]为true时对前缀和的贡献为0，反之贡献为1
+3.当pre[right+1]-pre[left]!=(right-left+1)时说明出现了0，即出现了true
+
+
+878. 第 N 个神奇数字
+数学+二分
+1.设f(x)表示&lt;=x的神奇数字的个数。在&lt;=x的数中，有x/a个数能被a整除，有x/b个数能被b整数，有x/lcm(a,b)个数能被lcm(a,b)整除，lcm为最小公倍数函数
+2.可以写出f(x)的表达式f(x)=x/a+x/b-x/lcm(a,b),在题目条件下f(x)是单调递增函数
+3.设f(x)==k,那么x就是第k个神奇数字,要得到第n个神奇数字，可以使用二分查找，当f(x)&lt;n时缩小左边界，最后得到的右边界right有f(right)==n，right即为答案
+
+
+2360. 图中的最长环
+模拟
+使用一个时钟记录全局时间，尝试从每一个点出发寻找环。若该点不是首次访问，则跳过。若该点是首次访问，记录当前时间startTime，再开始寻找环。
+如果找到某个节点其访问时间visitTme满足visitTime&gt;=startTime，说明找到了一个环，动态更新最长环的长度即可得到答案
+
+
+780. 到达终点
+模拟
+反向计算：位于(x,y)的点可以转换为(x,y-x)或(x-y,y)
+由于x，y&gt;=1，那么能够继续转换的条件是：当前的x大于目标x，当前的y大于目标y，当前的x不等于当前的y
+当前x&gt;当前y且能够继续转换时，x不断减去y；反之y不断减去x，直到无法继续转换
+如果当前x，y与目标x，y完全相同返回true，否则判断x和y是否其中一个与目标相同，若没有其中一个相同，返回false。若其中一个相同，进一步判断能否通过不断减的操作让其也与目标相同。
+
+
+1878. 矩阵中最大的三个菱形和
+暴力枚举
+枚举所有可能的菱形和，使用TreeSet及其pollLast方法可以维护最大的三个菱形和
+
+
+823. 带因子的二叉树
+排序+枚举
+先对arr进行排序，因为较大的元素只能由两个较小元素相乘得到，优先计算以较小元素为根的构造方案数
+遍历arr数组，枚举每一个元素作为二叉树的根节点时，有多少种构造方案
+设根节点为root，如果arr中存在元素x以及root/x，则：
+以root为根的构造方案数 += 以x为根的方案数 * 以root/x为根的方案数
+以root为根的初始构造方案数为1，即没有左子树也没有右子树
+
+
+2023.07.26
+
+1665. 完成所有任务的最少初始能量
+排序
+由于门槛&gt;=耗能，对每个任务提炼一个虚报值=门槛-耗能
+对任务按照虚报值从小到大排序，虚报值越大的任务越需要前面的耗能来支撑虚报，若前面的能量还不够则补到足够为止。
+遍历每个任务，累加实际耗能，若实际耗能仍不够虚报，则补到虚报后的值。
+
+
+2602. 使数组元素全部相等的最少操作次数
+排序+二分查找+前缀和
+首先对数组进行排序，记数组长度为n。对于每个查询queries[i]，二分查找最后一个&lt;=queries[i]的下标，记为left
+将数组分成[0,left]以及[left+1,n-1]两部分，要把数组中所有元素变成queries[i]：
+对于[0,left]而言，相当于把所有元素增加至queries[i]；
+对于[left+1,n-1]而言，相当于把所有元素减少至queries[i]；
+使用前缀和维护区间的值，通过整体计算可以快速获得答案。
+
+
+2608. 图中的最短环
+BFS
+首先建立无向图。由于顶点总数较小，从每个节点出发寻找环，同时记录到不同节点的距离，当重复遇到节点时说明找到了环，动态维护最短环的长度作为答案
+进行BFS时，数据格式为&#123;节点id,当前节点的父节点&#125;,不能走回头路(即不能重新回到父节点)
+
+
+1124. 表现良好的最长时间段
+枚举+前缀和
+hours的长度不超过1e4，可以使用双重循环枚举表现良好的时间段
+工作时间大于8小时，记为1，反之记为0，通过前缀和可快速判断某个区间是否为表现良好时间段
+动态维护表现良好时间段的最大长度作为答案
+
+
+991. 坏了的计算器
+数学+模拟
+反向计算：当Y大于X时，对Y进行操作向X趋近，Y为奇数时进行加一操作，为偶数时进行除2操作
+最后对Y进行（X-Y）次加一操作得到X
+
+
+2585. 获得分数的方法数
+动态规划
+分组背包模板题。定义dp[i][j]表示前i道题目获得target分的方案数
+使用三重循环，枚举前i道题目，枚举第i道题目做的数量j，枚举分数k进行状态转移，最后dp[n][target]就是答案
+
+
+873. 最长的斐波那契子序列的长度
+动态规划
+定义dp[j][k]表示最后两项为下标j和下标k的元素时最长的斐波那契子序列长度
+对于每个k，枚举可能的下标i和j满足arr[i]+arr[j]==arr[k]
+找到满足这样条件的下标i,j,k时，如果以下标i,j为最后两项的斐波那契子序列长度为0，那么下标i,j,k组成了新的斐波那契初始序列，令dp[j][k]=3，否则dp[j][k]=max(dp[j][k],dp[i][j]+1)，同时更新ans
+如果arr[i]+arr[j]&lt;arr[k]，增加i，反之减少j，直到i&gt;=j时枚举下一个k
+
+
+2049. 统计最高分的节点数目
+DFS
+0节点是根，从0出发进行dfs
+对于每一个节点，计算出左子树的节点数量leftCnt以及右子树的节点数量rightCnt，那么该节点的分数为：
+leftCnt * rightCnt * (sum-leftCnt-rightCnt-1)，这三部分中出现0的部分取1
+动态维护最高分及其个数，最高分的个数作为答案
+
+
+2296. 设计一个文本编辑器
+双向链表
+光标不会主动移动到某个下标位置，只会相对移动（向左或向右），可以用双向链表模拟，每个节点存储一个字符
+
+
+2680. 最大或值
+枚举+前缀后缀优化
+选择一个数并将它乘2等价于将其二进制表示左移1位
+进行k次操作一定是移动同一个数字，才能得到最大的结果
+枚举对每一个数字左移k次，取最大值作为答案
+对于下标i，使用前缀或、后缀或数组可以快速计算出[0,i-1]中元素的按位或以及[i,n-1]中元素的按位或
+
+
+1147. 段式回文
+贪心+递归
+当前缀与后缀相同时，立即分离出来，再对剩余字符串继续递归，直到无法分离
+为什么要立即分离？因为对于更长的相同前后缀，一定可以分解为更多的子串，题目需要求出k的最大值，因此需要贪心地分离相同的前后缀。
+
+
+1898. 可移除字符的最大数目
+二分
+移除的字符越少，越可能满足p是s的子序列，而假设移除n个下标后仍满足p是s的子序列，那么移除更少的下标例如n-1个，一定也满足该条件。
+二分查找最大的k，找到满足条件的临界值作为答案
+
+
+1671. 得到山形数组的最少删除次数
+枚举+动态规划
+题目定义山形数组的长度至少为3。记nums长度为n，枚举[1,n-2]作为山顶，当山顶为i时，问题转化为：
+求[0,i]中最长上升子序列的长度len1以及[i,n-1]中最长下降子序列的长度len2
+此时删除次数为n-(len1+len2-1)，动态维护最少删除次数作为答案
+定义upper[i]表示到下标i为止的最长上升子序列的长度
+定义lower[i]表示以下标i开始的最长下降子序列的长度
+注意点：
+不能把山顶的左边或右边全部删掉了，左右两边至少留有一个元素，即最长上升/下降子序列都&gt;1时，才更新答案
+
+
+2023.07.27
+
+1373. 二叉搜索子树的最大键值和
+递归
+每棵子树返回：这棵子树的最小节点值、这棵子树的最大节点值、这棵子树的所有节点值之和
+对于空节点，返回&#123;max,min,0&#125;，对于不是二叉搜索树的节点，返回&#123;min,max,0&#125;
+这是由二叉搜索树的判断决定的，当一个节点root的孩子child不是二叉搜索树，该节点也不会是二叉搜索树，非二叉搜索树的判断条件为：
+root的值&lt;=child的最大值(当child为左孩子) 或者 root的值&gt;=child的最小值(当child为右孩子)
+需要让以上式子成立，因此child不是二叉搜索树时返回&#123;min,max,0&#125;，使其父节点也被判定为非二叉搜索树
+同理，空节点返回&#123;max,min,0&#125;是为了让父节点无条件被判定为二叉搜索树
+
+
+2147. 分隔长廊的方案数
+模拟
+如果座位的总数为0或者为奇数，那么不存在划分方案，返回0
+模拟划分，每遇到两个座位后，统计中间间隔的植物数量count，该段的划分方案为(count+1)，
+对ans而言应乘上(count+1)，再对mod取余
+
+
+2594. 修车的最少时间
+二分
+给定m分钟，计算所有机械工可以修好的汽车总数cnt，当cnt&gt;=cars时缩小右边界right，最后right作为答
+案
+能力值为 r 的机械工可以在 r * n * n 分钟内修好 n 辆车，那么给定m分钟，可以修好sqrt(m/r)辆车
+
+
+1043. 分隔数组以得到最大和
+动态规划
+定义dp[i]表示前i个元素可以得到的最大和
+dp[i]由dp[j]+max*(i-j)转移而来
+
+
+2673. 使二叉树所有路径值相等的最小代价
+递归
+对于两个有着相同父节点的叶子节点来说，他们到达根节点的路径上只有本身的cost不同，要满足到达根节点的路径值相同，只能将两个节点的cost改为相同，由于只能进行增加操作，应增加较小的cost
+通过递归，获取每个node经过操作后到每个叶子节点的路径值，叶子节点的路径值为本身的cost值
+具体来说，先获取node的左、右孩子到其每个节点的路径值left、right，为答案增加abs(left-right)次，让左右孩子的路径值相同，返回给上一级的数据为max(left,right)+本身的cost值
+
+
+2398. 预算内的最多机器人数目
+二分+滑动窗口
+题目要求的是可以连续运行的机器人数目，枚举连续的个数m，二分查找满足条件的边界值作为答案
+对于连续个数m，具体实现是使用固定长度的滑动窗口+TreeMap维护窗口内最大值，找到满足cost&lt;=budget的窗口则返回true，遍历完所有可行的窗口仍未找到返回false
+
+
+2069. 模拟行走机器人 II
+模拟
+根据题目描述，机器人只会在网格图的最外圈移动。
+定义方向，记录机器人的坐标以及朝向，模拟进行移动
+
+
+2023.07.28
+
+2050. 并行课程 III
+记忆化搜索
+定义dfs函数返回第i门课程所需要的最少月份数：
+若第i门课程没有先修课，完成该课程的最少月份数为time[i-1];
+若第i门课程有先修课，完成该课程的最少月份数为max(先修课需要的最少月份数)+time[i-1];
+使用记忆化搜索减少重复搜索
+所有课程中最大的最少需要月份数作为答案
+
+
+1130. 叶值的最小代价生成树
+单调栈
+问题可以转化为：给定一个数组arr，不断地合并相邻的数，合并代价为两个数的乘积，合并之后的数为两个数的最大值，直到数组只剩一个数，求最小合并代价和
+在合并时，优先合并较小的两个数能得到最小代价
+
+
+1552. 两球之间的磁力
+排序+二分
+对pos进行排序后，二分枚举答案
+具体实现：枚举最小磁力为k时，是否为合法放置。
+统计成功放置的个数cnt，使用pre记录上一个放置的位置，从下标1开始枚举位置，当前位置pos[i]-pre&gt;=k时，可以在pos[i]放置，cnt+=1。最后如果cnt&gt;=m为合法放置
+
+
+2731. 移动机器人
+排序+前缀和
+当两个机器人相撞时，它们开始沿着原本相反的方向移动，等价于没有相撞
+分别计算出每个机器人最后的位置,排序后再计算两两距离之和
+为什么需要排序？对于i下标，保证pos[i,n-1]都大于pos[i]，那么计算距离和时相当于pos[i,n-1]之和减去(n-1-i+1)个pos[i]，如果不排序，那么计算出的距离可能为负数。
+由于(i,j) 和 (j,i) 视为相同的坐标对，因此遍历到i时，只需计算i与后面下标的距离，不用计算与前面下标的距离。使用前缀和快速计算距离
+
+
+1416. 恢复数组
+动态规划
+定义f[i]表示s的前i个字符能恢复的方案数
+k&lt;=1e9 对于第i个字符，只需枚举下标[i-10,i-1]是否能够形成有效的数字
+注意前导0的判断
+
+
+1745. 分割回文串 IV
+动态规划+枚举
+使用动态规划预处理所有区间，找出回文区间。再使用双重循环枚举分割点
+具体实现：枚举区间长度len，枚举区间左端点i，计算出区间右端点j=i+len-1，若s[i]==s[j]：当len==2时，dp[i][j]为true，否则dp[i][j]=dp[i+1][j-1]
+题目需要分割成非空子字符串，注意割点的范围
+
+
+85. 最大矩形
+预处理+枚举
+对于位于(i,j)的1，预处理len[i][j]，表示其左边连续1的个数(包括本身)
+遍历矩阵，找到1说明找到了矩形的底边，向上枚举矩形的高度，同时底边的长度取min(len[k][j])，其中k为向上枚举的行下标，从而得到面积，维护最大面积作为答案
+具体实现：当mat[i][j]==1时，记录底边长度a=len[i][j]，矩形高度b=1，矩形面积s=a*b，在想上枚举高度的过程中b不断+1，a取最小的len[k][j]，s取最大的a*b，最后用s来更新答案
+
+
+1727. 重新排列后的最大子矩阵
+预处理+排序+枚举
+对于(i,j)的1，预处理len[i][j]表示其上面连续1的个数（包括自身）
+对每一行的len[i][j]进行排序，对于i行，找到一个len[i][j]!=0后向左扩展矩阵的宽度，维护最大高度，同时维护最大矩阵面积作为答案，同时跳出i行的循环，因为经过排序，后面的len[i][j]只会更小
+
+
+2023.07.29
+
+1562. 查找大小为 M 的最新分组
+模拟
+使用正难则反的思想。反向遍历进行操作，当出现恰好长度为m的一组连续1时，直接返回答案
+通过TreeSet可快速记录最近的前面的1的位置以及最近的后面的1的位置
+注意步骤与下标之间的映射,以及可以直接返回结果的特判
+
+
+2654. 使数组所有元素变成 1 的最少操作次数
+模拟
+出现一个1就可以一直传播，直到整个数组所有元素等于1
+遍历数组，统计1出现的次数cnt，如果cnt不等于0，答案为n-cnt，n为数组长度
+否则，需要找到一个最短子数组，满足其元素的最大公约数为1，从而构造出1，答案为(len-1)+(n-1),其中len为子数组的长度
+
+
+1802. 有界数组中指定下标处的最大值
+贪心+二分
+要让nums[index]最大，那么其他元素应尽可能小，即nums[index]的左边的元素大小不断递减，右边的元素大小也是不断递减，[0,index]形成递增数列，[index,n-1]形成递减数列
+二分枚举nums[index]的值，计算所有元素之和是否小于等于maxSum，若满足为合法赋值，缩小左边界。最后的左边界作为答案
+注意点
+2.题目要求数组全部为正整数，等差数列小于1
+1.用到了高中的等差数列求和公式的部分记为1
+
+
+2018. 判断单词是否能放入填字游戏内
+模拟
+1 &lt;= m * n &lt;= 2 * 1e5 数据量较小，模拟是否能够将单词填入矩阵中
+
+
+1705. 吃苹果的最大数目
+优先队列
+把苹果的过期时间放入优先队列中，模拟每一天吃苹果，直到队列中所有苹果都已过期
+在一边新增苹果时就一边吃苹果，遍历完新增苹果数组后，继续模拟吃苹果
+
+
+1798. 你能构造出连续值的最大数目
+排序+贪心
+对硬币进行排序，初始时ans=0，表示数字0必定能得到。
+遍历硬币，当前正在构造的数为ans+1，若coins[i]&gt;ans+1，而后面的硬币值只会更大，说明ans+1无法被构造，只能构造[0,ans]的数，返回ans+1作为答案。
+否则可以将可以构造[0,ans+coins[i]]中的所有整数。那么如何证明？
+仔细想想，之前可以构造[0,ans]区间的数，现在来了一个coins[i]，我把coins[i]与前面可以构造出来的1组合，是不是得到了coins[i]+1?与之前的2再组合，得到coins[i]+2,再与3,与4...一直组合，最后可以构造出ans+coins[i]。
+
+
+2023.07.31
+
+996. 正方形数组的数目
+建图+dfs+回溯+排序
+对于下标a，如果与下标b各自对应的元素之和为完全平方数，则为下标a与b之间添加一条无向边
+dfs同时记录路径情况，将所有节点遍历得到顺序后，放入哈希表去重
+使用排序进行剪枝，当相邻元素相同，且visit[i-1]为false时，说明i-1已经作为同层元素（想象一下搜索树长什么样子）使用过一次（经过回溯其visit又变成了false），直接跳过
+最后哈希表的长度作为答案
+
+
+1964. 找出到每个位置为止最长的有效障碍赛跑路线
+二分
+维护一个列表，列表中元素为非递减，遍历数组
+当前元素大于等于列表中所有元素时，放入列表末尾，ans[i]为当前列表长度
+否则，在列表中二分查找第一个大于当前元素的位置，并将其改为当前元素，ans[i]为该位置+1
+这样做的原因是在保持非递减序列最长的同时，序列中每一项尽可能小。
+答案是不会错的，但是我们实际匹配的序列与列表中的序列并不一定相同，
+例如输入数组&#123;1,2,3,5,2,6&#125;
+当遍历到下标4，列表中的元素&#123;1,2,3,5&#125;会被修改为&#123;1,2,2,5&#125;
+接着遍历下标5，我们知道设置的障碍应该是&#123;1,2,3,5,6&#125;,而此时将6放入列表末尾，列表为&#123;1,2,2,5,6&#125;
+但是毫无疑问的是，对于下标5的答案是5，我们通过维护的非递减列表长度依然得到了正确的答案
+
+
+827. 最大人工岛
+dfs+枚举
+先对所有的岛进行dfs并记录岛的编号及其大小（为了与初始矩阵中的0、1区分开，岛的编号从1001开始），并初始化答案为最大的岛屿面积
+再遍历矩阵，枚举每个0，计算将其变成1后可以合并的岛屿的最大面积，注意：翻转后，当前0的位置会变成1，也算岛屿面积
+
+
+1818. 绝对差值和
+排序+二分
+先将nums1中所有元素复制一份样本并排序，并计算每一对下标i对应的两个数组的绝对差值
+遍历nums2中的元素，从nums1的排序副本中二分查找最接近的元素，维护替换后能产生最大变化的差值及其下标
+最后统计绝对差值和，对于替换后能产生最大变化的下标进行替换，其余下标按原来的diff计算
+为什么要选择替换后能产生最大变化的下标？
+由于使用二分查找，那么进行替换后的差值一定小于等于原差值，替换后的差值相比与原差值的变化越大，说明替换后能使差值和越小
+
+
+813. 最大平均值和的分组
+前缀和+动态规划
+结论：对于给定的k，分成k个非空子数组能得到最大分数。如何证明？
+可以这样想，求平均值时相当于每个元素都要除去一个分母再相加，这个分母是划分出的子数组的长度，要让平均值更大，就要让每个元素除去的分母更小，所以划分更多的子数组，可以得到更大的分数
+定义dp[i][j]表示前i个元素划分为j个子数组的最大平均值和，使用前缀和快速获取区间总和
+最后答案为dp[n][k]
+
+
+2023.08.01
+
+777. 在LR字符串中交换相邻字符
+思维题
+可以转换需要满足的条件：
+1.字符L和R的相对顺序相同
+2.每个L在end中的下标小于等于对应的L在start中的下标
+3.每个R在end中的下标大于等于对应的R在start中的下标
+三个条件都满足时返回true，否则返回false
+
+
+1760. 袋子里最少数目的球
+二分
+根据操作的定义，袋子中的球可以被拆分而不能合并，且求的是最小的单个袋子最大球数，使用二分查找
+具体实现：每个袋子的最大球数为max时，求出此时所需要的操作次数needOp,若needOp&lt;=maxOp,说明当前操作可行，缩小右边界。最后一次右边界作为答案
+
+
+2762. 不间断子数组
+滑动窗口+TreeMap
+使用TreeMap快速获取窗口内的最大值与最小值，每一次循环都先增加右边界，再计算窗口内的差值，当差值不满足条件时进行缩窗，缩窗后如果当前窗口满足条件，对答案加上当前窗口的长度
+
+
+2111. 使数组 K 递增的最少操作次数
+分组+二分
+将arr分成k组，分别求每一组变成非递减的最少次数，最后累加得到答案
+对于某一组元素，设长度为n，则将其变成非递减序列的最少次数=n-最长非严格递增子序列长度
+由于数组长度达到1e5，不能使用时间复杂度为o(n^2)的动态规划算法，可以使用维护有序序列+二分查找来获取最长非严格递增子序列的长度
+
+
+2227. 加密解密字符串
+模拟
+对于一个字符串，其解密结果可能不唯一，其加密结果唯一。可以逆向思考：
+对dictionary中的每个字符串进行加密，记录加密得到的 字符串及其出现的次数
+那么对于word2，想知道其解密结果，获取其在加密记录表中的出现次数即可
+
+
+2023.08.02
+
+1482. 制作 m 束花所需的最少天数
+二分
+二分枚举等待的天数，判断是否能满足条件
+具体实现：遍历数组，当开花时间&lt;=等待时间，说明该朵花可以采摘，count++。每当count&gt;=k时，count-=k，并为find+1说明完成了一束花的制作。如果遇到一朵花其开花时间&gt;等待时间，立即重置count的数量为0。最后返回find是否&gt;=m
+
+
+1793. 好子数组的最大分数
+预处理+单调栈+枚举
+分数由子数组中的最小值以及子数组的长度决定，为了得到最大分数，可以枚举最小值。
+当最小值固定后，尽可能让子数组长度更大
+使用单调栈预处理每个下标i，其左右两边比自己更小的数字出现的下标，那么当下标i作为最小值时，就可以快速得到子数组的最大长度，再计算出分数，维护最大分数作为答案
+分数计算的具体细节：设上一个更大值的下标为left，下一个更大值的下标为right，那么该子数组的范围为[left+1,right-1]，长度为right-1-left-1+1=right-left-1，分数为nums[i]*(right-left-1),注意合法的子数组需要满足左右端点与k的关系
+
+
+1631. 最小体力消耗路径
+BFS+二分
+二分枚举体力消耗值，判断是否能找到终点
+对于限定最大值max，使用BFS从起点出发搜索是否能到达终点，当相邻格子未被访问且高度差绝对值小于max时放入队列，能到达终点说明当前max合法
+
+2516. 每种字符至少取 K 个
+滑动窗口
+先统计出每个字符分别有多少个，如果存在某字符个数少于k，直接返回-1。获取一个最长的窗口，窗口内每个字符的个数&lt;=cnt-k，cnt是字符对应的总数，那么n-窗口长度就是答案
+
+
+2509. 查询树中环的长度
+最近公共祖先
+对于每个查询获取其最近的公共祖先，答案为两个节点分别到与公共祖先的距离+1
+由于本题是数组表示的完全二叉树，可以通过下标快速获取最近公共祖先的位置
+具体实现：对于编号a和b
+如果 a&gt;b，说明 a 的深度大于等于 b 的深度，把 a 移动到其父节点，即 a=a/2；
+如果 a&lt;b，说明 a 的深度小于等于 b 的深度，把 b 移动到其父节点，即 b=b/2；
+如果 a=b，则找到了 LCA，退出循环
+
+
+1690. 石子游戏 VII
+前缀和+动态规划
+定义dp[i][j]表示对于数组区间[i,j]两人得分的差值
+使用前缀和快速计算石头的价值之和
+具体实现：从小到大枚举区间长度，dp[i,j]可由更小的区间dp[i+1,j]或dp[i,j-1]转移而来，二者取最大
+
+
+1737. 满足三条件之一需改变的最少字符数
+模拟
+枚举a的最大值，b的最小值的各种情况，取最少操作次数
+枚举b的最大值，a的最小值的各种情况，取最少操作次数
+枚举a和b每个字母都相同时的各种情况，取最少操作次数
+答案取上面三个方案中的最少操作次数
+
+
+2434. 使用机器人打印字典序最小的字符串
+贪心+栈
+遍历s，不断从s中取出ch，放入栈中。
+什么时候将字符写到纸上？
+当栈顶元素&lt;=当前s中剩余字符的最小值时，将其写在纸上。
+否则应继续从s取到那个更小值ch&#39;，让ch&#39;在答案字符串的前排
+
+
+1696. 跳跃游戏 VI
+动态规划+优先队列
+使用maxScore记录到达每个位置的最大得分
+对于位置x，需要知道[x-k,x-1]的最大得分，可以使用优先队列快速获取该区间内的最大得分
+
+
+2023.08.03
+
+1463. 摘樱桃 II
+动态规划
+两个机器人同时移动，任意时刻两个机器人都在同一行中
+定义dp[i][j][k]表示在移动到下标为i的行时，机器人1位于(i,j)，机器人2位于(i,k)可以收集的最多樱桃数目
+初始化：除了dp[0][0][n-1],所有状态初始化为-1
+当机器人1与机器人2位于同一列时，只能摘取一次（摘取顺序不影响答案）
+枚举机器人1的上一个状态以及机器人2的上一个状态，当两个机器人的上一个状态都合法（不等于-1）时，进行状态转移，取最大的状态
+枚举到达m-1行时，机器人1和机器人2分别位于不同位置时可以收集的最多樱桃数目，取最大作为答案
+
+
+2564. 子字符串异或查询
+预处理
+需要找到一个二进制字符串str，满足：str对应的十进制值 ^ firsti == secondi
+根据异或的性质，等价于str对应的十进制值 == firsti ^ secondi
+由于0 &lt;= firsti, secondi &lt;= 1e9 那么满足条件的str字符串对应的十进制值也会在该范围中
+预处理所有长度&lt;=30的子字符串及其位置，通过哈希表快速匹配字符串
+
+
+2392. 给定条件下构造矩阵
+拓扑排序
+矩阵的大小为 k × k ，需要填充k个数字，让每个数字独占一行，可以尽可能的使矩阵满足条件
+分别对行和列的约束关系进行拓扑排序，从而确定数字的位置
+如果行和列的拓扑排序后得到的序列长度&lt;k，说明出现了环（所有节点的入度都不为0），则无法构造矩阵
+注意：题目给的约束条件是有重复的！比如[a,b]可能出现多次，需要去重处理
+
+
+2350. 不可能得到的最短骰子序列
+思维+哈希表
+一开始，可以表示的最长子序列长度len为0
+遍历数组，每当某个时刻1~k都出现至少一次，那么len+=1，并清空对所有数字的计数
+最后无法表示的长度为len+1 
+使用哈希表快速判断每个数字是否都出现至少一次
+
+
+1537. 最大得分
+贪心+前缀和
+两个数组都有序，那么不论怎么走，所有的公共点都至少经过一次
+记录公共点的位置，当遇到公共点时，根据前缀和判断是否要切换路径（比较两条路径中，当前公共点与下一个公共点之间的所有数字的和，贪心地选择和更大的路径）
+1.所有公共点只统计一次
+2.第一个公共点之前、最后一个公共点之后的路径怎么走，需要额外讨论
+3.两个数组没有任何公共点时，也需要额外讨论
+
+
+1642. 可以到达的最远建筑
+二分+贪心+排序
+一架梯子相当于无限量的砖块，因此梯子应该用在高度差尽可能大的地方
+二分枚举到达最远的下标，将其中每次需要梯子或砖块的地方的高度差统计出来，进行排序
+排序后，在最大的ladders个高度差上使用梯子，其余的高度差使用bricks
+如果使用后bricks&gt;=0说明该下标可达，缩小左边界，否则缩小右边界
+最后一个合法的左边界作为答案
+获取高度差时，可以遍历，也可以预处理+二分(这里直接从下标0开始遍历到下标mid获取高度差)
+
+2023.08.07
+
+815. 公交路线
+BFS
+先遍历所有的线路，若该线路中存在起始点source，则将该线路中所有点放入队列中
+进行BFS，路线不需要重复访问，每访问到一条路线时将其标记为已访问
+进入新的路线时将整个路线的点入队。找到终点target时返回答案
+特判：source==target时，不需要乘坐任何公交车，返回0
+
+
+2439. 最小化数组中的最大值
+二分
+枚举经过操作后，数组的最大值为x，遍历数组判断是否可行
+进行操作相当于可以把后面大于x的元素全部改为x，并分配给前面小于x的元素
+遍历数组：
+当nums[i]&lt;x时，可以为后面的元素分担x-nums[i]
+当nums[i]&gt;x时，需要前面的元素分担nums[i]-x
+记当前剩余可分担的大小为cnt，任何时刻cnt&lt;0说明令最大元素为x不可行
+
+
+1293. 网格中的最短路径
+BFS 
+对于每个状态，记录当前状态的行下标、列下标和已经消除的障碍物个数，记已经消除的障碍物个数是 eliminations，记当前状态的最少步数是distance
+如果当前状态已经到达右下角，则返回distance。如果当前状态尚未到达右下角，则对于四个方向上的每个相邻单元格执行BFS：
+1.如果相邻单元格是空白，且该相邻单元格对应的消除eliminations个障碍物的状态未访问，则将该相邻状态的最少步数更新为 distance+1，继续访问该相邻状态。
+2.如果相邻单元格是障碍物，且满足eliminations&lt;k、该相邻单元格对应消除eliminations+1 个障碍物的状态未访问，则将该相邻状态的最少步数更新为distance+1，继续访问该相邻状态。
+3.遍历结束之后，如果未到达右下角，则不存在从左上角到右下角的路径，返回 −1
+
+
+1943. 描述绘画结果
+差分
+注意到 1 &lt;= start_i &lt; end_i &lt;= 1e5 那么只需要开一个差分数组就可以知道某下标的颜色之和
+但是颜色值相同可能是由不同颜色混合而来的，如何区分？
+将差分数组开成二维，分别记录加和减，某位置如果有加或有减，那么它就是不同颜色的边界
+将color初始化为0，每遇到颜色边界时，如果color不为0，添加答案，更新color，并更新color的左边界pre为当前的下标i
+
+
+835. 图像重叠
+思维+模拟
+将所有的1上下左右移动相当于img1的(0,0)位置可以贴在img2的任意坐标(可以超出img2的范围)，img1自身相对位置保持不变
+枚举帖在img2的任意坐标位置，计算最大重叠数
+实际上枚举img1贴在img2中的x坐标(-n,n),y坐标(-n,n)即可，因为超出该范围的坐标即使贴上去两张图片也不会有重叠
+
+
+1250. 检查「好数组」
+裴蜀定理
+对于不全为零的任意整数 a 和 b，记 g = 最大公约数(a, b)，则对于任意整数 x 和 y 都满足 a×x + b×y 是 g 的倍数
+特别地，存在整数 x 和 y 满足 a×x + b×y=g
+裴蜀定理可以推广到任意个整数的情况，本题等价于求出nums数组中所有元素的最大公约数，若最大公约数为1返回true
+
+1032. 字符流
+字典树
+1.把words中所有单词放入字典树
+2.使用StringBuilder记录当前的字符流
+3.对于每一次查询，枚举StringBuilder中的所有后缀，如果能找到返回true
+使用字典树可以通过现有的StringBuilder进行后缀匹配，不需要截取字符串，因此省下许多时间
+
+
+1488. 避免洪水泛滥
+贪心+TreeSet
+由于湖泊编号较大，可以使用哈希表来存储哪些湖泊是满的
+每次遇到不下雨的天气，先存储抽干湖泊的机会，具体操作是将该机会的下标放入TreeSet中
+当湖泊未满时，记录湖泊的满水日期
+当遇到湖泊已满时，使用湖泊满水日期之后最近的抽水机会，具体使用TreeSet的higher方法查找，并更新湖泊的满水日期
+
+
+2023.08.08
+
+1092. 最短公共超序列
+动态规划
+str1、str2长度最大为1000，可以根据数据量推测解题使用的算法
+定义dp[i][j]表示同时以str1中[i,m-1]的字符和str2中的[j,n-1]的字符作为子序列的最短字符串的长度
+初始化：其中一个字符串不选取任何字符时，dp值为另一个字符串的长度
+状态转移：
+ch1==ch2时，最短字符串的开头为ch1，dp[i][j] = dp[i+1][j+1] + 1 
+ch1!=ch2时，最短字符串的开头为ch1或ch2，dp[i][j] = min(dp[i+1][j],dp[i][j+1])+1
+最后根据字符的相同情况以及dp值的转移过程构造答案字符串
+
+
+907. 子数组的最小值之和
+单调栈
+最容易想到的是使用双循环枚举每个子数组的最小值计算答案，超出时间限制
+如果枚举arr[i]作为最小值时对答案的贡献呢？那么就需要使用单调栈来维护arr[i]作为最小值时子数组的左右边界
+假设左边更小值出现在下标left，右边更小值出现在right 则对答案的贡献为(i-left)*(right-i)*arr[i]
+但是这样计算会导致子区间的重复计算，因此需要使用左开右闭或者左闭右开区间
+
+
+1882. 使用服务器处理任务
+优先队列
+服务器分配规则：
+1.需要处于空闲状态，优先分配给权重最小的服务器
+2.权重相同时，分配给下标最小的服务器
+使用两个优先队列分别存放空闲服务器、繁忙服务器
+使用time来标记全局时间，遍历任务数组并处理任务，每遍历一次time+=1
+遍历完任务数组后，可能还有任务没有完成，这时候继续处理，此时time应该直接“加速”到又有繁忙服务器变为空闲的时间，而不是简单+1（每个任务的完成时间可能会很长）
+
+
+2151. 基于陈述统计最多好人数
+二进制枚举
+人数至少为2，那么可以认为好人数至少为1（可以枚举所有的4种情况来证明）
+情况一：
+1 认为2 是好人
+2 认为1 是好人
+最佳情况是两人都是好人
+情况二：
+1 认为2 是坏人
+2 认为1 是好人
+至少1可以是好人，此时2是坏人
+情况三：
+1 认为2 是好人
+2 认为1 是坏人
+至少2可以是好人，此时1是坏人
+情况四：
+1 认为2 是坏人
+2 认为1 是坏人
+可以认为1或2是好人，那么另一个人是坏人而且说假话
+人数至多为15，可以通过二进制枚举[1,1&lt;&lt;n-1]，二进制位上为1代表是好人，0代表是坏人
+对于i，一边统计好人个数cnt，一边判断好人的陈述是否出现矛盾，若出现直接跳出循环，不出现矛盾时根据cnt维护答案
+
+
+1278. 分割回文串 III
+预处理+动态规划
+先预处理每个区间[left,right]构成回文子串需要的最少修改字符数
+定义dp[i][j]表示[0,i]区间分割为j个回文子串时需要的最少字符数
+
+
+2023.08.09
+
+805. 数组的均值分割
+折半搜索+二进制枚举
+数组长度最大为30,由于A、B不能为空，考虑可行方案下，A、B的长度：A长度为[1,29], B长度为30-A长度
+此时进行pow(2,30)次搜索会超出时间限制，可以使用折半搜索达到空间换时间的效果
+具体实现是先对数组的前一半进行搜索，并记录相关信息，再对数组后一半进行搜索，判断是否存在前一半的一种方案与后一半的一种方案可以组合出答案
+折半搜索时，对于数组长度n，使用n/2位的二进制数来表示A、B中的元素情况
+如果前半段和后半段能组合出一种数组A使得平均值为整个数组的平均值all/n，则数组B自然也满足条件
+设前半段的长度为j，和为ele，那么有等式(ele+sum)/(j+cnt)==all/n，移项可得ele的表达式：
+ele=all(j+cnt)/n-sum，从哈希表中判断是否存在该ele即可，由于除法可能导致整数计算精度不正确，可以使用乘法再验算一遍
+
+
+1733. 需要教语言的最少人数
+贪心+模拟
+数据量较小，可以把所有是好友且无法沟通的关系找出来，再枚举教学的语言
+
+
+940. 不同的子序列 II
+枚举
+字符串仅由小写英文字母组成，枚举以26个小写字母为结尾的子序列的个数，最后答案就是以26个小写字母为结尾的子序列个数之和
+具体实现：每遇到一个字符ch，先统计之前以a~z为结尾的子序列的总数sum，那么现在以ch为结尾的子序列总数应更新为sum+1。
+可以在每次遍历时都统计总数sum，也可以把总数sum作为全局变量来维护
+
+
+928. 尽量减少恶意软件的传播 II
+并查集
+在924题尽量减少恶意软件的传播I中，只是让某个节点初始时不再是感染状态，并不影响联通分量的状态
+本题中，让某个节点被完全删除，可能将原来的联通分量拆分成多个联通分量
+对健康节点进行建图，合并，得到多个联通分量
+枚举每一个初始感染节点，统计对哪些联通分量进行了感染
+对于健康的连通分量，如果它的感染源只有1个，说明它是可被拯救的
+再次枚举初始感染节点，计算移除当前初始感染节点后最终感染的节点数，取可以得到最少节点数的感染节点作为答案
+
+
+902. 最大为 N 的数字组合
+数位dp
+将n转化为字符数组进行记忆化数位dp计算
+当前填的位置不受限制时，才可以返回缓存中的答案，同时算出结果时继续缓存
+当前填好的数字处在不合法的状态时，可以跳过当前数位
+当前可以填的数字上限取决于当前位置是否受限制（n为数字上限，当上一位数字与n中对应位数字相同时，当前位置就是受限状态）
+
+
+756. 金字塔转换矩阵
+DFS
+数据量较小，dfs搜索是否能完成金字塔的构建
+把允许的三角形图案进行状态压缩存入哈希表，方便查找合法图案
+dfs参数：上一层的图案pre，当前层的图案now，当前层正在构建的下标index
+当前层已构造完毕，递归是否可以构造再上一层，出口为上一层的长度为1，代表金字塔顶部已构建完毕
+对于当前层的index下标，枚举可以构建的图案，只要存在一种图案最终到达终点则返回true
+
+
+963. 最小面积矩形 II
+枚举
+数据量较小，枚举三个点，判断是否存在第四个点与其组成矩阵
+
+
+1625. 执行操作后字典序最小的字符串
+枚举
+无法改变字符串的长度，那么字典序越小就是对应的数字越小，分情况枚举答案
+如果 b 是偶数，无论轮转多少次，都只能给奇数位的元素做累加操作
+如果 b 是奇数，可以给奇数位和偶数位的元素都做加法，且操作次数可以不同
+由于加法超过9会变回0，那么可操作次数也是极小的，很快就会恢复到原来的状态
+直接枚举操作的次数，维护字典序最小的字符串作为答案
+
+
+2023.08.10
+
+
+927. 三等分
+枚举
+先统计arr中1的个数sum，若个数为0则返回任意答案，若个数%3不等于0，说明无法做到
+将arr分成三部分，每部分中1的个数partial=sum/3，根据每部分中1的个数寻找分割点
+由于第一部分和第二部分首尾的0的划分不确定，但是第三部分的尾部是固定的，用第三部分的值来反推是否可以划分为三部分
+
+
+1986. 完成任务的最少工作时间段
+状态压缩+动态规划
+数据量较小，可以使用二进制数表示任务完成的状态
+定义dp[mask]表示任务完成状态为mask时需要的最小工作时间段
+初始化：
+1.先初始化所有dp值为最大值
+2.枚举mask，若工作时长之和&lt;=sessionTime，可以在一个工作时间段内完成，dp[mask]初始化为1
+状态转移：
+对于mask，枚举其子集subset，如果dp[subset]==1，则dp[mask]可由dp[mask^subset]+1转移而来，取最小的dp[mask]
+返回答案：dp[(1&lt;&lt;n)-1]，表示所有任务都完成所需要的最少工作时间段
+
+
+2250. 统计包含每个点的矩形数目
+枚举+排序+二分
+横坐标最大为1e9，纵坐标最大只有100
+首先对矩阵的右上角按横坐标从小到大排序
+对矩阵的右上角按纵坐标分组，每个纵坐标对应一个或多个横坐标，存入哈希表中
+对于查询点(x,y)，纵坐标&lt;y的矩阵必然不会包含该点
+枚举纵坐标，从y遍历到100，对每一个纵坐标进行二分查找大于等于x的个数，就是该纵坐标上包含查询点的矩阵的个数，累加即可得到答案
+
+
+2488. 统计中位数为 K 的子数组
+前缀和
+数组由1到n的不同整数组成，k只出现一次，对于其他数，只考虑与k相比的大小，具体大小不影响答案
+中位数为k的子数组满足以下条件的任意一条：
+1.包含k，小于k的个数 与 大于k的个数相等
+2.包含k，只有一个大于k的元素，没有任何一个小于k的元素
+3.只包含k，没有其他任何元素
+将小于k的数记作-1，大于k的数记作1，等于k的数记作0，则有：
+对于上述的条件1，等价于子数组元素和为0
+对于上述的条件2，等价于子数组元素和为1
+对于上述的条件3，等价于子数组元素和为0
+对于当前的前缀和sum，若之前出现过一个前缀和pre，满足sum-pre=0或sum-pre=1，就可以构成满足题意的子数组，移项可得pre的表达式：pre=sum或pre=sum-1
+使用哈希表记录前缀和出现的次数获取答案
+注意:
+1.需要在包含k时和包含k之后才可以开始记录答案（满足子数组要包含k的条件）
+2.在k出现之后，不需要再向哈希表中记录前缀和
+
+
+765. 情侣牵手
+贪心+并查集
+对于一对情侣，假设编号为a，b，那么让a，b并肩坐在一起即可，与具体顺序是a，b还是b，a无关，因此可以将同一对情侣编上相同的号，以简化代码
+由于座位没有循环，最终0，1下标的座位必然是同一对情侣，而不会出现1，2下标是同一对情侣，因为这样0下标的人无法与Ta的对象牵手
+将n对情侣看做图中的n个节点，对于每两个相邻的节点，如果是第 i 对与第 j 对坐在了一起，则在 i 号节点与 j 号节点之间连接一条边，代表需要交换这两对情侣的位置
+最终每一个联通分量都是一个环，交换次数为这个联通分量的大小减1
+统计所有联通分量的交换次数作为答案
+
+
+2023.08.15
+
+911. 在线选举
+预处理+二分查找
+预处理每一个时间的最近获胜者，对于查询t，找到&lt;=t时间的获胜者作为答案
+
+2023.08.16
+
+1686. 石子游戏 VI
+贪心
+假设有石子a和石子b，Alice认为价值为a1，b1，Bob认为价值为a2，b2
+考虑取石子的方案：
+第一种方案：Alice取第一个石子，Bob取第二个石子，此时分数差diff1=a1-b2
+第二种方案：Alice取第二个石子，Bob取第一个石子，此时分数差diff2=b1-a2
+两种不同方案之差：
+diff = diff1 - diff2 = (a1+a2) - (b1+b2)
+因此有：
+diff&gt;0 第一个方案更优 此时(a1+a2) &gt; (b1+b2)
+diff=0 两个方案等价  此时(a1+a2) = (b1+b2)
+diff&lt;0 第二个方案更优 此时(a1+a2) &lt; (b1+b2)
+对于Alice而言，a石头和b石头哪一个的双方认为价值之和更大，就选择那个石子
+因此对于每个人而言，贪心地选择剩余石头中双方认为价值之和更大的石子就是最优策略
+将石子价值之和放入优先队列，模拟两人取石子的过程，统计两人分数得到答案
+
+
+2328. 网格图中递增路径的数目
+动态规划+优先队列
+定义dp[i][j]表示以(i,j)为终点的路径数目
+需要从较小值所在位置开始计算，每个位置都可能从四个方向上的更小值转移而来，记录每个位置的数值大小并放入优先队列，按数值从小到大顺序对每个位置进行计算
+
+
+2092. 找出知晓秘密的所有专家
+BFS
+使用哈希表维护目前知道秘密的专家的编号
+同一个时间的会议上，对知道秘密的人进行BFS，得到该时间过后有多少人知道秘密
+
+
+1927. 求和游戏
+数学
+当问号的个数为零，可直接判断胜负，下面讨论问号个数不为零的情况
+结论1：如果问号的个数为奇数，那么Alice一定获胜。
+因为Alice是先手操作，那么最后一个问号是由Alice来操作的，Alice可以让前一半数字与后一半数字不相等
+结论2：如果问号的个数是偶数，前一半数字和为n0，问号个数为q0，后一半数字和为n1，问号个数为q1，Bob只有在n0-n1=(q1-q0)*9/2成立时必胜
+
+
+1761. 一个图中连通三元组的最小度数
+枚举
+数据量较小，建图后枚举可能的三元组（注意剪枝），统计度数，取最小度数作为答案
+
+
+2448. 使数组相等的最小开销
+排序+前缀和+枚举
+枚举把数组中所有元素变成nums[i]的开销，使用前缀和+排序快速计算开销，取最少的开销作为答案
+将cost[i]理解为nums[i]有cost[i]个即可
+
+2023.08.21
+
+1223. 掷骰子模拟
+dfs+记忆化
+枚举第一次投掷的编号，第二次投掷的编号...最后一次投掷的编号
+根据题目数据的大小，开三维数组cache进行记忆化，注意不合法序列的判断
+
+
+1981. 最小化目标值与所选元素的差
+暴力枚举
+数据量较小，可以枚举到下标为i的行为止，每行选一个元素能得到的所有可能和值
+最后遍历选到最后一行的所有可能和值，维护与目标值的最小绝对差 
+
+
+880. 索引处的解码字符串
+模拟
+模拟解码字符串的过程，直到解码出至少k个字符，再回头寻找第k个字符，如果回头寻找时遇到数字，将长度除以数字，并将k对长度求余
+
+
+2333. 最小差值平方和
+排序+二分
+获取每对nums1[i]和nums2[i]的差值，放入diff数组
+k1和k2都可以让diff中最大的一个元素减1，记总共的剩余操作次数为cnt，cnt=k1+k2
+对diff进行排序，二分查找得到在提供cnt次操作的情况下，diff中最小的最大差值为maxDiff
+得到maxDiff后，计算使最大差值为maxDiff后还有多少剩余次数
+在maxDiff的情况下，说明要么剩余次数为0，要么就是其他的maxDiff可以再减1，直到次数被用完，这是由于如果可以把所有的maxDiff缩小，那么maxDiff就会是maxDiff-1了
+
+2023.08.23
+
+2477. 到达首都的最少油耗
+递归
+对于一个节点u，计算出以u为根节点的子树（包括u节点）的节点总数为cnt
+因此得到节点u向其父节点p出发需要提供的汽车数量car为Math.ceil(cnt*1.0/seats)
+当u不为首都时，u到p的耗油量即为car，ans+=car
+
+
+2472. 不重叠回文子字符串的最大数目
+预处理+动态规划
+预处理每个区间[i,j]是否回文
+定义dp[i]表示s中前i个字符能选择的子字符串的最大数目
+
+
+1105. 填充书架
+动态规划
+定义dp[i]表示放置前i本书需要的最小高度，由于书的放置顺序固定，
+对于前i本书，可以枚举[j,i-1]的书放在新一层书架上，前提是[j,i-1]的宽度之和符合题意，那么新增高度为max(height[j],height[i-1])
+
+
+1354. 多次求和构造目标数组
+逆向思维 模拟
+target中最大的数字（记下标为maxIndex）是上一轮的sum，因此可以推出在上一轮中下标为maxIndex的元素的值，不断往回推，判断最后能否得到全1数组（数组之和为n，n是数组长度）
+当最大元素&gt;其他元素之和时，每一次操作会让最大元素减少(sum-最大元素),需要优化计算使其可以一步得到多次操作后的最大值（使用求余）
+
+
+1353. 最多可以参加的会议数目
+贪心+排序+优先队列
+将会议按照开始时间排序，遍历每个时间，将已开始的会议其放入优先队列中
+优先队列按照结束时间早的优先，贪心的参加较早结束的会议，参加会议或会议已结束移除队列
+
+
+909. 蛇梯棋
+BFS
+注意到n比较小，可以直接BFS得到答案
+
+
+2547. 拆分数组的最小代价
+动态规划
+定义dp[i]表示前i个元素拆分的最小代价
+
+
+2517. 礼盒的最大甜蜜度
+排序+二分
+二分判断甜蜜度是否可行，取最大可行甜蜜度作为答案
+
+
+2741. 特别的排列
+状态压缩+记忆化dfs
+枚举每一个位置填的数字，得到合法完整排列后计入答案
+
+
+2271. 毯子覆盖的最多白色砖块数
+排序+双指针
+结论：一定存在至少一种覆盖砖块最多的方案，毯子的左端点位置是在某一段连续瓷砖的第一个
+对于离散区间是否覆盖的处理：使用p指针维护覆盖到了哪一片连续瓷砖
+
+
+2251. 花期内花的数目
+排序+优先队列
+将花朵按开花时间排序，将人按时间先后排序，遍历每个人的看花时间
+开花后将其结束时间放入优先队列，动态获取每个人能看到的花的数目
+
+
+1210. 穿过迷宫的最少移动次数
+BFS
+数据量较小，直接BFS
+
+
+2023.08.24
+
+1235. 规划兼职工作
+排序+动态规划
+将工作按照结束时间排序
+定义dp[i]表示前i份工作能得到的最大报酬
+枚举做第i份工作或不做第i份工作：
+不做第i份工作时，dp[i]=dp[i-1]
+做第i份工作时，需要找到前面的一个dp[j]，使得第j件工作的结束时间data[j-1][2]&lt;=第i件工作的开始时间data[i-1][0]
+由于dp[j]已经是前j件工作的最大报酬了，因此找到这样的j后立即更新dp[i]的值并跳出循环，避免超时
+
+
+2597. 美丽子集的数目
+dfs+回溯
+数据量较少，dfs枚举每个位置选或不选
+
+
+1734. 解码异或后的排列
+模拟
+注意encoded的长度是n-1，perm的长度是n
+1.将encoded中下标为奇数的元素进行异或，得到除perm第一个元素以外其他元素的异或运算结果
+2.将1~n元素进行异或，可以得到perm所有元素的异或运算结果
+将1和2的结果进行异或，从而得到perm第一个元素的值，perm其他元素的值可根据encoded的计算方式反推得到
+
+
+1406. 石子游戏 III
+动态规划
+定义dp[i]表示剩余石子的下标范围是[i,n-1]时当前玩家与对方玩家的得分之差的最大值
+
+
+1626. 无矛盾的最佳球队
+排序+动态规划
+对球员按分数进行排序，分数相同按年龄排序
+定义dp[i]表示选择下标为i的球员得到的无矛盾球队中最高的得分
+由于已排好序，对于dp[i]，向前枚举无矛盾的dp[j]，取最大的dp[j]+下标为i的球员的分数作为dp[i]的值
+
+
+895. 最大频率栈
+模拟
+原始栈拆分成多个栈，使用一个哈希表来维护栈中元素及其出现个数
+用一个列表来存多个栈，栈的下标表示出现频率，每次pop时从最后一个栈（频率最高）中取出元素
+
+
+2772. 使数组中的所有元素都等于零
+贪心+差分
+遍历数组元素，若当前元素不为0则将当前位置以及后面k-1个位置同时减去当前元素，让当前位置为0
+若后面出现负数，返回false。遍历完所有元素，说明可以让数组元素都等于0，返回true
+使用差分数组快速进行区间操作
+
+
+2023.08.25
+
+剑指 Offer 51. 数组中的逆序对
+归并排序
+进行归并排序，将数组分成前半段[left,mid]和后半段[mid+1,right]，且这两部分再次递归进行归并，现已各自有序，进行合并
+在合并时，若前半段中存在元素nums[i]&gt;后半段中的nums[j]，由于前半段已经有序，那么[i,mid]这区间的所有元素也会&gt;后半段中的nums[j],对答案的贡献就是[i,mid]区间的长度mid-i+1
+
+
+2426. 满足不等式的数对数目
+归并排序
+对于题目中的条件，移项可得nums1[i]-nums2[i]-diff &lt;= nums1[j]-nums2[j]
+对所有的nums1[i]-nums2[i]进行归并排序，合并时进行统计得到答案
+
+
+1425. 带限制的子序列和
+优先队列+动态规划
+定义dp[i]表示到下标i为止，恰好选择了nums[i]的最大子序列和
+使用优先队列维护往前k个dp值，先按时间先后排序，再按dp值从大到小排序，进行状态转移时取未过期的最大值
+在遍历时维护答案，因为最大子序列和不一定出现在dp[n-1]
+
+
+2023.08.26
+
+2262. 字符串的总引力
+思维题/贡献法
+对于s中的每一个字符ch，可以计算出ch对哪个范围内的子串做出贡献
+规定一个子字符串，如果包含多个相同的字符ch，那么只有第一个ch对本子串做出贡献
+统计s中每个字符的上一次出现位置pre[ch-&#39;a&#39;]，遍历字符串，对于下标为i的ch有：
+ch作用的子串范围：最小左端点pre[ch-&#39;a&#39;]+1 最大右端点s.length()-1
+以i为中心，左端点left和右端点right可任意组合，因此需要相乘，ch对答案的贡献为((long)i-pre[ch-&#39;a&#39;])*((long)s.length()-i)
+累加所有ch对答案的贡献，得到最终答案
+
+
+2136. 全部开花的最早一天
+贪心
+开花周期长的花优先种植,同时获取每朵花的开花时间,最大的开花时间就是答案
+
+828. 统计子串中的唯一字符
+预处理/贡献法
+对于下标i的字符ch，预处理向前最近的一个相同字符ch的位置pre和向后最近的一个相同字符ch的位置suf，
+可得到ch对哪些范围内的子串做出了贡献,以i为中心,左右端点可两两组合，因此需要相乘
+
+
+947. 移除最多的同行或同列石头
+并查集
+根据同行或同列对石头进行合并，最后可以得到多个集合
+每一个集合应该是呈网格形的，对于每个集合，可以不断移除石头，直至该集合剩下1个石头
+数据量较小，使用双重循环进行合并
+
+
+1335. 工作计划的最低难度
+动态规划
+特判：任务个数为n，计划天数为d，当n&lt;d时无解，当n==d时每天恰好完成一个任务，当d==1时返回难度数组中的最大值
+定义dp[i][j]表示计划进行前i+1天，完成到下标为j的任务时的最小难度
+由于每天至少完成1个任务，在转移时应注意上一个状态最少完成任务的数量
+
+
+1140. 石子游戏 II
+动态规划
+定义dp[i][j]表示区间[i,len-1]先手玩家能得到的最多石子数
+当i+2M&gt;=len时，当前玩家可直接取走剩余的所有石子
+否则，枚举当前选多少能得到最多石子数
+
+
+1348. 推文计数
+暴力模拟
+0 &lt;= endTime - startTime &lt;= 1e4且最多操作1e4次
+理论数据量为1e8（时间的遍历每次至少为60，实际数据量更少），可直接暴力模拟
+
+
+2245. 转角路径的乘积中最多能有几个尾随零
+数学+预处理+前缀和
+结论1：至少存在一个两端位于数组边界的路径的尾随零数量最多。因为在得到某条存在尾随零且两端未到达数组边界的路径时，可继续向边界选取数字，尾随零的数量只多不少
+结论2：至少存在一条尾随零数量最多的路径，且该路径属于转角路径。因为直线路径进行转角，尾随零的数量只多不少
+计算优化：尾随零的数量等于路径上所有元素进行质因数分解后因子2的数目与因子5的数目的较小值
+枚举所有可能的路径：
+1.从上往下走，枚举左拐/右拐
+2.从下往上走，枚举左拐/右拐
+
+
+2116. 判断一个括号字符串是否有效
+数学
+如果字符串长度为奇数，无论如何也无法有效，返回false
+令左括号分数为1，右括号分数为-1，那么对于一个括号字符串s，其有效的条件等价于：
+任意前缀的分数均&gt;=0 且 整个字符串的分数为0
+
+
+1590. 使数组和能被 P 整除
+数学+前缀和
+如果整个数组可以被p整除，返回0，否则先记下数组元素和%p的值mod
+使用哈希表记录每个前缀和及其出现下标，如果两个前缀和的值相差恰好为mod，说明存在一个子数组和为mod：对于整个数组而言，对p求余为mod，减去这个子数组对p求余就恰好为0了
+记录前缀和的变量sum也需要不断对p求余，因为要找的mod(子数组和)是通过对p求余得来的，对于sum而言，需要找到前面一个前缀和的值为(sum-mod+p)%p
+记录最短的子数组长度作为答案
+
+
+1201. 丑数 III
+容斥原理+二分
+[1,i]中,能被a整除的数的个数为i/a
+由容斥原理可以求出[1,i]中能被a或b或c整除的数的个数之和count=i/a + i/b + i/c - i/lcmAB - i/lcmBC - i/lcmAC + i/lcmABC
+二分查找满足count&gt;=n的最小i即为答案
+
+
+1371. 每个元音包含偶数次的最长子字符串
+哈希表记录前缀状态+状态压缩
+对于5个元音字母出现的次数的状态，使用5个2进制位来表示，1代表出现奇数次，0代表出现偶数次
+使用哈希表记录最早出现某个状态status的下标，当后面再次出现这个状态status时，说明每个元音字母的奇偶性再次相同，即两个status之间的子字符串满足条件，根据长度维护答案
+
+
+1751. 最多可以参加的会议数目 II
+排序+动态规划+二分查找
+按照结束时间排序
+定义dp[i][j]表示前i个会议最多参加j个能得到的最大价值
+不参加第i个会议时，dp[i][j]=dp[i-1][j]
+参加第i个会议，dp[i][j]=max(dp[p][j-1]+value[i])，p是与第i个会议没有冲突的，结束的最晚的一个会议，p通过二分查找得到
+
+
+2735. 收集巧克力
+预处理+枚举
+数组长度较小，旋转对每个元素同时生效，可以枚举旋转的次数，设旋转次数为count，则有：
+收集下标为i的元素的成本为nums中区间[i,(i+count)%n]的最小值
+可以预处理每个区间的最小值，把数组多复制一份，预处理时区间就不需要跨越数组边界
+
+
+2551. 将珠子放入背包中
+排序+贪心
+问题等价于需要在数组中切k-1刀，得到k个非空子数组，每个子数组的左右边界的元素之和就是分数
+枚举每一个可以切的位置i，切下去可以得到nums[i]和nums[i+1]的分数，对每个位置可以得到的分数进行排序，取最小的前k-1个位置可得到最小分数，取最大的前k-1个位置可得到最大分数，从而得到答案
+
+
+1553. 吃掉 N 个橘子的最少天数
+数学+记忆化搜索
+吃掉1个橘子的操作是最少的，每次选择吃二分之一或三分之二的橘子，两个方案取最少天数
+
+
+1648. 销售价值减少的颜色球
+贪心+排序+二分
+贪心地每次都卖出剩余个数最多的球，得到最大价值
+二分查找一个值，满足给定orders次减少的机会，令数组中的最大值最小，得到这个值记为max
+那么最后结果数组中，最大值就只能为max，先把数组中所有大于max的卖到只剩max
+如果orders还不为0，保留一个max，对其他max再减1，直到次数被用完
+这是由于如果可以把所有的max缩小，那么max就会是max-1了
+</code></pre>
+
       
     </div>
     <footer>
@@ -366,6 +1619,14 @@
 <h1 id="p105-p122"><a href="#p105-p122" class="headerlink" title="p105-p122"></a>p105-p122</h1><ul>
 <li>用户下单、订单支付</li>
 </ul>
+<h1 id="p123"><a href="#p123" class="headerlink" title="p123"></a>p123</h1><ul>
+<li>SpringTask实现定时任务</li>
+<li>WebSocket实现订单提醒</li>
+</ul>
+<h3 id="SpringTask"><a href="#SpringTask" class="headerlink" title="SpringTask"></a>SpringTask</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">使用cron表达式（本质是一个字符串）指定任务触发的时间</span><br><span class="line">构成规则：分为6或7个域，由空格分隔开，每个域分别代表秒、分钟、小时、日、月、周、年（可选）</span><br><span class="line"> </span><br><span class="line"> SpringTask坐标：spring-context</span><br><span class="line"> </span><br><span class="line"> 使用方法</span><br><span class="line"> 1.在启动类上添加@EnableScheduling</span><br><span class="line"> 2.在需要定时触发的方法上添加@Scheduled(cron = cron表达式)</span><br><span class="line"> 3. 注意该类是需要被Spring容器所管理的，否则@Scheduled 注解不生效</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="WebSocket"><a href="#WebSocket" class="headerlink" title="WebSocket"></a>WebSocket</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">WebSocket是基于TCP的网络协议，实现浏览器与服务器全双工通信</span><br><span class="line">浏览器和服务器只需完成一次握手，两者之间就可以创建持久性的连接，并进行双向数据传输</span><br><span class="line"></span><br><span class="line">1.导入坐标</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-websocket&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line"></span><br><span class="line">2.创建WebSocket配置类</span><br><span class="line">@Configuration</span><br><span class="line">@EnableWebSocket</span><br><span class="line">public class WebSocketConfig implements WebSocketConfigurer &#123;</span><br><span class="line">    </span><br><span class="line">    @Override</span><br><span class="line">    public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) &#123;</span><br><span class="line">        registry.addHandler(myWebSocketHandler(), &quot;/websocket&quot;).setAllowedOrigins(&quot;*&quot;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Bean</span><br><span class="line">    public WebSocketHandler myWebSocketHandler() &#123;</span><br><span class="line">        return new MyWebSocketHandler();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">3. WebSocket处理程序</span><br><span class="line">public class MyWebSocketHandler extends TextWebSocketHandler &#123;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void afterConnectionEstablished(WebSocketSession session) throws Exception &#123;</span><br><span class="line">        // 在建立WebSocket连接后执行的逻辑</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception &#123;</span><br><span class="line">        // 处理收到的文本消息</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public void afterConnectionClosed(WebSocketSession session, CloseStatus status) throws Exception &#123;</span><br><span class="line">        // 在关闭WebSocket连接后执行的逻辑</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -1078,7 +2339,7 @@
 <li>适合存入缓存的数据：即时性、数据一致性要求不高的数据以及访问量大更新频率不高的数据</li>
 <li>2023-07-17 11:53:09</li>
 </ul>
-<h1 id="p152-p166（redis已学过，简单回顾一遍）"><a href="#p152-p166（redis已学过，简单回顾一遍）" class="headerlink" title="p152-p166（redis已学过，简单回顾一遍）"></a>p152-p166（redis已学过，简单回顾一遍）</h1><ul>
+<h1 id="p152-p166"><a href="#p152-p166" class="headerlink" title="p152-p166"></a>p152-p166</h1><ul>
 <li>使用Redis作为缓存</li>
 <li>给缓存中存入json字符串，取出时需要还原为对象类型</li>
 <li>使用阿里巴巴提供的fastjson</li>
@@ -1087,7 +2348,7 @@
 <li>使用Redisson实现分布式锁</li>
 <li>2023-07-17 15:27:39</li>
 </ul>
-<h1 id="p167-p172（SpringCache已学过，简单回顾一遍）"><a href="#p167-p172（SpringCache已学过，简单回顾一遍）" class="headerlink" title="p167-p172（SpringCache已学过，简单回顾一遍）"></a>p167-p172（SpringCache已学过，简单回顾一遍）</h1><ul>
+<h1 id="p167-p172"><a href="#p167-p172" class="headerlink" title="p167-p172"></a>p167-p172</h1><ul>
 <li>使用SpringCache</li>
 <li>SpringCache可以使用注解快速完成缓存功能（对缓存的增删改查）</li>
 <li>CacheManager接口有多种实现，用来处理不同类型的缓存</li>
@@ -1130,7 +2391,8 @@
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>java中的八个基本类型和大小（单位：比特）</p>
+        <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.pdai.tech/">https://www.pdai.tech/</a></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>java中的八个基本类型和大小（单位：比特）</p>
 <ul>
 <li>boolean&#x2F;1</li>
 <li>byte&#x2F;8</li>
@@ -1263,6 +2525,74 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">invoke(Object obj, Object... args) 对带有指定参数的指定对象调用由此 Method 对象表示的底层方法 </span><br><span class="line">getName() 以 String 形式返回此 Method 对象表示的方法名称，即返回方法的名称</span><br></pre></td></tr></table></figure>
 
 <h3 id="SPI机制"><a href="#SPI机制" class="headerlink" title="SPI机制"></a>SPI机制</h3><p>SPI机制是一种基于接口的服务发现机制。它允许在应用程序中定义接口，然后允许第三方供应商为这些接口提供实现，并通过在类路径上的配置文件中声明服务提供者。这种机制可以实现模块化和可插拔的架构，使得应用程序能够在运行时动态地加载和使用不同的实现。</p>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p>Java容器里只能放对象，对于基本类型(int, long, float, double等)，需要将其包装成对象类型后(Integer, Long, Float, Double等)才能放到容器里。很多时候拆包装和解包装能够自动完成。这虽然会导致额外的性能和空间开销，但简化了设计和编程</p>
+<p>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对(两个对象)的映射表</p>
+<p>TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)</p>
+<p>HashSet：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</p>
+<p>LinkedHashSet：具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序</p>
+<p>ArrayList：基于动态数组实现，支持随机访问</p>
+<p>Vector：和 ArrayList 类似，但它是线程安全的</p>
+<p>LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列</p>
+<p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列</p>
+<p>TreeMap：基于红黑树实现</p>
+<p>HashMap：基于哈希表实现</p>
+<p>HashTable：和 HashMap 类似，但它是线程安全的，是遗留类，不应该去使用它</p>
+<p>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用(LRU)顺序</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>数组：一种连续存储线性结构，元素类型相同，大小相等</p>
+<p>链表：n个节点离散分配，彼此通过指针相连，每个节点只有一个前驱节点，每个节点只有一个后续节点，首节点没有前驱节点，尾节点没有后续节点</p>
+<p>哈希表：根据关键码值(Key value)直接进行访问的数据结构</p>
+<p>栈和队列：栈为先进后出，队列先进先出</p>
+<p>树：<br>1.二叉搜索树BST：左子树上所有结点的值均小于它的根结点的值，右子树上所有结点的值均大于它的根结点的值，对于一个节点，其左、右子树也分别为二叉搜索树<br>2.平衡二叉树AVL：左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树<br>3.红黑树：一种自平衡二叉查找树<br>4.哈夫曼树：一种带权路径长度最短的二叉树<br>5.字典树：又称前缀树、单词查找树或键树</p>
+<p>图：</p>
+<p>遍历方式：<br>DFS 深度优先搜索<br>BFS 广度优先搜索</p>
+<p>最小生成树：<br>kruskal算法 对边的权重排序，选边并判断环（并查集实现），直到选完n-1条边<br>prim算法 选择任意点出发，每次选择到达价值最小的点，直到全中所有点</p>
+<p>最短路径：<br>dijkstra算法 单源最短路径 从起点出发BFS，遍历其邻接点，更新到邻接点的最短距离<br>floyd算法 多源最短路径 枚举中转点k，对于每一点对i，j，如果i到j的距离大于先从i到k，再从k到j，则更新i与j之间的最短距离</p>
+<p>拓扑排序：不断选取入度为0的点，加入拓扑排序的列表中，并将与其邻接的点的入度减1，直到得到完整的拓扑排序结果</p>
+<p>AOE：AOE网是一个带权的有向无环图，在AOE网中，具有最大路径长度的路径称为关键路径，关键路径表示完成工程的最短工期<br>关键路径：在AOE网中从源点到汇点路径最长的路径</p>
+<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><p>插入排序</p>
+<pre><code>直接插入排序：
+    思想：把n个待排序的元素看成为一个有序表和一个无序表。开始时有序表中只包含1个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程
+    时间复杂度：平均o(n^2) 最好o(n) 最坏o(n^2) 
+    稳定
+    
+希尔排序：
+    思想：实质上是一种分组插入方法。对于n个待排序的数列，取一个小于n的整数gap(gap被称为步长)将待排序元素分成若干个组子序列，所有距离为gap的倍数的记录放在同一个组中；然后，对各组内的元素进行直接插入排序。 这一趟排序完成之后，每一个组的元素都是有序的。然后减小gap的值，并重复执行上述的分组和排序。重复这样的操作，当gap=1时，整个数列就是有序的
+    时间复杂度：与增量(即，步长gap)的选取有关。当增量为1时，希尔排序退化成了直接插入排序，此时的时间复杂度为O(n^2)
+    不稳定
+    
+</code></pre>
+<p>选择排序</p>
+<pre><code>直接选择排序：
+    思想：在未排序的区间中选取最小元素放在最前面，再从剩余未排序的元素中继续寻找，直到所有元素均排序完毕
+    时间复杂度：平均o(n^2) 最好o(n^2) 最坏o(n^2) 
+    不稳定
+    
+堆排序：
+    思想：把所有元素放入小顶堆再取出
+    时间复杂度：o(logn)
+    不稳定
+</code></pre>
+<p>交换排序</p>
+<pre><code>冒泡排序：
+    思想：遍历数组时不断如果相邻的两个元素前者小于后者，则交换位置，第一轮遍历结束后，最大元素将位于数组末尾，不断遍历直到数组有序
+    时间复杂度：平均o(n^2) 最好o(n) 最坏o(n^2) 
+    稳定
+    
+快速排序：
+    思想：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列
+    时间复杂度：平均o(logn) 最好o(logn) 最坏o(n^2)
+    不稳定
+</code></pre>
+<p>归并排序：<br>    思想：从上往下的归并是不断将区间划分为两个小区间，递归进行排序<br>    时间复杂度：O(n*lgn)<br>    稳定</p>
+<p>桶排序：<br>    思想：将数组分到有限数量的桶子里，再通过从每个桶取出元素完成排序<br>    时间复杂度：取决与对各个桶之间数据进行排序的时间复杂度。桶划分得越小，桶中的数据越少，排序所用的时间也会越少<br>    稳定</p>
+<p>基数排序：<br>    思想：将整数按位数切割成不同的数字，然后按每个位数分别比较。 具体做法是: 将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。<br>    时间复杂度：o(d(r+n)) 其中r为关键字的基数，d为长度，n为关键字的个数<br>    稳定</p>
+<h3 id="常用类库"><a href="#常用类库" class="headerlink" title="常用类库"></a>常用类库</h3><p>Apache Common包：是对JDK的拓展，包含了很多开源的工具，用于解决平时编程经常会遇到的问题，减少重复劳动。官网网址:<a target="_blank" rel="noopener" href="http://commons.apache.org/">http://commons.apache.org</a><br>    BeanUtils：针对Bean的一个工具集，常用来copyProperties<br>    Codec：编码和解码组件，提供常用的编码和解码方法，如DES、SHA1、MD5、Base64、URL和Soundx等<br>    Collections：一个集合组件，扩展了Java标准Collections API，对常用的集合操作进行了很好的封装、抽象和补充，在保证性能的同时大大简化代码</p>
+<p>Google Guava包：包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I&#x2F;O 等等。 所有这些工具每天都在被Google的工程师应用在产品服务中</p>
+<p>Hutool包：一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率</p>
+<p>日志库：<br>    日志门面：一种设计模式，用于在应用程序中实现日志记录的抽象层 如：common-logging、slf4j<br>    日志系统：实际用于记录和管理日志消息的软件组件或库 如：Log4j、Logback、Log4j2</p>
+<p>JSON库：<br>    FastJson: 阿里巴巴开发的 JSON 库，性能优秀<br>    Jackson: 社区十分活跃且更新速度很快<br>    Gson: 谷歌开发的 JSON 库，功能十分全面</p>
+<p>Lombok工具库：一款非常实用Java工具，可用来帮助开发人员消除Java的冗长代码，尤其是对于简单的Java对象</p>
+<p>MapStruct工具库：主要用于解决对象之间的拷贝问题，比如PO&#x2F;DTO&#x2F;VO&#x2F;QueryParam之间的转换问题。区别于BeanUtils这种通过反射，它通过编译器编译生成常规方法，将可以很大程度上提升效率</p>
 
       
     </div>
@@ -1398,7 +2728,7 @@
   
     <li><a href="/tags/java/">java</a><small>1</small></li>
   
-    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>1</small></li>
+    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>2</small></li>
   
   </ul>
 </div>

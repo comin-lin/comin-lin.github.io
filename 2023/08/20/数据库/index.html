@@ -1,0 +1,142 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  
+  <title>数据库 | comin-lin&#39;s blog</title>
+  <meta name="author" content="comin-lin">
+  
+  <meta name="description" content="数据库基础概念事务：满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚
+ACID（事务的4个属性）：
+1234原子性（Atomicity） 事务要么全部完成，要么全部取消一致性（Consistency） 合法的数据（根据关系约束、函数约束来判">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="数据库"/>
+  <meta property="og:site_name" content="comin-lin&#39;s blog"/>
+
+  
+    <meta property="og:image" content=""/>
+  
+
+  <link rel="shortcut icon" href="/favicon.png">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
+  
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+  <header id="header" class="inner"><div class="alignleft">
+  <h1><a href="/">comin-lin&#39;s blog</a></h1>
+  <h2><a href="/"></a></h2>
+</div>
+<nav id="main-nav" class="alignright">
+  <ul>
+    
+      <li><a href="/">Home</a></li>
+    
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+  <div class="clearfix"></div>
+</nav>
+<div class="clearfix"></div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-数据库" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-08-20T15:09:33.000Z"><a href="/2023/08/20/%E6%95%B0%E6%8D%AE%E5%BA%93/">2023-08-20</a></time>
+      
+      
+  
+    <h1 class="p-name title" itemprop="headline name">数据库</h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <h3 id="数据库基础概念"><a href="#数据库基础概念" class="headerlink" title="数据库基础概念"></a>数据库基础概念</h3><p>事务：满足 ACID 特性的一组操作，可以通过 Commit 提交一个事务，也可以使用 Rollback 进行回滚</p>
+<p>ACID（事务的4个属性）：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">原子性（Atomicity） 事务要么全部完成，要么全部取消</span><br><span class="line">一致性（Consistency） 合法的数据（根据关系约束、函数约束来判断是否合法）才能写入数据库</span><br><span class="line">隔离性（Isolation） 多个并发执行的事务操作相互隔离，互不影响，避免不一致和脏读</span><br><span class="line">持久性（Durability） 事务提交成功对数据库的改变是永久性的</span><br></pre></td></tr></table></figure>
+
+<p>范式：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">第一范式：属性不可再分</span><br><span class="line">第二范式：每个非主属性完全函数依赖于主码</span><br><span class="line">第三范式：每个非主属性不传递函数依赖于主码</span><br></pre></td></tr></table></figure>
+
+<p>关系型数据库设计流程：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">有以下6个阶段</span><br><span class="line"></span><br><span class="line">需求分析：分析用户的需求，包括数据、功能和性能需求</span><br><span class="line"></span><br><span class="line">概念结构设计：主要采用E-R模型进行设计，包括画E-R图</span><br><span class="line"></span><br><span class="line">逻辑结构设计：通过将E-R图转换成表，实现从E-R模型到关系模型的转换</span><br><span class="line"></span><br><span class="line">数据库物理设计：主要是为所设计的数据库选择合适的存储结构和存取路径</span><br><span class="line"></span><br><span class="line">数据库的实施：包括编程、测试和试运行</span><br><span class="line"></span><br><span class="line">数据库运行与维护：系统的运行与数据库的日常维护</span><br></pre></td></tr></table></figure>
+
+<p>并发一致性问题：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">丢失修改：两个事务都对一个数据进行修改，事务1修改后事务2再次修改，事务2的修改覆盖了事务1的修改，导致事务1的修改丢失</span><br><span class="line"></span><br><span class="line">读脏数据：事务1对一个数据进行了修改，此时事务2读取了该数据，若事务1进行回滚，那么事务2读到的数据就是脏数据</span><br><span class="line"></span><br><span class="line">不可重复读：事务1读取一个数据，事务2对该数据进行了修改，此时事务1再读一遍该数据，发现两次读取的结果不同</span><br><span class="line"></span><br><span class="line">幻影读：事务1对数据集进行查询，事务2修改了该数据集，事务1再次查询发现两次查询得到的结果不同</span><br></pre></td></tr></table></figure>
+
+<p>产生并发不一致性问题主要原因是破坏了事务的隔离性，解决方法是通过并发控制来保证隔离性</p>
+<p>封锁粒度：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MySQL 中提供了两种封锁粒度: 行级锁以及表级锁</span><br><span class="line">应该尽量只锁定需要修改的那部分数据，而不是所有的资源。锁定的数据量越少，发生锁争用的可能就越小，系统的并发程度就越高</span><br><span class="line">但是加锁需要消耗资源，锁的各种操作(包括获取锁、释放锁、以及检查锁状态)都会增加系统开销。因此封锁粒度越小，系统开销就越大</span><br><span class="line">在选择封锁粒度时，需要在锁开销和并发程度之间做一个权衡</span><br></pre></td></tr></table></figure>
+
+<p>封锁类型：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排它锁(Exclusive)，简写为 X 锁，又称写锁：一个事务对数据对象 A 加了 X 锁，就可以对 A 进行读取和更新。加锁期间其它事务不能对 A 加任何锁</span><br><span class="line">共享锁(Shared)，简写为 S 锁，又称读锁：一个事务对数据对象 A 加了 S 锁，可以对 A 进行读取操作，但是不能进行更新操作。加锁期间其它事务能对 A 加 S 锁，但是不能加 X 锁</span><br></pre></td></tr></table></figure>
+
+<h3 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/db/sql-mysql/sql-mysql-overview.html">https://www.pdai.tech/md/db/sql-mysql/sql-mysql-overview.html</a></p>
+<h3 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h3><p>参考文章：<a target="_blank" rel="noopener" href="https://www.pdai.tech/md/db/nosql-redis/db-redis-overview.html">https://www.pdai.tech/md/db/nosql-redis/db-redis-overview.html</a></p>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+</div></div>
+    <aside id="sidebar" class="alignright">
+  
+
+  
+<div class="widget tag">
+  <h3 class="title">标签</h3>
+  <ul class="entry">
+  
+    <li><a href="/tags/java/">java</a><small>1</small></li>
+  
+    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>2</small></li>
+  
+  </ul>
+</div>
+
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer" class="inner"><div class="alignleft">
+  
+  &copy; 2023 comin-lin
+  
+</div>
+<div class="clearfix"></div></footer>
+  
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+<script src="/js/jquery.imagesloaded.min.js"></script>
+
+
+<script src="/js/gallery.js"></script>
+
+
+
+
+
+</body>
+</html>

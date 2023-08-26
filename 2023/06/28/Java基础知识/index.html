@@ -6,7 +6,8 @@
   <title>Java基础知识 | comin-lin&#39;s blog</title>
   <meta name="author" content="comin-lin">
   
-  <meta name="description" content="数据类型java中的八个基本类型和大小（单位：比特）
+  <meta name="description" content="参考资料https://www.pdai.tech/
+数据类型java中的八个基本类型和大小（单位：比特）
 
 boolean&amp;#x2F;1
 byte&amp;#x2F;8
@@ -15,9 +16,7 @@ short&amp;#x2F;16
 int&amp;#x2F;32
 float&amp;#x2F;32
 long&amp;#x2F;64
-double&amp;#x2F;64
-
-基本类型有对应的包装类型，">
+do">
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -73,7 +72,8 @@ double&amp;#x2F;64
     </header>
     <div class="e-content entry" itemprop="articleBody">
       
-        <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>java中的八个基本类型和大小（单位：比特）</p>
+        <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a target="_blank" rel="noopener" href="https://www.pdai.tech/">https://www.pdai.tech/</a></p>
+<h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><p>java中的八个基本类型和大小（单位：比特）</p>
 <ul>
 <li>boolean&#x2F;1</li>
 <li>byte&#x2F;8</li>
@@ -206,6 +206,74 @@ double&amp;#x2F;64
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">invoke(Object obj, Object... args) 对带有指定参数的指定对象调用由此 Method 对象表示的底层方法 </span><br><span class="line">getName() 以 String 形式返回此 Method 对象表示的方法名称，即返回方法的名称</span><br></pre></td></tr></table></figure>
 
 <h3 id="SPI机制"><a href="#SPI机制" class="headerlink" title="SPI机制"></a>SPI机制</h3><p>SPI机制是一种基于接口的服务发现机制。它允许在应用程序中定义接口，然后允许第三方供应商为这些接口提供实现，并通过在类路径上的配置文件中声明服务提供者。这种机制可以实现模块化和可插拔的架构，使得应用程序能够在运行时动态地加载和使用不同的实现。</p>
+<h1 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h1><p>Java容器里只能放对象，对于基本类型(int, long, float, double等)，需要将其包装成对象类型后(Integer, Long, Float, Double等)才能放到容器里。很多时候拆包装和解包装能够自动完成。这虽然会导致额外的性能和空间开销，但简化了设计和编程</p>
+<p>容器主要包括 Collection 和 Map 两种，Collection 存储着对象的集合，而 Map 存储着键值对(两个对象)的映射表</p>
+<p>TreeSet：基于红黑树实现，支持有序性操作，例如根据一个范围查找元素的操作。但是查找效率不如 HashSet，HashSet 查找的时间复杂度为 O(1)，TreeSet 则为 O(logN)</p>
+<p>HashSet：基于哈希表实现，支持快速查找，但不支持有序性操作。并且失去了元素的插入顺序信息，也就是说使用 Iterator 遍历 HashSet 得到的结果是不确定的。</p>
+<p>LinkedHashSet：具有 HashSet 的查找效率，且内部使用双向链表维护元素的插入顺序</p>
+<p>ArrayList：基于动态数组实现，支持随机访问</p>
+<p>Vector：和 ArrayList 类似，但它是线程安全的</p>
+<p>LinkedList：基于双向链表实现，只能顺序访问，但是可以快速地在链表中间插入和删除元素。不仅如此，LinkedList 还可以用作栈、队列和双向队列</p>
+<p>PriorityQueue：基于堆结构实现，可以用它来实现优先队列</p>
+<p>TreeMap：基于红黑树实现</p>
+<p>HashMap：基于哈希表实现</p>
+<p>HashTable：和 HashMap 类似，但它是线程安全的，是遗留类，不应该去使用它</p>
+<p>LinkedHashMap：使用双向链表来维护元素的顺序，顺序为插入顺序或者最近最少使用(LRU)顺序</p>
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><p>数组：一种连续存储线性结构，元素类型相同，大小相等</p>
+<p>链表：n个节点离散分配，彼此通过指针相连，每个节点只有一个前驱节点，每个节点只有一个后续节点，首节点没有前驱节点，尾节点没有后续节点</p>
+<p>哈希表：根据关键码值(Key value)直接进行访问的数据结构</p>
+<p>栈和队列：栈为先进后出，队列先进先出</p>
+<p>树：<br>1.二叉搜索树BST：左子树上所有结点的值均小于它的根结点的值，右子树上所有结点的值均大于它的根结点的值，对于一个节点，其左、右子树也分别为二叉搜索树<br>2.平衡二叉树AVL：左右两个子树的高度差的绝对值不超过1，并且左右两个子树都是一棵平衡二叉树<br>3.红黑树：一种自平衡二叉查找树<br>4.哈夫曼树：一种带权路径长度最短的二叉树<br>5.字典树：又称前缀树、单词查找树或键树</p>
+<p>图：</p>
+<p>遍历方式：<br>DFS 深度优先搜索<br>BFS 广度优先搜索</p>
+<p>最小生成树：<br>kruskal算法 对边的权重排序，选边并判断环（并查集实现），直到选完n-1条边<br>prim算法 选择任意点出发，每次选择到达价值最小的点，直到全中所有点</p>
+<p>最短路径：<br>dijkstra算法 单源最短路径 从起点出发BFS，遍历其邻接点，更新到邻接点的最短距离<br>floyd算法 多源最短路径 枚举中转点k，对于每一点对i，j，如果i到j的距离大于先从i到k，再从k到j，则更新i与j之间的最短距离</p>
+<p>拓扑排序：不断选取入度为0的点，加入拓扑排序的列表中，并将与其邻接的点的入度减1，直到得到完整的拓扑排序结果</p>
+<p>AOE：AOE网是一个带权的有向无环图，在AOE网中，具有最大路径长度的路径称为关键路径，关键路径表示完成工程的最短工期<br>关键路径：在AOE网中从源点到汇点路径最长的路径</p>
+<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><p>插入排序</p>
+<pre><code>直接插入排序：
+    思想：把n个待排序的元素看成为一个有序表和一个无序表。开始时有序表中只包含1个元素，无序表中包含有n-1个元素，排序过程中每次从无序表中取出第一个元素，将它插入到有序表中的适当位置，使之成为新的有序表，重复n-1次可完成排序过程
+    时间复杂度：平均o(n^2) 最好o(n) 最坏o(n^2) 
+    稳定
+    
+希尔排序：
+    思想：实质上是一种分组插入方法。对于n个待排序的数列，取一个小于n的整数gap(gap被称为步长)将待排序元素分成若干个组子序列，所有距离为gap的倍数的记录放在同一个组中；然后，对各组内的元素进行直接插入排序。 这一趟排序完成之后，每一个组的元素都是有序的。然后减小gap的值，并重复执行上述的分组和排序。重复这样的操作，当gap=1时，整个数列就是有序的
+    时间复杂度：与增量(即，步长gap)的选取有关。当增量为1时，希尔排序退化成了直接插入排序，此时的时间复杂度为O(n^2)
+    不稳定
+    
+</code></pre>
+<p>选择排序</p>
+<pre><code>直接选择排序：
+    思想：在未排序的区间中选取最小元素放在最前面，再从剩余未排序的元素中继续寻找，直到所有元素均排序完毕
+    时间复杂度：平均o(n^2) 最好o(n^2) 最坏o(n^2) 
+    不稳定
+    
+堆排序：
+    思想：把所有元素放入小顶堆再取出
+    时间复杂度：o(logn)
+    不稳定
+</code></pre>
+<p>交换排序</p>
+<pre><code>冒泡排序：
+    思想：遍历数组时不断如果相邻的两个元素前者小于后者，则交换位置，第一轮遍历结束后，最大元素将位于数组末尾，不断遍历直到数组有序
+    时间复杂度：平均o(n^2) 最好o(n) 最坏o(n^2) 
+    稳定
+    
+快速排序：
+    思想：选择一个基准数，通过一趟排序将要排序的数据分割成独立的两部分；其中一部分的所有数据都比另外一部分的所有数据都要小。然后，再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列
+    时间复杂度：平均o(logn) 最好o(logn) 最坏o(n^2)
+    不稳定
+</code></pre>
+<p>归并排序：<br>    思想：从上往下的归并是不断将区间划分为两个小区间，递归进行排序<br>    时间复杂度：O(n*lgn)<br>    稳定</p>
+<p>桶排序：<br>    思想：将数组分到有限数量的桶子里，再通过从每个桶取出元素完成排序<br>    时间复杂度：取决与对各个桶之间数据进行排序的时间复杂度。桶划分得越小，桶中的数据越少，排序所用的时间也会越少<br>    稳定</p>
+<p>基数排序：<br>    思想：将整数按位数切割成不同的数字，然后按每个位数分别比较。 具体做法是: 将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。<br>    时间复杂度：o(d(r+n)) 其中r为关键字的基数，d为长度，n为关键字的个数<br>    稳定</p>
+<h3 id="常用类库"><a href="#常用类库" class="headerlink" title="常用类库"></a>常用类库</h3><p>Apache Common包：是对JDK的拓展，包含了很多开源的工具，用于解决平时编程经常会遇到的问题，减少重复劳动。官网网址:<a target="_blank" rel="noopener" href="http://commons.apache.org/">http://commons.apache.org</a><br>    BeanUtils：针对Bean的一个工具集，常用来copyProperties<br>    Codec：编码和解码组件，提供常用的编码和解码方法，如DES、SHA1、MD5、Base64、URL和Soundx等<br>    Collections：一个集合组件，扩展了Java标准Collections API，对常用的集合操作进行了很好的封装、抽象和补充，在保证性能的同时大大简化代码</p>
+<p>Google Guava包：包含了若干被Google的 Java项目广泛依赖 的核心库，例如：集合 [collections] 、缓存 [caching] 、原生类型支持 [primitives support] 、并发库 [concurrency libraries] 、通用注解 [common annotations] 、字符串处理 [string processing] 、I&#x2F;O 等等。 所有这些工具每天都在被Google的工程师应用在产品服务中</p>
+<p>Hutool包：一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率</p>
+<p>日志库：<br>    日志门面：一种设计模式，用于在应用程序中实现日志记录的抽象层 如：common-logging、slf4j<br>    日志系统：实际用于记录和管理日志消息的软件组件或库 如：Log4j、Logback、Log4j2</p>
+<p>JSON库：<br>    FastJson: 阿里巴巴开发的 JSON 库，性能优秀<br>    Jackson: 社区十分活跃且更新速度很快<br>    Gson: 谷歌开发的 JSON 库，功能十分全面</p>
+<p>Lombok工具库：一款非常实用Java工具，可用来帮助开发人员消除Java的冗长代码，尤其是对于简单的Java对象</p>
+<p>MapStruct工具库：主要用于解决对象之间的拷贝问题，比如PO&#x2F;DTO&#x2F;VO&#x2F;QueryParam之间的转换问题。区别于BeanUtils这种通过反射，它通过编译器编译生成常规方法，将可以很大程度上提升效率</p>
 
       
     </div>
@@ -236,7 +304,7 @@ double&amp;#x2F;64
   
     <li><a href="/tags/java/">java</a><small>1</small></li>
   
-    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>1</small></li>
+    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>2</small></li>
   
   </ul>
 </div>
