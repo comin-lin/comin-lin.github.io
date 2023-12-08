@@ -45,6 +45,73 @@
 </header>
   <div id="content" class="inner">
     <div id="main-col" class="alignleft"><div id="wrapper">
+  <article id="post-java核心技术卷1笔记" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-12-08T06:08:23.000Z"><a href="/2023/12/08/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/">2023-12-08</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2023/12/08/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/">java核心技术卷1笔记</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        <ul>
+<li>java核心技术卷I</li>
+</ul>
+
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
+  <article id="post-cf" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+  <div class="post-content">
+    <header>
+      
+        <div class="icon"></div>
+        <time class="dt-published" datetime="2023-10-22T04:49:50.000Z"><a href="/2023/10/22/cf/">2023-10-22</a></time>
+      
+      
+  
+    <h1 class="title"><a href="/2023/10/22/cf/">cf</a></h1>
+  
+
+    </header>
+    <div class="e-content entry" itemprop="articleBody">
+      
+        
+      
+    </div>
+    <footer>
+      
+        
+        
+      
+      <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+
+
+
   <article id="post-力扣2051-2300" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
   <div class="post-content">
@@ -161,6 +228,184 @@
 <li><p>石子游戏 V<br>动态规划+前缀和<br>定义dp[i][j]表示在区间[i,j]的石子中Alice能得到的最大分数<br>初始化：所有dp[i][i]表示剩余一个石子，游戏结束，Alice得分为0，因此dp[i][i]初始化为0<br>对每个区间[i,j]枚举割点k，分割为[i,k] [k+1,j] 通过前缀和快速获取两部分的值a，b<br>如果a&lt;b dp[i][j]由a+dp[i,k]转移而来<br>如果a&gt;b dp[i][j]由b+dp[k+1][j]转移而来<br>如果a&#x3D;&#x3D;b Alice自行选择，dp[i][j]由max(a+dp[i,k],b+dp[k+1][j])转移而来</p>
 </li>
 <li><p>不同骰子序列的数目<br>动态规划<br>定义dp[i][j][k]表示满足条件，长度为i，倒数第二个元素为j，最后一个元素为k的序列数目<br>n为1时，返回6<br>初始化长度为2的序列数目，枚举j、k，若j!&#x3D;k且gcd(j,k)&#x3D;&#x3D;1，则初始化dp[2][j][k]为1<br>从长度3开始计算到长度n，对于每个长度，枚举后两个位置j、k，枚举上一个排列的后两个位置t、j，dp[i][j][k]由所有合法的dp[i-1][t][j]相加得到<br>最后累加所有合法的dp[n][j][k]得到答案</p>
+</li>
+<li><p>得到回文串的最少操作次数<br>贪心<br>数据量较小，可直接模拟交换<br>解决[left,right]区间变成回文串：对于每个s[left]，找到距离右侧最近的相同字符s[i]，将s[i]换到s[right]的位置，变成解决[left+1,right-1]子问题<br>如果没有找到这样的s[i]，说明s[i]出现奇数次，模拟将其换到字符串最中间，解决[left+1,right]子问题<br>注意奇数次的s[i]不能先模拟换到中间，这样做接下来解决[left+1,right-1]子问题时会再次移动该s[i]，产生额外开销<br>因此遇到奇数次s[i]先记录交换到中间所需要的次数，等解决所有问题，即解决[left+1,right]子问题后再将其换到字符串最中间</p>
+</li>
+<li><p>最大的团队表现值<br>排序+优先队列<br>构造二维数组data同时存每个工程师的速度和效率，将data按效率从高到低排序<br>遍历data数组，优先队列存放速度最大的前k个工程师的速度，同时使用sum维护优先队列中的速度之和<br>对于每个i，当data[i][1]为最低效率时，更新ans&#x3D;max(ans,sum*data[i][1])</p>
+</li>
+<li><p>机器人碰撞<br>排序+栈模拟<br>对pos进行排序，使用栈进行模拟碰撞</p>
+</li>
+<li><p>完成所有交易的初始最少钱数<br>思维<br>将交易分成loss亏损，earn盈利两组，有两种情况钱可能最少：<br>1.进行所有亏损的交易，其中能得到最大cashback的这笔交易的cashback还没得到时<br>2.进行所有亏损的交易，再进行盈利交易中最大cost的这笔交易，且对应的cashback还没得到时<br>取两种情况钱最少的情况就是需要的初始最少钱数</p>
+</li>
+<li><p>最后一块石头的重量 II<br>动态规划 01背包<br>将题目转化为：一个数组nums，元素和为sum，现在需要取出一部分元素与另一部分元素取差，求差的最小值<br>要得到差的最小值，分出来的两部分值需要尽可能接近target&#x3D;sum&#x2F;2<br>定义dp[i][j]表示从前i个元素中取出一些元素，在元素和不超过j的情况下能得到的最大元素和<br>最后dp[n][target]就是最接近target的元素和，另一部分为sum-dp[n][target]，求两部分的差的绝对值作为答案</p>
+</li>
+<li><p>课程表 III<br>贪心+优先队列<br>对课程按截止时间从小到大排序，优先完成截止时间早的课程<br>使用优先队列保存完成的每个课程的持续时间duration，同时维护优先队列中所有课程需要的时间总和allTime<br>当完成课程i（duration_i,lastDay_i）后，allTime &gt; lastDay_i ，则需要从优先队列中取消掉占用时间最大的课程<br>最后优先队列中课程的数量就是答案</p>
+</li>
+<li><p>会议室 III<br>优先队列+双堆模拟<br>使用两个优先队列分别保存空闲房间和使用中的房间的编号，模拟安排会议，记录每个房间的使用次数</p>
+</li>
+<li><p>统计定界子数组的数目<br>枚举<br>遍历数组，维护上一个minK,maxK的位置preMin,preMax以及上一个超出[minK,maxK]范围的元素位置preUnValid<br>对于下标i，如果当前下标元素合法且preMin,preMax都出现过，则对答案的贡献为min(preMin,preMax)-preUnValid<br>如果下标i元素非法，重置preMin,preMax为-1，且更新preUnValid&#x3D;i</p>
+</li>
+<li><p>到达目的地的方案数<br>最短路+优先队列<br>使用dijkstra算法计算到达终点的最短距离，同时维护以最短路径到达每个节点的方案数<br>注意：new PriorityQueue&lt;&gt;((o1,o2)-&gt;Long.compare(dis[o1],dis[o2]))<br>当修改了 dis 数组中的值时，优先队列中的元素不会及时更改顺序<br>在修改dis[v]值后，应remove(v)再add(v)</p>
+</li>
+<li><p>有序队列<br>思维<br>当k&#x3D;1时，可以不断改变字符串的首字符，将s复制一份，枚举每种情况，取字典序最小的作为答案<br>当k&gt;1时，可以得到任意顺序的字符串s，对s中的字符排序，得到最小字典序的字符串作为答案<br>原因：当k&gt;1时，可以选择字符串 s 中的任意两个相邻字母交换它们的顺序，重复这个过程直到得到任意顺序的字符串</p>
+</li>
+<li><p>水位上升的泳池中游泳<br>二分+BFS<br>将题目转化为：一条路径的开销是该路径经过的格子中的最大值，求到达终点的所有路径中的最小开销<br>二分查找最小开销，BFS判断能否到达终点</p>
+</li>
+<li><p>阶乘后的零<br>数学<br>每一个0都是由2因子和5因子组合得到，因此需要找到所有乘数中的2和5因子的个数，记为a，b<br>阶乘后的零个数就是min(a,b)个，由于5的因子永远少于2的因子的个数，因此统计因子5的个数即可</p>
+</li>
+<li><p>阶乘函数后 K 个零<br>二分+数学<br>二分查找阶乘后零的个数&gt;&#x3D;k+1的最小数，记为a<br>二分查找阶乘后零的个数&gt;&#x3D;k的最小数，记为b<br>答案为a-b</p>
+</li>
+<li><p>你能穿过矩阵的最后一天<br>二分+BFS<br>二分查找能从矩阵第一行到达矩阵最后一行的最后一天</p>
+</li>
+<li><p>对字母串可执行的最大删除数<br>动态规划<br>预处理出s的每个后缀之间的最长公共前缀长度<br>定义dp[i]表示[i,n-1]子串可执行的最大删除数，dp[0]作为答案</p>
+</li>
+<li><p>找出最安全路径<br>二分+BFS<br>二分查找最大的安全系数</p>
+</li>
+<li><p>得到整数零需要执行的最少操作数<br>枚举<br>枚举操作次数i，i最少为0，最多为60<br>对于操作次数i，问题转化为target&#x3D;num1-i*num2是否可以拆分为i个2^t(t可取[0,60])<br>如果target&lt;i 即使每个t都取最小的0，也无法完成拆分<br>否则获取target对应的二进制中1的数量count，如果i&gt;&#x3D;count则一定可以拆分，返回i<br>为什么i&gt;&#x3D;count时一定可以拆分？因为一个2^t 可以拆分为两个2^(t-1) 当i大于count时可以多拆分几次凑出i个2^t</p>
+</li>
+<li><p>统计特殊整数（数位dp）<br>dfs+记忆化搜索<br>提交记录：<a target="_blank" rel="noopener" href="https://leetcode.cn/problems/count-special-integers/submissions/467426645/">https://leetcode.cn/problems/count-special-integers/submissions/467426645/</a></p>
+</li>
+<li><p>统计一个字符串的 k 子序列美丽值最大的数目<br>贪心+组合数<br>统计字母出现次数，优先选择出现次数最大的字母组成子序列能得到最大美丽值<br>对于出现次数为key次的字符，有value个，如果value&gt;k 需要从value中取k个，否则可以全选<br>若全选 一共value种字符，每种字符都要选一个，而每种字符一共有key个 根据乘法原理 对答案的贡献为pow(key,value)<br>若从value中选取k个 对答案的贡献为pow(key,k) * comb(value,k) 其中comb函数用来求组合数</p>
+</li>
+<li><p>扣分后的最大得分<br>动态规划<br>定义dp[i][j]表示到下标为i的行为止且下标为i的行选择下标为j的格子的最大得分<br>dp[i][j]由dp[i-1][j’]得到，分类讨论j’与j的关系<br>当j’&lt;&#x3D;j 时，Math.abs(j-j’) &#x3D; j-j’ 此时dp[i][j]&#x3D;max(dp[i-1][j’]-Math.abs(j-j’))&#x3D;max(dp[i-1][j’]+j’)-j<br>当j’&gt;j 时，Math.abs(j-j’)&#x3D;j’-j 同理dp[i][j]&#x3D;max(dp[i-1][j’]-j’)+j</p>
+</li>
+<li><p>查询差绝对值的最小值<br>前缀和<br>注意到1 &lt;&#x3D; nums[i] &lt;&#x3D; 100，使用pre[][101]记录每个下标位置每个数字的个数<br>对于查询[left,right]，通过pre数组可以获取该区间内每个数字的个数，差绝对值的最小值只可能出现在相邻的数字之间<br>使用num维护上一个出现过的数字，当j出现的次数不为0时，res&#x3D;min(res,j-num)，最后res即为本次查询的答案</p>
+</li>
+<li><p>统计农场中肥沃金字塔的数目<br>动态规划<br>定义dp[i][j]表示以格子(i,j)为顶部的最大金字塔高度<br>先考虑正金字塔的计算：从矩阵最后一行最后一列开始倒着遍历每个格子(i,j)<br>对于一个格子(i,j)如果是肥沃的，且(i+1,j-1)、(i+1,j)、(i+1,j+1)都是肥沃的，那么dp[i][j]&#x3D;min(dp下方三个格子)+1<br>最后累加所有dp值得到所有正金字塔的数量，上下翻转矩阵，再计算一遍dp，得到倒金字塔的数量，正、倒金字塔数量加起来作为答案</p>
+</li>
+<li><p>黑格子的数目<br>哈希表<br>对于一个黑格子，记录受影响的四个块的左上角下标，存入哈希表中<br>遍历所有受影响的块，对每个块记录黑格子的数量</p>
+</li>
+<li><p>最长合法子字符串的长度<br>滑动窗口<br>forbidden中的字符串长度最多为10<br>使用滑动窗口枚举最长合法字符串<br>对于某个子串，遍历前10个字符和后10个字符，使用哈希表快速检查是否合法</p>
+</li>
+<li><p>最小化数对的最大差值<br>排序+二分<br>对数组排序后二分查找最大差值的最小值</p>
+</li>
+<li><p>字符串连接删减字母<br>记忆化dfs<br>定义dfs(index,left,right)表示：<br>从下标index开始直到连接完毕，之前字符串的首字符为left，尾字符为right对答案的总贡献<br>答案：dfs(1,words[0][0],words[0][-1])+len(words[0])</p>
+</li>
+<li><p>队列中可以看到的人数<br>倒序遍历+单调栈<br>倒序遍历队列，使用高度单调递减栈（存放下标）维护右侧可以看到的人<br>对于下标i，栈顶元素top，如果h[i]&lt;&#x3D;h[top]，i看不到top右侧的人，跳出循环<br>如果h[i]&gt;h[top]，则i左侧的人也看不到top及top右侧的人，将top出栈</p>
+</li>
+<li><p>用地毯覆盖后的最少白色砖块<br>动态规划<br>定义dp[i][j] 表示使用i条地毯，覆盖到下标为j的砖块时所剩余的最少白色砖数<br>使用0条地毯的情况：dp[0][i]&#x3D;dp[0][i-1]+floor.charAt(i)-‘0’;<br>当j&lt;i<em>carpetLen时，dp[i][j]&#x3D;0，可以完全覆盖<br>当j&gt;&#x3D;i</em>carpetLen时，dp[i][j]&#x3D;Math.min(dp[i][j-1]+floor.charAt(j)-‘0’,dp[i-1][j-carpetLen]);<br>上述转移式中，dp[i][j-1]+floor.charAt(j)-‘0’表示对于下标j不铺地毯，后者表示在下标j铺一条地毯，且地毯末尾在下标j</p>
+</li>
+<li><p>餐盘栈<br>模拟+有序集合<br>使用两个TreeSet分别维护非满栈的下标、非空栈的下标，模拟操作</p>
+</li>
+<li><p>分割数组使乘积互质<br>质因数分解<br>遍历数组，对每一个元素进行质因数分解，同时记录某个质因数最晚出现的下标<br>遍历[0,n-1]，如果对于[0,i]出现过的质因数的最晚出现下标均&lt;&#x3D;i，则i为答案</p>
+</li>
+<li><p>最大公约数遍历<br>质因数分解+并查集<br>特判：出现元素1时，当且仅当数组长度为1时返回true<br>对每个nums[i]进行质因数分解，假设x为nums[i]的质因数，则合并nums[i]与x，以及nums[i]与nums[i]&#x2F;x<br>通过并查集判断所有nums[i]是否位于同一个集合中，若是返回true</p>
+</li>
+<li><p>树节点的第 K 个祖先<br>树上倍增（动态规划）<br>定义dp[i][j]表示节点i的第2^j个祖先节点<br>初始化：当j&#x3D;0时，dp[i][0]表示节点i的第一个祖先，也就是parent[i]<br>状态转移：枚举祖先2^j，再枚举节点，对于节点i：i的第2^(j+1)个祖先是i的第2^j个祖先的第2^j个祖先<br>表达式：dp[i][j+1]&#x3D;dp[ dp[i][j] ][j]<br>查询祖先：查询第k个祖先时，将k拆分为2的幂相加，例如当k&#x3D;13时，拆为1+4+8：<br>从当前节点跳到第1个祖先，接着从这个祖先跳到这个祖先的第4个祖先，最后从现在的祖先跳到现在祖先的第8个祖先完成查询<br>没有祖先时用-1表示，状态转移时没有祖先的状态将继续转移</p>
+</li>
+<li><p>最多可达成的换楼请求数目<br>状态压缩+dfs+回溯<br>数据量较小，且每一个请求都是相互独立的，枚举每个请求是否被满足，最后判断状态是否合法，若合法则更新最多同时满足请求的数目</p>
+</li>
+<li><p>可以被 K 整除连通块的最大数目<br>dfs+思维<br>对于某个节点i，如果i及其所有子节点之和sum满足sum%k&#x3D;&#x3D;0，则可以将节点i与其父节点连接的边删除<br>由于是无向树，每个节点都可以认为是根节点，为方便计算，认为0节点是根节点进行dfs得到答案</p>
+</li>
+<li><p>重排水果<br>哈希表+排序+思维<br>首先用map统计两个果篮中所有元素值及其出现个数，如果某个元素的出现次数v为奇数，则无法使两个果篮在重排后相等，返回-1<br>否则，一定存在交换方案。<br>对map中所有元素v除以2，得到在满足题目条件的情况下其中一个果篮的元素值及其个数，再将map与第一个果篮进行比较<br>从而得出哪些元素需要从第二个果篮换到第一个果篮，哪些元素需要从第一个果篮换到第二个果篮，分别存入to1、to2<br>对o1和o2排序，o1最小的元素与o2最大的元素进行交换，或者以最小值为中介，通过2*min成本进行交换，统计成本得到答案</p>
+</li>
+<li><p>戳气球<br>记忆化搜索+逆向思维<br>逆向思考，考虑在区间里填充气球，最后填满整个区间。为计算方便，补充下标-1和下标n位置，记其元素值为1<br>定义dfs(int left,int right)表示将开区间(left,right)填满最多得到的硬币数<br>对于dfs(left,right)枚举先填充的位置mid，则得到的硬币为nums[left]+nums[mid]+nums[right]+dfs(left,mid)+dfs(mid,right)<br>返回所有可能的mid中得到硬币最多的作为结果，记忆化dfs函数可以优化时间复杂度</p>
+</li>
+<li><p>切棍子的最小成本<br>记忆化搜索<br>为cuts添加左侧0和右侧n，存入list<br>定义dfs(left,right)表示将list中下标left到下标right切割开的最小成本<br>枚举中间点i，i的范围为[left+1,right-1]，切割成本为list.get(right)-list.get(left)+dfs(left,i)+dfs(i,right)<br>注意当left+1&gt;&#x3D;right时，无需切割，切割成本为0</p>
+</li>
+</ol>
+<p>对数组执行操作使平方和最大<br>等价转换<br>选择两个互不相同的下标 i 和 j ，同时 将 nums[i] 更新为 (nums[i] AND nums[j]) 且将 nums[j] 更新为 (nums[i] OR nums[j])：<br>等价于把一个数的 0 和另一个数的同一个比特位上的 1 交换。统计每个比特位上1的个数，尽可能凑出1个数最多的k个数将其平方和相加得到答案</p>
+<ol start="2732">
+<li><p>找到矩阵中的好子集<br>枚举+思维<br>枚举好子集中的元素个数<br>好子集中元素个数为1的情况：如果出现某一行i全为0，则[i]是好子集，返回答案<br>好子集中元素个数为2的情况：如果行i，行j每一列相加&lt;&#x3D;1，则[i,j]是好子集，返回答案<br>好子集中元素个数为3的情况：每列相加之和&lt;&#x3D;1,那么可以去掉其中一行，变成元素个数为2的情况<br>又由于列最多为5，可以证明好子集中元素个数&gt;&#x3D;4可以转化为好子集中元素个数为0或1或2的情况<br>因此只需考虑1和2，都没找到答案则返回空列表</p>
+</li>
+<li><p>所有子数组中不平衡数字之和<br>枚举+哈希计数<br>固定子数组左端点i，枚举右端点j（j&gt;&#x3D;i+1，因为长度为1的子数组没有不平衡数字）<br>每新增一个元素num，子数组的不平衡度count+1<br>如果子数组中存在num-1，则count–，如果存在num+1，则count–<br>累加所有子数组的不平衡度count得到答案</p>
+</li>
+<li><p>将数组清空<br>树状数组<br>使用指针p标记当前数组的第一个元素，问题转化为用指针p从小到大依次遍历数组中的所有元素<br>使用树状数组维护某个区间已删除的元素个数count，指针p移动到p2时需要减去count<br>当p2&gt;&#x3D;p时，将p移动到p2；当p2&lt;p时，p先移动到数组边界n，到达1，再从1移动到p2</p>
+</li>
+</ol>
+<p>最长相邻不相等子序列 II<br>后缀dp<br>使用动态规划枚举选哪个可解决本题。由于最后需要得到子序列，因此定义dp[i]表示从[i,n-1]中选择满足条件的最长子序列的长度<br>同时使用from[i]来记录dp[i]是由下标from[i]转移得到的</p>
+<p>找出满足差值条件的下标 II<br>双指针<br>需要找到两个下标[i,j]，设 j &gt;&#x3D; i，则 abs(i - j) &gt;&#x3D; indexDifference  等价于 j - indexDifference &gt;&#x3D; i<br>枚举j，维护所有满足i &lt;&#x3D; j - indexDifference的nums[i]可能的最大值和最小值，设对应下标分别为maxIndex和minIndex<br>如果出现abs(nums[maxIndex]-nums[j])&gt;&#x3D;valueDifference或abs(nums[minIndex]-nums[j])&gt;&#x3D;valueDifference说明找到满足条件的两个下标，直接返回答案</p>
+<ol start="972">
+<li><p>相等的有理数<br>模拟<br>将String转化为double，判断两个数之差是否小于0.0000000001</p>
+</li>
+<li><p>你能穿过矩阵的最后一天<br>二分+BFS<br>二分枚举答案，BFS判断是否可行</p>
+</li>
+</ol>
+<p>使数组变美的最小增量运算数<br>dp<br>定义dp[i][j]表示到下标j位置，让下标i-2+j的元素&gt;&#x3D;k的最小增量运算数<br>初始化：dp[2][0<del>2]&#x3D;nums[0</del>2]&gt;&#x3D;k?0:k-nums[0~2]<br>状态转移：dp[i][0]&#x3D;dp[i-1][1];<br>            dp[i][1]&#x3D;dp[i-1][2];<br>            dp[i][2]&#x3D;(nums[i]&gt;&#x3D;k?0:k-nums[i])+Math.min(dp[i-1][0],Math.min(dp[i-1][1],dp[i-1][2]));<br>答案：Math.min(dp[n-1][0],Math.min(dp[n-1][1],dp[n-1][2]))			</p>
+<ol start="1654">
+<li><p>到家的最少跳跃次数<br>BFS<br>如何判断无解？<br>a&#x3D;&#x3D;b 最多跳到x处，大于x时无解<br>a&gt;b 最多跳到x+b处，大于x+b时无解<br>a&lt;b 最多跳到max(max(forbidden)+a+b,x)处，具体证明见官方题解</p>
+</li>
+<li><p>监控二叉树<br>树形dp<br>定义状态0，1，2：<br>状态0：当前节点安装相机的时候，需要的最少相机数<br>状态1： 当前节点不安装相机，但是能被覆盖到的时候，需要的最少相机数<br>状态2：当前节点不安装相机，也不能被左右孩子覆盖到的时候，需要的最少相机数(最后由父节点来覆盖它)<br>对于每个节点<br>如果它处于状态0，它的左右孩子可以安装也可以不安装，甚至可以不被覆盖：<br> dp[0] &#x3D; Math.min(left[0], Math.min(left[1], left[2])) + Math.min(right[0], Math.min(right[1], right[2])) + 1;<br>如果它处于状态1，它的左右孩子必有一个需要安装：<br>dp[1] &#x3D; Math.min(left[0] + Math.min(right[0], right[1]), right[0] + Math.min(left[0], left[1]));<br>如果它处于状态2，说明它的左右孩子都不安装，但是其左右孩子被它们的孩子覆盖：<br>dp[2] &#x3D; left[1] + right[1];<br>最后返回根节点得到的dp数组中Math.min(dp[0], dp[1])</p>
+</li>
+<li><p>统计特殊子序列的数目<br>动态规划<br>定义dp[i][0]表示前i个数 得到 由正整数个 0 组成的子序列的个数 记为【0】子序列<br>定义dp[i][1]表示前i个数 得到 由正整数个 0 紧接着正整数个 1 组成的子序列的个数 记为【1】子序列<br>定义dp[i][2]表示前i个数 得到 由正整数个 0 紧接着正整数个 1，最后正整数个 2 组成的子序列的个数 记为【2】子序列<br>状态转移：<br>num为0时，这个0可以与前面的所有【0】子序列组合形成【0】子序列，也可以单独成为【0】子序列，现在【0】子序列个数dp[i][0]&#x3D;dp[i-1][0]+dp[i-1][0]+1 其余子序列数量不变<br>num为1时，这个1可以与前面的所有【1】子序列组合形成【1】子序列，也可以单独和前面所有【0】子序列组合形成【1】子序列，现在【1】子序列个数dp[i][1]&#x3D;dp[i-1][1]+dp[i-1][1]+dp[i-1][0] 其余子序列数量不变<br>num为2时，这个2可以与前面的所有【2】子序列组合形成【2】子序列，也可以单独和前面所有【1】子序列组合形成【2】子序列，现在【2】子序列个数dp[i][2]&#x3D;dp[i-1][2]+dp[i-1][2]+dp[i-1][1] 其余子序列数量不变<br>答案：dp[n][2]</p>
+</li>
+<li><p>每棵子树内缺失的最小基因值<br>DFS<br>由于nums[i]互不相同，那么树中最多只有一个节点值为1<br>当树中没有节点值为1的节点时，整棵树都缺少基因1，返回全1数组<br>当树中找到节点值为1的节点，记该节点为x，x的所有子节点c肯定缺少基因1，ans[c]&#x3D;1<br>对x进行dfs，遍历所有子节点c，之后可以得到ans[x]<br>再不断对x的父节点进行dfs，直到根节点（每个节点最多遍历一次）</p>
+</li>
+<li><p>字符串连接删减字母<br>dp<br>定义dp[k][i][j]表示合并到下标k为止，合并后的字符串首字母为’a’+i，尾字母为’a’+j时的最小长度<br>所有dp初始为最大值，dp[0][words[0].charAt(0)-‘a’][words[0].charAt(words[0].length()-1)-‘a’]&#x3D;words[0].length()<br>状态转移：枚举k，记words[k]长度为len，第一个字母为fir，最后一个字母为las，则<br>枚举所有i，j<br>dp[k][fir][j]&#x3D;Math.min(dp[k][fir][j],dp[k-1][i][j]+(las&#x3D;&#x3D;i?len-1:len));<br>dp[k][i][las]&#x3D;Math.min(dp[k][i][las],dp[k-1][i][j]+(fir&#x3D;&#x3D;j?len-1:len));<br>答案：取最小的dp[n-1][i][j]</p>
+</li>
+<li><p>相邻字符不同的最长路径<br>DFS<br>对于每个节点x，dfs找到左子树能到达的最长路径和右子树能到达的最长路径，更新答案<br>由于需要从父节点出发向左右子树进行dfs，因此可以认为该图是有向图，只有父节点指向孩子节点的边<br>本题与树的直径十分类似，只是多了一个相邻节点的条件限制<br>注意：在dfs(i)时，不论孩子节点v是否满足s[i]&#x3D;&#x3D;s[v]都要进行dfs(v)，因为答案可能是以v为根节点的路径</p>
+</li>
+<li><p>切披萨的方案数<br>记忆化DFS+二维前缀和<br>枚举每次列切割的位置，或者行切割的位置，使用二维前缀和快速判断切割是否合法（即包含苹果）</p>
+</li>
+<li><p>得分最高的最小轮调<br>差分<br>对于元素 x，当所在下标大于或等于x时，元素x会加1分<br>因此x计1分的下标范围是[x,n−1]，有n−x个下标计分<br>元素x不计分的下标范围是 [0,x−1]，有x个下标不计分<br>假设x的初始下标为i，当论调k时，x将位于下标index &#x3D; (i-k+n)%n<br>如果此时x计分，则有index&gt;&#x3D;x 等价于k &lt;&#x3D; (i-x+n)%n 得到计分k的上限<br>由于计分的下标只有n-x个，从而得到计分k的下限k &gt;&#x3D; (i+1)%n<br>得到了某个元素计分时k的范围[low,high]，遍历所有元素：<br>使用差分数组diff 为diff[low]+&#x3D;1 diff[high+1]-&#x3D;1<br>最后还原差分数组，可以得到计分次数最多的k，这个k就是答案</p>
+</li>
+<li><p>多边形三角剖分的最低得分<br>记忆化dfs<br>定义dfs(i,j)表示从顶点i到顶点j得到三角形的最低分数<br>枚举点k 得到dfs(i,j)&#x3D;min(dfs(i, k) + dfs(k, j) + v[i] * v[j] * v[k])</p>
+</li>
+<li><p>处理含限制条件的好友请求<br>并查集<br>对于每一个请求{p,q}，先得到find(p)和find(q)<br>如果find(p)&#x3D;find(q) 已经在同一个集合中 ans[i]&#x3D;true<br>否则，枚举所有限制条件{a,b} 得到find(a)和find(b)<br>因为限制条件规定a和b不能在同一个集合中，如果将p，q合并会导致任意一对{a,b}被合并，即：<br>find(p)&#x3D;&#x3D;find(a)&amp;&amp;find(q)&#x3D;&#x3D;find(b)或者find(p)&#x3D;&#x3D;find(b)&amp;&amp;find(q)&#x3D;&#x3D;find(a)，那么p，q不能成为朋友<br>反之，可以合并p，q同时ans[i]&#x3D;true</p>
+</li>
+<li><p>保证图可完全遍历<br>并查集<br>考虑选择最少的边数量count，使得两人都可完全遍历图<br>使用并查集来维护可到达的顶点集合，parent为公共边，parentA，parentB分别代表两人单独边<br>先遍历公共边{v1,v2} 若find(v1)!&#x3D;find(v2)则选中这条边，否则不选<br>令parentA和parentB都复制parent中的数据，分别遍历单独边，如果不在同一个集合中则继续选择<br>判断两人是否分别可以完全遍历，即parentA和parentB中父节点只有一个，如果不满足返回-1<br>否则可以完全遍历，设全部边个数为m，答案为m-count</p>
+</li>
+<li><p>按位或最大的最小子数组长度<br>dp<br>定义dp[index]表示 位index的1 出现的最小下标<br>从后往前遍历nums 对于下标i的元素：<br>取所有出现过的dp[index]的最大值就是最远的1所在位置，由此计算得到ans[i]</p>
+</li>
+<li><p>子数组按位或操作<br>哈希集合<br>创建HashSet<Integer> ans存储所有可能的值，答案为ans.size()<br>创建HashSet<Integer> pre表示以上一个下标为结尾的子数组的所有结果，初始化pre.add(0)<br>对于每个下标i，创建HashSet<Integer> now,遍历pre中所有元素ele，向now添加nums[i]|ele<br>再把nums[i]放入now中，接着将now中所有元素放入ans中，并将pre标记为now</p>
+</li>
+<li><p>有序矩阵中的第 k 个最小数组和<br>暴力<br>存储上一行为止可以得到的数组和pre，对于pre中的所有元素ele，都添加ele+本行元素mat[i][j]到now中<br>由于只有正整数，因此只需保留最小的k个元素，取出前k小的元素重新赋给pre，最后pre.get(k-1)就是答案</p>
+</li>
+<li><p>找出最具竞争力的子序列<br>贪心+单调栈<br>等价于删除nums.length-k个元素，使剩下的元素按顺序形成的数字最小<br>使用单调栈预处理rightFloor数组，表示每个元素右边比其小的元素出现的下标，如果没有则为-1<br>遍历数组，如果rightFloor[i]!&#x3D;-1即右边有更小的元素且n-rightFloor[i]&gt;&#x3D;k即右边仍可选出超过k长度的子序列，那么nums[i]不选<br>否则选择nums[i]，记入答案数组中<br>题目 402. 移掉 K 位数字 与本题类似</p>
+</li>
+<li><p>最小差值 II<br>排序+贪心<br>元素顺序不影响答案，先对数组进行排序<br>考虑对整个数组全部增加或全部减少的情况，答案初始化为nums[n-1]-nums[0]<br>为了得到最大值和最小值的最小差值，枚举某个点i，[0,i]全部增加，[i+1,n]全部减少<br>对于这样的点i：<br>最大值max有两种可能：nums[i]+k 和 nums[n-1]-k<br>最小值min有两种可能：nums[0]+k 和 nums[i+1]-k<br>维护ans&#x3D;Math.min(ans,max-min)得到答案</p>
+</li>
+<li><p>由斜杠划分区域<br>dfs<br>将n<em>n的格子看成3n</em>3n的格子，也就是每个格子看成由9个小格子形成<br>对于两种斜杠，分别填充3个小格子<br>dfs查找联通分块得到答案</p>
+</li>
+<li><p>删除操作后的最大子段和<br>倒序回答 + 并查集<br>删除不好做，添加比较好做。不妨倒着思考，删除变成了添加<br>添加时进行合并，维护最大字段和</p>
+</li>
+<li><p>到达角落需要移除障碍物的最小数目<br>Dijkstra最短路<br>把障碍物看成花费1可到达的位置，使用Dijkstra计算到达角落的最短距离</p>
+</li>
+<li><p>超级回文数<br>暴力枚举<br>边界数字的长度最大为18，则其平方根长度最大为9，由于平方根是回文，则回文的左半部分长度最大为4<br>枚举回文的左半部分[1,10000]，构造回文，再平方后判断是否为超级回文数，注意剪枝跳过超出边界的枚举</p>
+</li>
+<li><p>两个数组最小的异或值之和<br>记忆化DFS<br>定义dfs(index,mask)表示从nums1的index下标开始计算，nums2的已选择情况为mask时两个数组最小的异或值之和<br>枚举nums1[index]与nums2中哪个元素进行异或运算：ret&#x3D;Math.min(ret,(nums1[index]^nums2[i])+dfs(index+1,mask|(1&lt;&lt;i)))<br>注意异或运算和加法的优先级，异或运算需要添加括号</p>
+</li>
+<li><p>查询差绝对值的最小值<br>前缀和<br>数组中的元素范围较小，对每个数字统计前缀和<br>对于查询[left,right] 使用前缀和计算出该区间内不同数字出现的次数，维护差绝对值的最小值作为答案</p>
+</li>
+<li><p>可见点的最大数目<br>数学：求极角几何题</p>
+</li>
+<li><p>找出最安全路径<br>二分+BFS</p>
+</li>
+<li><p>前往目标的最小代价<br>Dijkstra最短路<br>把起点、终点和所有特殊路径的终点看成是图上的点，求最短路径</p>
+</li>
+<li><p>最小化数对的最大差值<br>二分<br>二分查找最大差值</p>
+</li>
+<li><p>服务中心的最佳位置<br>机器学习<br>使用梯度下降法求解</p>
+</li>
+<li><p>从栈中取出 K 个硬币的最大面值和<br>分组背包</p>
+</li>
+<li><p>序列顺序查询<br>对顶堆<br>维护一个大顶堆和一个小顶堆，大顶堆的元素都小于小顶堆的元素</p>
+</li>
+<li><p>还原原数组<br>枚举<br>暴力枚举index，判断在nums[0]与nums[index]配对情况下是否合法</p>
+</li>
+<li><p>分割数组使乘积互质<br>质因数分解<br>记录每一个质因数最后出现的位置，遍历数组，对当前数字进行质因数分解，用index表示[0,i]中的质因数最后出现的位置，当i&#x3D;&#x3D;index时，i就是答案</p>
+</li>
+<li><p>逃离大迷宫<br>BFS<br>在网格中，要知道点s与点t是否连通<br>由于障碍物数量比较少，问题转化为判断点s和点t是否被障碍物及网格边界完全包围<br>判断某个点是否被边界及障碍物完全包围，可以从该点出发进行BFS判断能到达的网格数<br>障碍物最多n个，可以用BFS能否到达至少n*(n-1)&#x2F;2个格子来判断某个点是否被包围<br>如果BFS能访问超过1e5格子，认为没有被包围<br>对点s和点t分别进行BFS，如果都没有被包围返回true，反之返回false</p>
+</li>
+<li><p>第 K 个最小的素数分数<br>模拟<br>双循环构造分数并排序</p>
+</li>
+<li><p>向下取整数对和<br>前缀和<br>对于表达式floor(nums[i] &#x2F; nums[j])，固定nums[j]，有多个nums[i]使得该表达式值相同，枚举这样的nums[i]的个数<br>使用前缀和快速得到个数进行统计</p>
+</li>
+<li><p>堆叠长方体的最大高度<br>贪心+排序+dp<br>把每个长方体最长的一条边作为高度才能得到最大高度<br>定义h[i]表示以下标为i的长方体作为堆叠后的顶部时能够得到的最大高度<br>h[i]由h[j]转移而来：h[i]&#x3D;max(h[j]+height[i]) 为长方体排序后双重循环枚举i和j<br>最后答案为max(h[i])</p>
+</li>
+<li><p>最大公约数遍历<br>质因数分解+并查集<br>gcd(nums[i], nums[j]) &gt; 1等价于nums[i]和nums[j]存在相同的质因数<br>对每个nums元素进行分解质因数，将质因数与该元素合并<br>最后使用并查集判断所有nums元素是否位于同一连通分量<br>注意需要特判nums元素中有1的情况</p>
+</li>
+<li><p>下一个更大元素 IV<br>双单调栈<br>从左往右遍历 nums，用（递减）单调栈stack记录元素，如果 x&#x3D;nums[i]比stack的栈顶大，则x是栈顶的下个更大元素，弹出栈顶。最后把x入栈（实际入栈的是其下标i）<br>把弹出的元素加到另一个栈stack2中（注意保持原始顺序，即按下标顺序，下标小的优先入栈），后续循环时，如果y&#x3D;nums[j]比stack2的栈顶大，则y栈顶的下下个更大元素，记录答案，弹出栈顶</p>
+</li>
+<li><p>黑格子的数目<br>哈希表<br>对于一个位于(x,y)的黑格子而言，它可能位于四个块中：<br>以(x-1,y-1)为左上角的块<br>以(x,y-1)为左上角的块<br>以(x-1,y)为左上角的块<br>以(x,y)为左上角的块<br>将这些可能受影响的块（的左上角）放入哈希表中<br>所有的块减去受影响的块得到ans[0]<br>遍历受影响的块，分别统计每个块中有多少个黑格子</p>
+</li>
+<li><p>最大化一张图中的路径价值<br>暴力dfs<br>分析题目数据发现合法路径最多递归10次，直接暴力dfs获取答案</p>
+</li>
+<li><p>到达目的地的第二短时间<br>动态边权+最短路径dijkstra<br>红绿灯切换问题：本质是动态边权<br>假设在T时间到达节点i，红绿灯切换时间为change，则有：<br>当 T&#x2F;change 为偶数时 处于绿灯时间不需要等待，边权为0<br>当 T&#x2F;change 为奇数时 处于红灯时间，等待时间为change - (T%change)，该值也就是边权<br>将节点编号映射为[0,n-1]，跑最短路径算法求解<br>题目要求第二短时间，因此使用dijkstra算法时，引入一个dis2数组，来维护节点0到节点i的次短路径，最后答案就是节点0到节点n-1的次短路径，也就是dis2[n-1] </p>
+</li>
+<li><p>使子序列的和等于目标的最少操作次数<br>贪心<br>缺少哪一位就从高位分解获取，注意已有的低位也可以凑出当前需要的位</p>
+</li>
+<li><p>树中距离之和<br>换根dfs<br>先通过dfs计算出节点root到所有节点的距离ans[root]<br>考虑从节点root转移到其子节点child：<br>对于child及其子树上的节点，距离更近了，记子树的所有节点数量为size<br>对于其他节点，距离更远了，这部分节点数量为n-size<br>可以得到转移方程：ans[child]&#x3D;ans[root] + (n-size) - size<br>根据转移方程得到所有答案</p>
 </li>
 </ol>
 
@@ -2763,59 +3008,11 @@ ch作用的子串范围：最小左端点pre[ch-&#39;a&#39;]+1 最大右端点s.
 
 
 
-  <article id="post-算法模板" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2023-06-15T02:19:24.000Z"><a href="/2023/06/15/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/">2023-06-15</a></time>
-      
-      
-  
-    <h1 class="title"><a href="/2023/06/15/%E7%AE%97%E6%B3%95%E6%A8%A1%E6%9D%BF/">算法模板</a></h1>
-  
-
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
-      
-        <h3 id="埃氏筛"><a href="#埃氏筛" class="headerlink" title="埃氏筛"></a>埃氏筛</h3><ul>
-<li>返回小于n的质数的个数<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">public int isPrime(int n)&#123;</span><br><span class="line">       int ret=0;</span><br><span class="line">       boolean[] is=new boolean[n];</span><br><span class="line">       Arrays.fill(is,true);</span><br><span class="line">       for(int i=2;i&lt;n;i++)&#123;</span><br><span class="line">           if(is[i])&#123;</span><br><span class="line">               ret++;</span><br><span class="line">               if((long)i*i&lt;n)&#123;</span><br><span class="line">                   for(int j=i*i;j&lt;n;j+=i)&#123;</span><br><span class="line">                       is[j]=false;</span><br><span class="line">                   &#125;</span><br><span class="line">               &#125;</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">       return ret;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="质因数分解"><a href="#质因数分解" class="headerlink" title="质因数分解"></a>质因数分解</h3><ul>
-<li>获取n的所有质因数（无去重）<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">public List&lt;Integer&gt; getPrimeFactors(int n)&#123;</span><br><span class="line">    List&lt;Integer&gt; ret=new ArrayList&lt;&gt;();</span><br><span class="line">    for(int i=2;i*i&lt;=n;i++)&#123;</span><br><span class="line">        while(n%i==0)&#123;</span><br><span class="line">            ret.add(i);</span><br><span class="line">            n/=i;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    if(n&gt;1)ret.add(n);</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="最大公约数gcd"><a href="#最大公约数gcd" class="headerlink" title="最大公约数gcd"></a>最大公约数gcd</h3><ul>
-<li>获取a和b的最大公约数<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public int gcd(int a,int b)&#123;</span><br><span class="line">       return b==0?a:gcd(b,a%b);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="最小公倍数lcm"><a href="#最小公倍数lcm" class="headerlink" title="最小公倍数lcm"></a>最小公倍数lcm</h3><ul>
-<li>获取a和b的最小公倍数（需要gcd函数）<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">public int lcm(int a,int b)&#123;</span><br><span class="line">    return a/gcd(a,b)*b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="树状数组"><a href="#树状数组" class="headerlink" title="树状数组"></a>树状数组</h3><ul>
-<li>树状数组存储数据的下标为[1,n]</li>
-<li>查询树状数组区间[left,right]之和，对应的表达式为tree.query(right)-tree.query(left-1);<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">class BIT&#123;</span><br><span class="line">    private int n;</span><br><span class="line">    private int[] tree;</span><br><span class="line">    public BIT(int n)&#123;</span><br><span class="line">        this.n=n;</span><br><span class="line">        this.tree=new int[n+1];</span><br><span class="line">    &#125;</span><br><span class="line">    public int lowBit(int x)&#123;</span><br><span class="line">        return x&amp;(-x);</span><br><span class="line">    &#125;</span><br><span class="line">    public void add(int x,int v)&#123;</span><br><span class="line">        for(int i=x;i&lt;=n;i+=lowBit(i))&#123;</span><br><span class="line">            tree[i]+=v;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    public int query(int x)&#123;</span><br><span class="line">        int ret=0;</span><br><span class="line">        for(int i=x;i&gt;0;i-=lowBit(i))&#123;</span><br><span class="line">            ret+=tree[i];</span><br><span class="line">        &#125;</span><br><span class="line">        return ret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h3 id="加法取模公式与减法取模公式"><a href="#加法取模公式与减法取模公式" class="headerlink" title="加法取模公式与减法取模公式"></a>加法取模公式与减法取模公式</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(x + y) mod p = ( (x mod p) + (y mod p) ) mod p</span><br><span class="line">(x - y) mod p = ( (x mod p) - (y mod p) + p ) mod p</span><br></pre></td></tr></table></figure>
-
-<h3 id="单源最短路径dijkstra算法"><a href="#单源最短路径dijkstra算法" class="headerlink" title="单源最短路径dijkstra算法"></a>单源最短路径dijkstra算法</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">int n; //顶点个数</span><br><span class="line">HashMap&lt;Integer,List&lt;int[]&gt;&gt; map; //边的数据</span><br><span class="line">public int[] dijkstra(int start)&#123; //dijkstra算法堆优化</span><br><span class="line">        int[] dis=new int[n];</span><br><span class="line">        Arrays.fill(dis,Integer.MAX_VALUE);</span><br><span class="line">        dis[start]=0;</span><br><span class="line">        PriorityQueue&lt;Integer&gt; queue=new PriorityQueue&lt;&gt;((o1,o2)-&gt;dis[o1]-dis[o2]);</span><br><span class="line">        queue.offer(start);</span><br><span class="line">        while(!queue.isEmpty())&#123;</span><br><span class="line">            int node=queue.poll();</span><br><span class="line">            if(!map.containsKey(node))</span><br><span class="line">                continue;</span><br><span class="line">            for(int[] data:map.get(node))&#123;</span><br><span class="line">                int v=data[0],value=data[1];</span><br><span class="line">                if(dis[v]&gt;dis[node]+value)&#123;</span><br><span class="line">                    dis[v]=dis[node]+value;</span><br><span class="line">                    queue.offer(v);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        return dis;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
-  </div>
-</article>
-
-
-
-
 
 <nav id="pagination">
   
+  
+    <a href="/page/2/" class="alignright next">下一页</a>
   
   <div class="clearfix"></div>
 </nav></div></div>
