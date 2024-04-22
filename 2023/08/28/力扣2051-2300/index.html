@@ -1,70 +1,77 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  
-  <title>力扣2051-2300 | comin-lin&#39;s blog</title>
-  <meta name="author" content="comin-lin">
-  
-  <meta name="description" content="子数组最小乘积的最大值单调栈+前缀和使用单调栈预处理左边更小值和右边更小值出现的位置遍历数组，对于每个nums[i]计算出以nums[i]为最小值时的最长子数组的分数，维护最大值作为答案
-
-最大相等频率哈希表+模拟+分类讨论遍历数组，使用一个哈希表统计每个元素及其出现次数，另一个哈希表统计频率以及该">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <meta property="og:title" content="力扣2051-2300"/>
-  <meta property="og:site_name" content="comin-lin&#39;s blog"/>
-
-  
-    <meta property="og:image" content=""/>
-  
-
-  <link rel="shortcut icon" href="/favicon.png">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-  
-
-<meta name="generator" content="Hexo 6.3.0"></head>
 
 
-<body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">comin-lin&#39;s blog</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content= >
+  <meta name="keywords" content=hexo,theme,MiHoYo >
+
+  <head>
+    <title>
+      力扣2051-2300 [ comin-lin&#39;s blog ]
+    </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+
+    <link rel="stylesheet" href="/css/header.css">
+<div class="header">
+  <div class="logo">
+    <span class="pull-left">
+      <a id="site-name" href="/">
+        comin-lin&#39;s blog
+      </a>
+    </span>
+  </div>
+  <ul class="nav-list">
     
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
+      <li>
+        <a href="/">
+          首页
+        </a>
+      </li>
+      
   </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-力扣2051-2300" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2023-08-28T02:49:56.000Z"><a href="/2023/08/28/%E5%8A%9B%E6%89%A32051-2300/">2023-08-28</a></time>
-      
-      
-  
-    <h1 class="p-name title" itemprop="headline name">力扣2051-2300</h1>
-  
+</div>
 
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
+      <!--<link rel="stylesheet" href="/css/top-header.css">
+<div id="top-bar" class="fixed">
+
+  <a class="goto-top" href="#"></a>
+  <ul class="bar-list bar-list-1">
+    
+      <li>
+        <p>
+          <a href="/">
+            <text class="bar-text bar-p1">
+              首页
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
       
-        <ol start="1856">
+  </ul>
+</div>-->
+
+        <div id="content-outer">
+          <div class="content-inner">
+            <link rel="stylesheet" href="/css/post.css">
+<div class="posts">
+  <a href="/index.html"><i class="fa fa-home
+replay-btn" aria-hidden="true"></i></a>
+  <div class="post-title">
+    <p>
+      力扣2051-2300
+    </p>
+    <hr>
+  </div>
+  <div class="post-content">
+    <ol start="1856">
 <li><p>子数组最小乘积的最大值<br>单调栈+前缀和<br>使用单调栈预处理左边更小值和右边更小值出现的位置<br>遍历数组，对于每个nums[i]计算出以nums[i]为最小值时的最长子数组的分数，维护最大值作为答案</p>
 </li>
 <li><p>最大相等频率<br>哈希表+模拟+分类讨论<br>遍历数组，使用一个哈希表统计每个元素及其出现次数，另一个哈希表统计频率以及该频率出现的次数<br>如果频率只存在一种，如果频率为1或者出现次数为1则满足条件<br>如果频率只存在两种，如果其中一种是1且出现1次则满足条件，另外如果两个频率相差为1，且较大的频率出现次数为1，也满足条件<br>如果频率出现两种以上，不满足条件</p>
@@ -359,58 +366,40 @@
 </li>
 <li><p>只出现一次的数字 III<br>位运算<br>设答案为a，b<br>整个数组异或可以得到x &#x3D; a ^ b<br>x不为0，因为a不可能等于b，如果a等于b那么a就出现了两次与题目矛盾<br>寻找x的最低位1的位置，记为index，a和b在index位上的结果一定是一个为1，一个为0<br>将整个数组分为两类：index位为1的元素&#x2F;index位为0的元素<br>分别将这两类元素进行异或，就得到了a和b</p>
 </li>
+<li><p>美丽塔 II<br>枚举+预处理+单调栈<br>枚举山峰的位置，假设山峰位于下标i<br>那么区间[0,i]是非递减的，[i+1,n-1]是非递增的<br>设pre[i]为[0,i]非递减的最大和，suf[i+1]为[i+1,n-1]非递增的最大和<br>此时高度和为pre[i]+suf[i+1]<br>为了获取pre和suf数组，可以用单调栈来实现<br>单调栈获取pre的思路（获取suf数组同理）：<br>index入栈，<br>当栈顶 &gt; maxHeight[index]时不断出栈，<br>直到栈顶 &lt;&#x3D; maxHeight[index]<br>此时得到pre[index] &#x3D; pre[栈顶] + [栈顶+1,index] * maxHeight[index],注意需要特判此时栈顶为空的情况</p>
+</li>
+<li><p>从相邻元素对还原数组<br>哈希表+dfs<br>通过哈希表可以获取到任意的只有一个相邻元素的值，把这个值作为数组头部<br>根据相邻元素进行dfs直到还原全部数组</p>
+</li>
+<li><p>找出第 K 大的异或坐标值<br>二维前缀和思想+排序<br>类似二维前缀和获取二维异或和数组，每次计算后放入list，对list排序后取出第k大即为答案</p>
+</li>
+<li><p>水壶问题<br>记忆化BFS<br>两个水壶 记水量为a b 每一次都有以下的操作：<br>装满a<br>装满b<br>倒空a<br>倒空b<br>a倒入b<br>b倒入a<br>使用long变量记录搜索状态避免重复搜索</p>
+</li>
 </ol>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
   </div>
-</article>
-
-
-</div></div>
-    <aside id="sidebar" class="alignright">
-  
-
-  
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/java/">java</a><small>1</small></li>
-  
-    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>2</small></li>
-  
-  </ul>
-</div>
-
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2023 comin-lin
   
 </div>
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery-3.4.1.min.js"></script>
+          </div>
+        </div>
 
+        <link rel="stylesheet" href="/css/footer.css">
+<div class="bottom-outer">
+  <div class="framework-info">
+    <span>Power by</span>
+    <a class="a1" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>Theme by</span>
+    <a class="a2" target="_blank" rel="noopener" href="https://github.com/redhat123456/hexo-theme-MiHoYo">MiHoYo</a>
+  </div>
+</div>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
+          
+            <!-- scripts list from theme config.yml -->
+            
+              <script src="/js/MiHoYo.js"></script>
+              
+                
 
+  </body>
 
-<script src="/js/gallery.js"></script>
-
-
-
-
-
-</body>
-</html>
+  </html>

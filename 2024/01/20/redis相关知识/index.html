@@ -1,0 +1,124 @@
+
+
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content= >
+  <meta name="keywords" content=hexo,theme,MiHoYo >
+
+  <head>
+    <title>
+      redis相关知识 [ comin-lin&#39;s blog ]
+    </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+
+    <link rel="stylesheet" href="/css/header.css">
+<div class="header">
+  <div class="logo">
+    <span class="pull-left">
+      <a id="site-name" href="/">
+        comin-lin&#39;s blog
+      </a>
+    </span>
+  </div>
+  <ul class="nav-list">
+    
+      <li>
+        <a href="/">
+          首页
+        </a>
+      </li>
+      
+  </ul>
+</div>
+
+      <!--<link rel="stylesheet" href="/css/top-header.css">
+<div id="top-bar" class="fixed">
+
+  <a class="goto-top" href="#"></a>
+  <ul class="bar-list bar-list-1">
+    
+      <li>
+        <p>
+          <a href="/">
+            <text class="bar-text bar-p1">
+              首页
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
+      
+  </ul>
+</div>-->
+
+        <div id="content-outer">
+          <div class="content-inner">
+            <link rel="stylesheet" href="/css/post.css">
+<div class="posts">
+  <a href="/index.html"><i class="fa fa-home
+replay-btn" aria-hidden="true"></i></a>
+  <div class="post-title">
+    <p>
+      redis相关知识
+    </p>
+    <hr>
+  </div>
+  <div class="post-content">
+    <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">使用场景：</span><br><span class="line">缓存 -穿透、击穿、雪崩  -双写一致（redis缓存与mysql数据库） -数据过期策略、数据淘汰策略</span><br><span class="line">分布式锁 -setnx redisson</span><br><span class="line">计数器</span><br><span class="line">保存token</span><br><span class="line">消息队列、延迟队列 </span><br><span class="line"></span><br><span class="line">redis集群：主从 哨兵 集群</span><br><span class="line">redis事务</span><br><span class="line">redis为什么快？</span><br></pre></td></tr></table></figure>
+<p>缓存穿透：查询一个不存在的数据，mysql查询不到数据也不会被redis缓存，每次请求都查数据库</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">解决方案一：缓存空数据</span><br><span class="line">优点：实现简单</span><br><span class="line">缺点：将产生额外内存消耗，可能发生不一致的问题（缓存为空数据，实际新增了数据）</span><br><span class="line"></span><br><span class="line">解决方案二：布隆过滤器：可以用于检索一个数据是否存在一个集合中，会存在误判（认为存在但实际没有）</span><br><span class="line">在缓存预热时，预热布隆过滤器</span><br><span class="line">优点：内存占用较少，没有多余key</span><br><span class="line">缺点：布隆过滤器实现复杂，存在误判</span><br></pre></td></tr></table></figure>
+<p>缓存击穿：热点key过期，大量对这个key的并发请求瞬间把数据库压垮</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">解决方案一：互斥锁（分布式锁）</span><br><span class="line">线程1查询不到缓存，获取互斥锁，查询数据库重建缓存，重建缓存后释放锁</span><br><span class="line">线程2查询不到缓存，且获取互斥锁失败，则休眠一段时间再重试</span><br><span class="line">优点：强一致</span><br><span class="line">缺点：性能差</span><br><span class="line"></span><br><span class="line">解决方案二：逻辑过期（热点key不设置过期时间，添加逻辑过期的字段）</span><br><span class="line">线程1查询缓存发现已逻辑过期，获取互斥锁，开启一个新线程（线程2）查询数据库重建缓存，此时线程1直接返回旧数据</span><br><span class="line">线程2在重建缓存后释放锁</span><br><span class="line">线程3查询缓存发现已逻辑过期，且获取互斥锁失败，则返回过期数据</span><br><span class="line">优点：高可用，用户体验好</span><br><span class="line">缺点：性能优</span><br></pre></td></tr></table></figure>
+<p>缓存雪崩：多个key在同一时间过期或redis服务宕机，导致大量请求到达数据库带来巨大压力</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">解决方案一：对于多个key同时过期问题，可以给不同的key设置不同的过期时间，比如设置随机过期时间</span><br><span class="line">解决方案二：对于redis服务宕机问题，可以利用redis集群来提高服务的可用性</span><br><span class="line">解决方案三：给缓存业务添加降级限流策略 使用ngxin或SpringCloud gateway，降级可作为系统的保底策略，适用于穿透、击穿、雪崩</span><br><span class="line">解决方案四：给业务添加多级缓存，使用Guava或Caffeine</span><br></pre></td></tr></table></figure>
+<p>双写一致问题：mysql的数据如何与redis进行同步</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">需要根据不同业务背景来看待双写一致，有些业务一致性要求高，有些业务允许延迟一致</span><br><span class="line"></span><br><span class="line">双写一致性：当修改了数据库的数据时也要同时更新缓存的数据，缓存和数据库的数据要保持一致</span><br><span class="line"></span><br><span class="line">延迟双删：不论先删除缓存再修改数据库还是先修改数据库再删除缓存，在多线程下都可能出现脏数据</span><br><span class="line"></span><br><span class="line">解决方案：</span><br><span class="line">一致性要求高：使用读写锁 由Redisson提供</span><br><span class="line">共享锁：读锁，加锁后其他线程可以共享读操作</span><br><span class="line">排它锁：独占锁，加锁后其他线程无法进行读写操作</span><br><span class="line"></span><br><span class="line">允许延迟一致：异步通知 </span><br><span class="line">1.使用MQ中间件，在数据库更新数据后，通知缓存删除</span><br><span class="line">2.使用canal中间件，不需要修改业务代码，伪装为mysql一个从节点，canal通过读取binlog数据更新缓存</span><br></pre></td></tr></table></figure>
+<p>缓存持久化问题</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">Redis缓存持久化的两种方式：</span><br><span class="line">1.RDB </span><br><span class="line">2.AOF</span><br><span class="line"></span><br><span class="line">RDB，全称Redis Database Backup file（Redis数据备份文件/Redis数据快照）</span><br><span class="line">通过RDB把内存中的所有数据记录到磁盘中。当redis实例故障重启后，从磁盘读取快照文件，恢复数据</span><br><span class="line">连接redis-cli后，使用命令完成RDB：</span><br><span class="line">save #由redis主进程来执行RDB，会阻塞所有命令，不建议使用</span><br><span class="line">bgsave #开启子进程执行RDB，避免主进程受到影响</span><br><span class="line"></span><br><span class="line">redis内部有自动触发RDB的机制，在redis.conf文件中进行配置：</span><br><span class="line">save 900 10 #900秒内，如果有10个key被修改，则执行bgsave</span><br><span class="line"></span><br><span class="line">RDB的执行原理：</span><br><span class="line">bgsave开始时会fork主进程得到子进程，子进程共享主进程的内存数据。完成fork后读取内存数据并写入RDB文件</span><br><span class="line">fork采用的是copy-on-write技术，当主进程执行读操作时，访问共享内存。当主进程执行写操作时，则会拷贝一份数据，执行写操作</span><br><span class="line"></span><br><span class="line">AOF，全程Append Only File（追加文件）</span><br><span class="line">通过AOF把redis处理的每一个写命令记录在AOF中，可看做命令日志文件</span><br><span class="line">AOF默认是关闭的，在redis.conf中进行开启：</span><br><span class="line">appendonly yes #是否开启AOF功能，默认是no</span><br><span class="line">appendfilename &quot;appendonly.aof&quot; #AOF文件的名称</span><br><span class="line"></span><br><span class="line">AOF记录的频率也需要配置：</span><br><span class="line">appendfsync always #每执行一次写命令，立即记录到AOF文件，性能影响大</span><br><span class="line">appendfsync everysec #写命令执行完先放入AOF缓冲区，每隔1秒将缓冲区数据写到AOF文件，是默认方案，最多丢失1秒数据</span><br><span class="line">appendfsync no #写命令执行完先放入AOF缓冲区，由操作系统决定何时将缓冲区内容写会磁盘，可能丢失大量数据</span><br><span class="line"></span><br><span class="line">AOF文件比RDB文件大的多，而且AOF会记录对同一key的多次操作，但只有最后一次写操作才有意义</span><br><span class="line">通过执行bgrewriteaof命令，可以让AOF文件执行重写公共能，用最少的命令达到相同效果</span><br><span class="line">redis在触发阈值时会自动重写AOF文件，阈值配置：</span><br><span class="line">auto-aof-rewrite-percentage 100 #AOF文件比上次文件增长超过多少百分比则触发重写</span><br><span class="line">auto-aof-rewrite-min-size 64mb #AOF文件体积最少多大才触发重写</span><br><span class="line"></span><br><span class="line">RDB与AOF各有优缺点，在实际开发中会结合两者来使用</span><br></pre></td></tr></table></figure>
+<p>数据过期策略</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">redis中的数据过期策略：惰性删除、定期删除</span><br><span class="line"></span><br><span class="line">惰性删除：在访问key时如果过期，则删除</span><br><span class="line">优点：对CPU友好 </span><br><span class="line">缺点：对内存不友好</span><br><span class="line"></span><br><span class="line">定期删除：每隔一段时间，检查一定量的key，删除过期的key</span><br><span class="line">定期删除模式：SLOW、FAST</span><br><span class="line">SLOW模式：执行频率默认10hz，每次不超过25ms，通过配置文件的hz选项来调整频率</span><br><span class="line">FAST模式：执行频率不固定，两次间隔不低于2ms，每次耗时不超过1ms</span><br><span class="line">优点：通过限制频率和时长减少对CPU的影响</span><br><span class="line">缺点：难以确定执行时长和频率</span><br><span class="line"></span><br><span class="line">Redis的过期策略：惰性删除+定期删除两种策略配合使用</span><br></pre></td></tr></table></figure>
+<p>数据淘汰策略</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">当redis内存不足时，再向redis中添加新的key，redis会按照某种规则将内存中的数据删除，这种删除规则就是数据淘汰策略</span><br><span class="line">redis默认淘汰策略noeviction：不淘汰任何key，但是内存满时不允许写入新数据</span><br><span class="line">比较常用的策略：</span><br><span class="line">allkeys-lru：基于LRU算法 最近最少使用的key被淘汰</span><br><span class="line">allkeys-lfu：基于LFU算法 最少使用的key被淘汰</span><br></pre></td></tr></table></figure>
+<p>分布式锁</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">redis分布式锁主要使用redis的setnx命令（SET if not exists）</span><br><span class="line">获取锁SET key value NX EX 10  #NX是互斥，EX是设置超时时间</span><br><span class="line">释放锁DEL key</span><br><span class="line"></span><br><span class="line">redisson实现分布式锁</span><br><span class="line">1.有Watch dog看门狗给锁进行续期</span><br><span class="line">2.其他线程while循环不断尝试获取锁</span><br><span class="line">3.加锁、设置过期时间等操作都是基于lua脚本，保证原子性</span><br><span class="line">4.可重入锁（同一线程中可以多次获取锁）</span><br></pre></td></tr></table></figure>
+<p>redis集群</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">集群方式：主从复制、哨兵模式、分片集群</span><br><span class="line"></span><br><span class="line">单节点redis并发能力是有限的，要进一步提高其并发能力，就需要搭建主从集群，实现读写分离</span><br><span class="line">主节点进行写操作后，对从节点进行数据同步，主节点负责写数据，从节点负责读数据</span><br><span class="line">主从数据同步原理：全量同步 和 增量同步</span><br><span class="line">全量同步过程：</span><br><span class="line">1.从节点请求主节点同步数据（replication id、offset）</span><br><span class="line">2.主节点判断是否是第一次请求，是第一次就与从节点同步版本信息（replication id和offset）</span><br><span class="line">3.主节点执行bgsave，生成RDB文件，发送给从节点去执行</span><br><span class="line">4.在RDB生成执行期间，主节点会以命令的方式记录到缓冲区（一个日志文件）</span><br><span class="line">5.把生成之后的命令日志文件发送给从节点进行同步</span><br><span class="line">增量同步过程：</span><br><span class="line">1.从节点请求主节点同步数据，主节点判断不是第一次请求，获取从节点的offseet值</span><br><span class="line">2.主节点从命令日志中获取offset值之后的数据，发送给从节点进行数据同步</span><br><span class="line"></span><br><span class="line">主从模式的缺点：主节点宕机后，redis集群将失去写数据的能力，因此引入哨兵机制</span><br><span class="line">哨兵（Sentinel）的作用：</span><br><span class="line">1.监控 不断检查主节点和从节点是否存活</span><br><span class="line">2.自动故障恢复 如果主节点故障，会选择一个从节点升级为主节点，之后都以该主节点为主</span><br><span class="line">3.通知 当集群发生故障而改动时，将最新消息发送给redis客户端</span><br><span class="line"></span><br><span class="line">服务状态监控：超过一定数量的哨兵都认为一个实例下线，称该实例客观下线</span><br><span class="line">哨兵模式脑裂：主节点网络出现问题，此时客户端仍向老的主节点写入数据，哨兵选取新的主节点，此时老的主节点网络恢复，老的主节点变成从节点与新的主节点进行数据同步导致数据丢失</span><br><span class="line">脑裂解决方案：修改redis配置，设置最少的从节点数量以及缩短主从数据同步的延迟时间，打不到要求就拒绝请求，避免大量数据丢失</span><br><span class="line"></span><br><span class="line">海量数据存储和高并发写的问题，需要使用分片集群来解决</span><br><span class="line">分片集群：集群中有多个主节点，每个主节点都有多个从节点，主节点之间检测彼此健康状态</span><br><span class="line">客户端请求可以访问集群任意节点，最终路由转发到正确节点</span><br><span class="line">redis分片集群引入哈希槽的概念，将16384个哈希槽分配到不同的实例，根据key的有效部分计算哈希值，对16384取余，根据余数寻找插槽所在的实例进行数据存入</span><br></pre></td></tr></table></figure>
+<p>redis是单线程的，为什么那么快</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.redis是纯内存操作，执行速度非常快</span><br><span class="line">2.采用单线程，避免不必要的上下文切换可竞争条件，多线程还需要考虑线程安全问题</span><br><span class="line">3.使用IO多路复用模型，非阻塞IO</span><br></pre></td></tr></table></figure>
+<p>I&#x2F;O多路复用模型</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">redis是纯内存操作，执行速度非常快，它的性能瓶颈是网络延迟而不是执行速度</span><br><span class="line">I/O多路复用模型主要实现了高效的网络请求</span><br><span class="line">I/O多路复用是指利用单个线程来同时监听多个Socket，并在某个Socket可读、可写时得到通知，从而避免无效的等待，</span><br><span class="line">充分利用CPU资源。目前的I/O多路复用采用epoll模式实现，在通知用户进程Socket就绪的同时，把已就绪的Socket写入用户空间，</span><br><span class="line">不需要挨个遍历Socket来判断是否就绪，提升了性能</span><br></pre></td></tr></table></figure>
+
+  </div>
+  
+</div>
+          </div>
+        </div>
+
+        <link rel="stylesheet" href="/css/footer.css">
+<div class="bottom-outer">
+  <div class="framework-info">
+    <span>Power by</span>
+    <a class="a1" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>Theme by</span>
+    <a class="a2" target="_blank" rel="noopener" href="https://github.com/redhat123456/hexo-theme-MiHoYo">MiHoYo</a>
+  </div>
+</div>
+
+          
+            <!-- scripts list from theme config.yml -->
+            
+              <script src="/js/MiHoYo.js"></script>
+              
+                
+
+  </body>
+
+  </html>

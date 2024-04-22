@@ -1,71 +1,77 @@
-<!DOCTYPE HTML>
-<html lang="zh-CN">
-<head>
-  <meta charset="utf-8">
-  
-  <title>java核心技术卷1笔记 | comin-lin&#39;s blog</title>
-  <meta name="author" content="comin-lin">
-  
-  <meta name="description" content="java核心技术卷I
-第一章 Java 程序设计概述
-
-1234567891011121314151617181920212223242526272829303132333435363738在java设计者编写的 &amp;quot;白皮书&amp;quot; 中，有如下 11 个关键术语：1.简单性 Java 语">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <meta property="og:title" content="java核心技术卷1笔记"/>
-  <meta property="og:site_name" content="comin-lin&#39;s blog"/>
-
-  
-    <meta property="og:image" content=""/>
-  
-
-  <link rel="shortcut icon" href="/favicon.png">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  <!--[if lt IE 9]><script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script><![endif]-->
-  
-
-<meta name="generator" content="Hexo 6.3.0"></head>
 
 
-<body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">comin-lin&#39;s blog</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content= >
+  <meta name="keywords" content=hexo,theme,MiHoYo >
+
+  <head>
+    <title>
+      java核心技术卷1笔记 [ comin-lin&#39;s blog ]
+    </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+
+    <link rel="stylesheet" href="/css/header.css">
+<div class="header">
+  <div class="logo">
+    <span class="pull-left">
+      <a id="site-name" href="/">
+        comin-lin&#39;s blog
+      </a>
+    </span>
+  </div>
+  <ul class="nav-list">
     
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
+      <li>
+        <a href="/">
+          首页
+        </a>
+      </li>
+      
   </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
-</header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article id="post-java核心技术卷1笔记" class="h-entry post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time class="dt-published" datetime="2023-12-08T06:08:23.000Z"><a href="/2023/12/08/java%E6%A0%B8%E5%BF%83%E6%8A%80%E6%9C%AF%E5%8D%B71%E7%AC%94%E8%AE%B0/">2023-12-08</a></time>
-      
-      
-  
-    <h1 class="p-name title" itemprop="headline name">java核心技术卷1笔记</h1>
-  
+</div>
 
-    </header>
-    <div class="e-content entry" itemprop="articleBody">
+      <!--<link rel="stylesheet" href="/css/top-header.css">
+<div id="top-bar" class="fixed">
+
+  <a class="goto-top" href="#"></a>
+  <ul class="bar-list bar-list-1">
+    
+      <li>
+        <p>
+          <a href="/">
+            <text class="bar-text bar-p1">
+              首页
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
       
-        <h3 id="java核心技术卷I"><a href="#java核心技术卷I" class="headerlink" title="java核心技术卷I"></a>java核心技术卷I</h3><ul>
+  </ul>
+</div>-->
+
+        <div id="content-outer">
+          <div class="content-inner">
+            <link rel="stylesheet" href="/css/post.css">
+<div class="posts">
+  <a href="/index.html"><i class="fa fa-home
+replay-btn" aria-hidden="true"></i></a>
+  <div class="post-title">
+    <p>
+      java核心技术卷1笔记
+    </p>
+    <hr>
+  </div>
+  <div class="post-content">
+    <h3 id="java核心技术卷I"><a href="#java核心技术卷I" class="headerlink" title="java核心技术卷I"></a>java核心技术卷I</h3><ul>
 <li>第一章 Java 程序设计概述</li>
 </ul>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">在java设计者编写的 &quot;白皮书&quot; 中，有如下 11 个关键术语：</span><br><span class="line"></span><br><span class="line">1.简单性 </span><br><span class="line">Java 语法是 C++ 语法的一个“ 纯净” 版本</span><br><span class="line"></span><br><span class="line">2.面向对象 </span><br><span class="line">面向对象设计是一种程序设计技术，它将重点放在教椐（即对象）和对象的接口上</span><br><span class="line"></span><br><span class="line">3.分布式</span><br><span class="line">Java 有一个丰富的例程库，用于处理 HTTP 和 FTP 之类的 TCP/IP 协议，Java 应用程序能够通过 URL 打开和访问网络上的对象</span><br><span class="line"></span><br><span class="line">4.健壮性</span><br><span class="line">Java 编译器能够检测许多在其他语言中仅在运行时才能够检测出来的问题</span><br><span class="line"></span><br><span class="line">5.安全性</span><br><span class="line">从一开始，Java 就设计成能够防范各种攻击，默认情况下，Java程序在一个受限的环境——“沙箱”中运行</span><br><span class="line"></span><br><span class="line">6.体系结构中立</span><br><span class="line">编译器生成一个体系结构中立的目标文件格式，这是一种编译过的代码， 只要有Java运行时系统，这些编译后的代码可以在许多处理器上运行</span><br><span class="line"></span><br><span class="line">7.可移植性</span><br><span class="line">在 Java 中，数据类型具有固定的大小， 这消除了代码移植时令人头痛的主要问题</span><br><span class="line"></span><br><span class="line">8.解释型</span><br><span class="line">Java 解释器可以在任何移植了解释器的机器上执行 Java 字节码</span><br><span class="line"></span><br><span class="line">9.高性能</span><br><span class="line">字节码可以（在运行时刻）动态地翻译成对应运行这个应用的特定 CPU 的机器码</span><br><span class="line"></span><br><span class="line">10.多线程</span><br><span class="line">多线程可以带来更好的交互响应和实时行为</span><br><span class="line"></span><br><span class="line">11.动态性</span><br><span class="line">Java 与 C/C++ 相比更加具有动态性，它能够适应不断发展的环境。库中可以自由地添加新方法和实例变量， 而对客户端却没有任何影响</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">applet</span><br><span class="line">在网页中运行的 Java 程序称为 applet。如今applet已经很少使用</span><br></pre></td></tr></table></figure>
@@ -115,56 +121,30 @@
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 
-      
-    </div>
-    <footer>
-      
-        
-        
-      
-      <div class="clearfix"></div>
-    </footer>
   </div>
-</article>
-
-
-</div></div>
-    <aside id="sidebar" class="alignright">
-  
-
-  
-<div class="widget tag">
-  <h3 class="title">标签</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/java/">java</a><small>1</small></li>
-  
-    <li><a href="/tags/%E7%AE%97%E6%B3%95/">算法</a><small>2</small></li>
-  
-  </ul>
-</div>
-
-</aside>
-    <div class="clearfix"></div>
-  </div>
-  <footer id="footer" class="inner"><div class="alignleft">
-  
-  &copy; 2023 comin-lin
   
 </div>
-<div class="clearfix"></div></footer>
-  
-<script src="/js/jquery-3.4.1.min.js"></script>
+          </div>
+        </div>
 
+        <link rel="stylesheet" href="/css/footer.css">
+<div class="bottom-outer">
+  <div class="framework-info">
+    <span>Power by</span>
+    <a class="a1" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+    <span class="footer-separator">|</span>
+    <span>Theme by</span>
+    <a class="a2" target="_blank" rel="noopener" href="https://github.com/redhat123456/hexo-theme-MiHoYo">MiHoYo</a>
+  </div>
+</div>
 
-<script src="/js/jquery.imagesloaded.min.js"></script>
+          
+            <!-- scripts list from theme config.yml -->
+            
+              <script src="/js/MiHoYo.js"></script>
+              
+                
 
+  </body>
 
-<script src="/js/gallery.js"></script>
-
-
-
-
-
-</body>
-</html>
+  </html>
