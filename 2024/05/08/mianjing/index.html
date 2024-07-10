@@ -1,0 +1,244 @@
+
+
+  <!DOCTYPE html>
+  <html lang="zh-CN">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="renderer" content="webkit">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="description" content= >
+  <meta name="keywords" content=hexo,theme,MiHoYo >
+
+  <head>
+    <title>
+      mianjing [ comin-lin&#39;s blog ]
+    </title>
+  <meta name="generator" content="Hexo 6.3.0"></head>
+
+  <body>
+
+    <link rel="stylesheet" href="/css/header.css">
+<div class="header">
+  <div class="logo">
+    <span class="pull-left">
+      <a id="site-name" href="/">
+        comin-lin&#39;s blog
+      </a>
+    </span>
+  </div>
+  <ul class="nav-list">
+    
+      <li>
+        <a href="/">
+          首页
+        </a>
+      </li>
+      
+  </ul>
+</div>
+
+      <!--<link rel="stylesheet" href="/css/top-header.css">
+<div id="top-bar" class="fixed">
+
+  <a class="goto-top" href="#"></a>
+  <ul class="bar-list bar-list-1">
+    
+      <li>
+        <p>
+          <a href="/">
+            <text class="bar-text bar-p1">
+              首页
+            </text>
+            <text class="bar-text bar-p2"></text>
+          </a>
+          <text class="bar-p3">/</text>
+        </p>
+      </li>
+      
+  </ul>
+</div>-->
+
+        <div id="content-outer">
+          <div class="content-inner">
+            <link rel="stylesheet" href="/css/post.css">
+<div class="posts">
+  <a href="/index.html"><i class="fa fa-home
+replay-btn" aria-hidden="true"></i></a>
+  <div class="post-title">
+    <p>
+      mianjing
+    </p>
+    <hr>
+  </div>
+  <div class="post-content">
+    <h1 id="jvm的内存模型"><a href="#jvm的内存模型" class="headerlink" title="jvm的内存模型"></a>jvm的内存模型</h1><p>堆</p>
+<p>JVM中最大的内存区域，用于存储几乎所有的对象实例和数组<br>Java堆可以细分为老年代和新生代，新生代又可分为Eden空间、Survivor 0空间和Survivor 1空间<br>是垃圾回收器重点关注的区域<br>所有线程共享</p>
+<p>方法区</p>
+<p>用于存储类的元数据、静态变量、常量<br>Java 8之前，这个区域被称为永久代，8之后叫元空间<br>所有线程共享</p>
+<p>虚拟机栈</p>
+<p>用于存储局部变量、方法参数、基础类型的值以及返回地址<br>线程私有</p>
+<p>程序计数器</p>
+<p>用来存储当前线程执行的字节码指令的地址<br>线程私有</p>
+<h1 id="理解-IOC-和-AOP"><a href="#理解-IOC-和-AOP" class="headerlink" title="理解 IOC 和 AOP"></a>理解 IOC 和 AOP</h1><p>IOC：将对象的创建和依赖关系的管理从程序内部移交给外部容器，降低了组件之间的耦合度，使得代码更加灵活和易于维护</p>
+<p>AOP：将公共的代码从业务逻辑中分离出来，提高了代码的复用性和可维护性</p>
+<h1 id="mybatis框架安全性和一致性"><a href="#mybatis框架安全性和一致性" class="headerlink" title="mybatis框架安全性和一致性"></a>mybatis框架安全性和一致性</h1><p>安全性：</p>
+<p>使用 #{} 避免SQL注入</p>
+<p>MyBatis支持事务的编程式和声明式管理</p>
+<p>一致性：</p>
+<p>MyBatis支持的事务管理确保了数据库操作满足ACID特性</p>
+<h1 id="SQL优化"><a href="#SQL优化" class="headerlink" title="SQL优化"></a>SQL优化</h1><p>目的：提高数据库查询性能和效率<br>手段：<br>避免非必要数据的查询（不使用*）<br>避免全盘扫描（优化SQL语句结构）<br>最大化利用索引（常用字段添加索引）</p>
+<h1 id="Redis应用场景"><a href="#Redis应用场景" class="headerlink" title="Redis应用场景"></a>Redis应用场景</h1><p>数据缓存 存业务数据</p>
+<p>会话存储 存token</p>
+<p>计数器 incr&#x2F;decr</p>
+<p>分布式锁 setnx</p>
+<p>排行榜 Zset</p>
+<h1 id="linux常见命令"><a href="#linux常见命令" class="headerlink" title="linux常见命令"></a>linux常见命令</h1><p>ls - 列出目录内容<br>cd - 切换目录<br>pwd - 显示当前工作目录<br>mkdir - 创建新目录<br>rm - 删除文件或目录<br>cp - 复制文件或目录<br>mv - 移动或重命名文件或目录<br>cat - 查看文件内容<br>grep - 搜索文件中符合条件的行<br>find - 在文件系统中搜索文件<br>echo - 打印文本或变量值<br>sudo - 以超级用户权限执行命令<br>man - 查看命令或系统调用的手册页<br>top - 查看CPU和内存的情况<br>free - 显示内存和缓存的情况</p>
+<h1 id="ElasticSearch选型理由"><a href="#ElasticSearch选型理由" class="headerlink" title="ElasticSearch选型理由"></a>ElasticSearch选型理由</h1><p>全文搜索能力</p>
+<p>支持分布式部署</p>
+<p>实时分析</p>
+<p>RESTful API</p>
+<h1 id="倒排索引"><a href="#倒排索引" class="headerlink" title="倒排索引"></a>倒排索引</h1><p>概念：<br>正向索引是基于文档来组织数据，记录每个文档中包含的词汇<br>倒排索引则是基于词汇来组织数据，记录每个词汇出现在哪些文档中及出现的位置信息</p>
+<p>设计目的：<br>倒排索引主要用于全文搜索和信息检索系统</p>
+<h1 id="分布式锁"><a href="#分布式锁" class="headerlink" title="分布式锁"></a>分布式锁</h1><p>在秒杀场景中，使用分布式锁来完成下单和扣减库存，解决超卖问题：获取锁，检查库存，扣减库存，创建订单，释放锁 使用lua脚本实现原子性</p>
+<p>保证分布式锁的释放：<br>设置锁的超时时间避免某些原因导致锁不释放<br>使用lua脚本保证获取锁执行逻辑后一定会释放锁</p>
+<p>实现可重入：<br>通过 线程标识 和 重入次数 来实现</p>
+<h2 id="redis-lua脚本与redisson都可以用来实现分布式锁，其区别"><a href="#redis-lua脚本与redisson都可以用来实现分布式锁，其区别" class="headerlink" title="redis+lua脚本与redisson都可以用来实现分布式锁，其区别"></a>redis+lua脚本与redisson都可以用来实现分布式锁，其区别</h2><p>redis+lua：需要手动编写和管理Lua脚本</p>
+<p>redisson：提供了丰富的API，开发者只需几行代码就能实现复杂的分布式锁逻辑，支持多种锁类型，如可重入锁、公平锁、联锁、红锁等，且自动处理锁的续期和释放，降低了死锁风险</p>
+<h1 id="在浏览器地址栏键入网址到网址加载完毕的过程"><a href="#在浏览器地址栏键入网址到网址加载完毕的过程" class="headerlink" title="在浏览器地址栏键入网址到网址加载完毕的过程"></a>在浏览器地址栏键入网址到网址加载完毕的过程</h1><p>1.URL解析：识别协议、域名、路径和查询参数</p>
+<p>2.DNS解析：根据URL，通过DNS解析出域名对应的主机ip以及端口号<br>具体过程：先检查缓存里有没有，依次是浏览器缓存，操作系统缓存，路由器缓存，都没有再去找DNS服务器获取</p>
+<p>3.TCP连接：浏览器与服务器建立TCP连接</p>
+<p>4.发送HTTP&#x2F;HTTPS请求，服务器返回响应，浏览器接收响应，渲染页面，请求其他静态资源</p>
+<h1 id="SpringBoot自动配置原理"><a href="#SpringBoot自动配置原理" class="headerlink" title="SpringBoot自动配置原理"></a>SpringBoot自动配置原理</h1><p>在主配置类上添加@EnableAutoConfiguration注解，激活了自动配置机制</p>
+<p>Spring Boot会扫描项目依赖的所有jar包中的META-INF&#x2F;spring.factories</p>
+<p>spring.factories文件实质上是一种SPI（服务发现机制）配置，Spring Boot通过它知道哪些类应该被注册为自动配置类</p>
+<h1 id="Component与-Controller、-Service、-Mapper的区别"><a href="#Component与-Controller、-Service、-Mapper的区别" class="headerlink" title="@Component与@Controller、@Service、@Mapper的区别"></a>@Component与@Controller、@Service、@Mapper的区别</h1><p>都是用于标记一个Java类作为Spring容器管理的Bean，功能相似，而细化的注解可以增强代码的可读性和维护性，让开发者一眼看出该组件的功能</p>
+<h1 id="Autowired和-Resource的区别"><a href="#Autowired和-Resource的区别" class="headerlink" title="@Autowired和@Resource的区别"></a>@Autowired和@Resource的区别</h1><p>都是用于实现依赖注入的注解</p>
+<p>来源不同：<br>@Autowired是Spring框架提供的注解，专门用于Spring的依赖注入<br>@Resource是Java EE规范(JSR-250)的一部分，由JDK提供，因此不仅限于Spring框架，也可以在支持该规范的其他框架中使用</p>
+<p>默认装配行为：<br>@Autowired默认按照类型(byType)进行匹配<br>@Resource默认按照名称(byName)进行匹配</p>
+<h1 id="Mybatis的-和-区别"><a href="#Mybatis的-和-区别" class="headerlink" title="Mybatis的#{}和${}区别"></a>Mybatis的#{}和${}区别</h1><p>#{}是预编译处理的，它的作用主要是防止SQL注入。<br>当使用#{}时，MyBatis会将传入的数据参数进行预编译处理，生成的SQL语句中的参数会使用问号(?)代替，然后在执行时再将参数值替换进去。<br>这样的好处是能够有效防止SQL注入攻击，因为恶意的SQL代码会被当作字符串参数处理，而不会被执行</p>
+<p>${}则是简单的字符串替换。MyBatis在处理${}时，会直接将${}内的内容替换为对应的属性值，不做任何转义处理，然后将其拼接在SQL语句中。<br>这意味着，如果传入的数据包含特殊字符，可能会导致SQL注入的安全风险。</p>
+<h1 id="策略模式和责任链模式"><a href="#策略模式和责任链模式" class="headerlink" title="策略模式和责任链模式"></a>策略模式和责任链模式</h1><p>策略模式：<br>策略模式定义了一系列算法，并将每一个算法封装起来，使它们可以相互替换。这种模式让算法的变化独立于使用算法的客户。<br>在策略模式中，一个类的行为或其算法可以在运行时更改。这种类型的设计模式属于行为模式</p>
+<p>责任链模式：<br>责任链模式为请求创建了一个接收者对象的链。这种模式给予请求的发送者一个链，而不是单一的接收者对象。<br>请求会沿着这条链传递，直到遇到一个能够处理该请求的对象。链中的对象可以决定是否处理请求或将其传递给链中的下一个对象。</p>
+<h1 id="synchronized关键字和ReentrantLock类的区别"><a href="#synchronized关键字和ReentrantLock类的区别" class="headerlink" title="synchronized关键字和ReentrantLock类的区别"></a>synchronized关键字和ReentrantLock类的区别</h1><p>公平性：<br>synchronized锁是非公平的，它不保证等待时间最长的线程会优先获得锁。<br>ReentrantLock既支持非公平锁也支持公平锁，通过构造函数可以选择，公平锁会按照线程等待的顺序分配锁，但可能会降低性能。</p>
+<p>可重入性：<br>两者都是可重入锁，即同一个线程可以多次获取同一个锁而不被阻塞。</p>
+<p>锁的获取与释放：<br>synchronized的锁是由JVM自动管理的，进入同步块时自动加锁，退出时自动释放锁（无论是正常退出还是异常退出）。<br>ReentrantLock需要程序员手动控制加锁和释放锁的过程，这增加了忘记解锁的风险，但同时也提供了更精细的控制。</p>
+<h1 id="redis跟mysql的一致性怎么保证"><a href="#redis跟mysql的一致性怎么保证" class="headerlink" title="redis跟mysql的一致性怎么保证"></a>redis跟mysql的一致性怎么保证</h1><p>双写策略：在更新数据时，同时对Redis和MySQL执行写操作<br>定期同步：可以设置定时任务，定期从MySQL数据库中拉取最新的数据同步到Redis中。这种方法适用于对实时性要求不高的场景<br>最终一致性：在一些对实时性要求不那么严格的场景下，可以采用最终一致性模型。例如，通过消息队列（如RocketMQ）异步处理MySQL的更新事件，确保最终Redis中的数据能够与MySQL保持一致。</p>
+<h1 id="mysql常见的索引失效的场景"><a href="#mysql常见的索引失效的场景" class="headerlink" title="mysql常见的索引失效的场景"></a>mysql常见的索引失效的场景</h1><p>联合索引不遵循最左匹配原则：当创建了联合索引时，查询条件必须从索引的第一个字段开始，否则索引可能不会被使用</p>
+<p>LIKE查询以%开头：如果使用LIKE进行模糊查询且模式以%开头，索引通常无法被利用，因为这会导致索引无法定位到具体范围。</p>
+<p>索引列参与运算或函数：当查询条件中对索引列进行了数学运算或使用了函数，如CONCAT, SUBSTRING, DATE_FORMAT等，索引可能失效，因为索引存储的是原始值，无法直接匹配计算后的结果。</p>
+<p>索引列存在类型转换：如果查询中的数据类型与索引列的数据类型不匹配，导致MySQL需要进行隐式类型转换，这可能导致索引失效。但值得注意的是，字符串与数字比较时，如果字符串常量正确使用了引号，类型转换不会导致索引失效。</p>
+<p>使用OR连接不同索引列：当OR连接的条件中，不是所有的列都有索引，或者索引不是覆盖索引，可能导致索引失效。只有当OR两边的条件都能使用索引时，索引才可能被有效利用。</p>
+<h1 id="如何制作一个自定义的Spring-Boot-Starter"><a href="#如何制作一个自定义的Spring-Boot-Starter" class="headerlink" title="如何制作一个自定义的Spring Boot Starter"></a>如何制作一个自定义的Spring Boot Starter</h1><ol>
+<li>添加Spring Boot Starter Parent作为父依赖，在项目中创建自动配置类</li>
+<li>在resources&#x2F;META-INF&#x2F;spring.factories文件中，声明自动配置类的全类名。这个文件告诉Spring Boot哪些类包含了自动配置逻辑</li>
+<li>将Starter项目打包成jar文件，发布到私人maven仓库</li>
+</ol>
+<h1 id="TreeMap与HashMap的区别"><a href="#TreeMap与HashMap的区别" class="headerlink" title="TreeMap与HashMap的区别"></a>TreeMap与HashMap的区别</h1><p>TreeMap：基于红黑树，插入、删除和查找操作的平均时间复杂度均为O(log n)</p>
+<p>HashMap：基于哈希表，使用数组和链表（节点数量较多时转化为红黑树），平均情况下，插入、删除和查找操作的时间复杂度为O(1)</p>
+<h1 id="Spring依赖注入的方式"><a href="#Spring依赖注入的方式" class="headerlink" title="Spring依赖注入的方式"></a>Spring依赖注入的方式</h1><p>1.构造函数注入：通过在对象构造时将依赖项作为构造函数参数传递进来</p>
+<p>2.Setter方法注入：Spring容器通过调用对象的setter方法来注入依赖</p>
+<p>3.注解实现字段注入：直接将依赖注入到类的字段中，Spring允许使用@Autowired、@Resource或@Inject注解在字段级别实现注入</p>
+<h1 id="Git代码回滚（怎么使用-和-底层原理）"><a href="#Git代码回滚（怎么使用-和-底层原理）" class="headerlink" title="Git代码回滚（怎么使用 和 底层原理）"></a>Git代码回滚（怎么使用 和 底层原理）</h1><p>git revert命令：用于撤销一个或多个提交，但它不是直接删除这些提交，而是通过创建一个新的提交来抵消之前的更改。这样做的好处是保留了提交历史的完整性，不会丢失任何提交信息</p>
+<p>git reset命令提供了更多控制选项来处理回滚，包括软重置（soft）、混合重置（mixed，默认）和硬重置（hard）。</p>
+<h1 id="幻读、脏读、不可重复读的概念"><a href="#幻读、脏读、不可重复读的概念" class="headerlink" title="幻读、脏读、不可重复读的概念"></a>幻读、脏读、不可重复读的概念</h1><p>幻读：当用户对某一范围的数据进行两次查询操作时，第二次查询发现出现了第一次查询时不存在的新行（这些新行是由其他事务插入的）</p>
+<p>脏读：当一个事务（事务A）读取了另一个事务（事务B）尚未提交的数据时，如果事务B随后进行了回滚，那么事务A读取到的数据就是无效的，这就是脏读</p>
+<p>不可重复读：在同一个事务内，如果两次读取同一份数据，第二次读取的结果与第一次不同，这是因为在这两次读取之间，有其他事务对这份数据进行了修改并提交</p>
+<h1 id="mysql什么情况不适合加索引"><a href="#mysql什么情况不适合加索引" class="headerlink" title="mysql什么情况不适合加索引"></a>mysql什么情况不适合加索引</h1><p>数据量较小的表：如果表中的记录数量非常少，索引带来的查询性能提升可能不明显，反而会因为维护索引增加写入、删除和更新操作的开销</p>
+<p>频繁更新的表：对于经常需要进行INSERT、UPDATE和DELETE操作的表，索引的维护成本较高</p>
+<p>数据重复度高的列：如果一个列的值存在大量的重复（如性别列，只有“男”和“女”两个值），索引的效果会大打折扣</p>
+<p>不常出现在WHERE条件中的列：如果一个列很少或者几乎不在WHERE子句、GROUP BY子句或ORDER BY子句中出现，为它创建索引意义不大，因为索引的主要作用是在这些操作中加速数据检索</p>
+<h1 id="mysql事务隔离级别"><a href="#mysql事务隔离级别" class="headerlink" title="mysql事务隔离级别"></a>mysql事务隔离级别</h1><p>概念： 事务的隔离级别是数据库系统中用于定义在并发事务环境中，一个事务可以看到其他事务修改数据的程度</p>
+<p>读未提交：<br>允许事务读取其他事务尚未提交的更改，会导致脏读、不可重复读和幻读</p>
+<p>读已提交：<br>事务只能看到已经提交的更改，不会看到未提交的更改（只避免了脏读）</p>
+<p>可重复读：<br>MySQL的默认事务隔离级别，确保在同一个事务中多次读取同一数据时，结果都是一致的，避免不可重复读<br>InnoDB存储引擎通过多版本并发控制（MVCC）机制实现了这一级别，可以一定程度上减少幻读的发生，但并不能完全避免</p>
+<p>串行化：<br>最严格的隔离级别，通过锁定机制来避免所有的并发问题，会严重影响数据库的并发性能</p>
+<h1 id="http常见错误码"><a href="#http常见错误码" class="headerlink" title="http常见错误码"></a>http常见错误码</h1><p>400 Bad Request 请求报文存在语法错误或无法被服务器理解<br>401 Unauthorized 请求要求用户的身份认证<br>403 Forbidden 服务器理解请求客户端的请求，但是拒绝执行此请求<br>404 Not Found 服务器无法根据请求的URL找到资源</p>
+<p>500 Internal Server Error 服务器遇到了不知道如何处理的情况<br>502 Bad Gateway 作为网关或代理工作的服务器从上游服务器收到了无效的响应<br>503 Service Unavailable 服务器目前无法处理请求，通常是由于服务器过载或维护<br>504 Gateway Timeout  作为网关或代理的服务器在等待上游服务器响应时超时</p>
+<h1 id="创建线程的方式"><a href="#创建线程的方式" class="headerlink" title="创建线程的方式"></a>创建线程的方式</h1><ol>
+<li><p>继承Thread类，重写run方法，创建该类的实例，调用start方法启动线程</p>
+</li>
+<li><p>实现Runnable接口，实现run方法，创建该类的实例，将此实例作为参数传递给Thread类的构造函数来创建Thread对象，调用Thread对象的start方法启动线程</p>
+</li>
+<li><p>实现Callable接口，实现call方法，使用FutureTask包装该类，再将FutureTask实例包装为Thread类，调用start方法启动线程</p>
+</li>
+<li><p>使用线程池：通过线程池的execute(Runnable)方法提交任务，或者使用submit(Callable<T>)提交可返回结果的任务（返回Future），使用Future来追踪结果</p>
+</li>
+</ol>
+<h1 id="线程池的执行流程"><a href="#线程池的执行流程" class="headerlink" title="线程池的执行流程"></a>线程池的执行流程</h1><ol>
+<li><p>初始化线程池：<br>当创建线程池时，会指定一些参数，如核心线程数（corePoolSize）、最大线程数（maximumPoolSize）、线程空闲时间、任务队列（通常是一个阻塞队列，如ArrayBlockingQueue或LinkedBlockingQueue）以及拒绝策略等</p>
+</li>
+<li><p>提交任务（execute()方法）<br>应用程序通过调用线程池的execute(Runnable task)方法提交一个任务</p>
+</li>
+<li><p>处理任务：<br>判断核心线程数：首先检查当前活动线程数是否小于核心线程数，如果是，则直接创建一个新的核心线程来执行任务。<br>添加到队列：如果当前线程数等于核心线程数，那么新提交的任务将被添加到任务队列中等待执行。<br>超出队列容量：如果任务队列已满，线程池会继续检查当前活动线程数是否小于最大线程数。如果不是，则根据拒绝策略处理（如抛出异常、丢弃任务或由调用者运行任务）；如果是，则创建一个非核心线程来执行任务。<br>达到最大线程数：如果当前线程数已经达到最大线程数，且任务队列也已满，此时线程池会执行拒绝策略，比如调用RejectedExecutionHandler接口的实现来处理这个超出能力范围的任务。</p>
+</li>
+<li><p>线程复用：<br>工作线程（Worker）在执行完一个任务后，不会立刻终止，而是会尝试从任务队列中取出下一个任务来执行。这样减少了创建和销毁线程的开销。<br>如果线程池中的线程在一定时间内没有任务可执行，且线程数超过核心线程数，那么超额的线程会在等待新任务一段时间后被终止以减少资源消耗。</p>
+</li>
+<li><p>关闭线程池：<br>可以通过调用shutdown()或shutdownNow()方法来关闭线程池。shutdown()会等待所有已提交的任务完成后再关闭线程池，而shutdownNow()会尝试停止正在执行的任务，并返回尚未开始执行的任务列表。</p>
+</li>
+</ol>
+<h2 id="线程池的拒绝策略"><a href="#线程池的拒绝策略" class="headerlink" title="线程池的拒绝策略"></a>线程池的拒绝策略</h2><p>在线程池中的线程已经达到了最大数量，同时任务队列也已满，无法再接纳新的任务，这时线程池就会拒绝执行任务</p>
+<p>拒绝策略：<br>AbortPolicy（默认策略）：直接抛出RejectedExecutionException异常，阻止新任务的提交<br>CallerRunsPolicy：不创建新线程执行任务，而是将任务回退给调用者所在的线程直接执行<br>DiscardPolicy：默默丢弃无法处理的任务，不抛出任何异常<br>DiscardOldestPolicy：丢弃队列中最旧的任务（即最先提交的任务），然后重新尝试提交当前任务</p>
+<p>自定义策略：<br>Java允许开发者自定义拒绝策略。要实现自定义策略，你需要创建一个类实现java.util.concurrent.RejectedExecutionHandler接口，并实现其rejectedExecution(Runnable r, ThreadPoolExecutor executor)方法，该方法定义了当任务被拒绝时的具体行为</p>
+<h1 id="三次握手和四次挥手"><a href="#三次握手和四次挥手" class="headerlink" title="三次握手和四次挥手"></a>三次握手和四次挥手</h1><p>第一次握手：客户端发送一个SYN标志位设为1的TCP报文到服务器，并随机选择一个初始序号ISN作为自己的序号字段，表示客户端请求连接</p>
+<p>第二次握手：服务器收到客户端的SYN报文后，会以自己的SYN报文作为应答，SYN标志位同样设为1，同时也会选择一个初始序号ISN。服务器会在ACK字段设置客户端ISN+1作为确认号，表示确认收到了客户端的SYN报文。这个报文称为SYN-ACK报文</p>
+<p>第三次握手：客户端收到服务器的SYN-ACK报文后，会检查ACK字段是否正确（即确认号是否为客户端ISN+1），确认无误后，会再向服务器发送一个ACK报文，ACK字段设置为服务器ISN+1，表示确认收到了服务器的SYN报文。这个ACK报文发送完毕，客户端和服务器就建立了连接，可以开始数据传输。</p>
+<p>第一次挥手：主动关闭方（可以是客户端也可以是服务器）发送一个FIN（Finish）标志位设为1的TCP报文给对方，告诉对方自己将要关闭连接。此时主动关闭方进入FIN_WAIT_1状态。</p>
+<p>第二次挥手：接收方接收到FIN报文后，会回复一个ACK报文给主动关闭方，确认序号为收到的FIN报文的序号加1，表明已经接收到关闭请求。接收方进入CLOSE_WAIT状态，而主动关闭方接收到ACK后进入FIN_WAIT_2状态。</p>
+<p>第三次挥手：接收方准备好关闭连接时，会发送一个FIN报文给主动关闭方，告诉对方自己也要关闭连接了。接收方进入LAST_ACK状态。</p>
+<p>第四次挥手：主动关闭方收到FIN报文后，回复ACK报文给接收方，确认序号为收到的FIN报文的序号加1。主动关闭方进入TIME_WAIT状态，等待足够的时间以确保对方收到ACK报文（这个时间通常是2MSL，即两倍的最大段生存期）。接收方收到ACK后关闭连接。主动关闭方在经过等待时间后也会关闭连接。</p>
+<h1 id="spring的事务管理是怎么实现的"><a href="#spring的事务管理是怎么实现的" class="headerlink" title="spring的事务管理是怎么实现的"></a>spring的事务管理是怎么实现的</h1><p>Spring的事务管理是基于AOP（面向切面编程）实现的，它允许你将事务管理代码从业务逻辑代码中分离出来，以提高代码的模块化和可维护性。</p>
+<p>Spring提供了编程式事务管理和声明式事务管理两种方式来实现事务管理</p>
+<p>在编程式事务管理中，开发者需要手动编写代码来管理事务的边界，比如开始事务、提交事务或回滚事务。Spring提供了PlatformTransactionManager接口及其子类来处理事务的生命周期</p>
+<p>声明式事务管理：@Transactional注解来标记那些需要事务管理的方法或类</p>
+<p>当配置了事务管理后，Spring会在运行时为目标方法生成代理对象。在调用业务方法之前，代理对象会在方法执行前后插入事务开始和结束的代码。如果业务方法正常执行，则提交事务；如果发生异常，则根据配置的策略（如rollback-for属性）决定是否回滚事务</p>
+<h1 id="spring怎么判断何时使用jdk的动态代理，何时使用cglib"><a href="#spring怎么判断何时使用jdk的动态代理，何时使用cglib" class="headerlink" title="spring怎么判断何时使用jdk的动态代理，何时使用cglib"></a>spring怎么判断何时使用jdk的动态代理，何时使用cglib</h1><p>默认：<br>如果目标对象实现了接口，Spring默认使用JDK动态代理来创建代理对象<br>如果目标对象没有实现任何接口，Spring会自动选择使用CGLIB来创建代理对象<br>配置：<br>在基于Java配置的Spring Boot应用中，通常通过@EnableTransactionManagement(proxyTargetClass &#x3D; true)或@EnableAspectJAutoProxy(proxyTargetClass &#x3D; true)来强制使用CGLIB代理，即使目标类实现了接口</p>
+<h1 id="mysql存储引擎：InnoDB与MyIsam的区别"><a href="#mysql存储引擎：InnoDB与MyIsam的区别" class="headerlink" title="mysql存储引擎：InnoDB与MyIsam的区别"></a>mysql存储引擎：InnoDB与MyIsam的区别</h1><p>事务支持<br>InnoDB支持事务处理，MyISAM不支持</p>
+<p>外键约束<br>InnoDB支持外键约束，MyISAM不支持</p>
+<p>锁机制<br>InnoDB采用行级锁，MyISAM采用表级锁</p>
+<p>数据恢复<br>InnoDB支持崩溃后的自动恢复，MyISAM在服务器崩溃后缺乏崩溃恢复机制</p>
+<p>索引类型<br>InnoDB不仅支持聚集索引，也支持非聚集索引。MyISAM 存储引擎没有聚集索引（索引文件和数据文件分开存储）</p>
+<h1 id="mysql索引"><a href="#mysql索引" class="headerlink" title="mysql索引"></a>mysql索引</h1><p>B树与B+树的区别？<br>B树：<br>每个节点既存储键值对也存储数据，叶子节点和内部节点都可能包含数据<br>B+树：<br>只有叶子节点存储数据（或者指向数据的指针），内部节点只存储键值和指向子节点的指针。<br>所有叶子节点通过指针相连，形成一个有序的链表，方便范围查询。<br>由于内部节点不存储数据，每个节点可以存放更多键值对，这使得B+树更矮胖，减少了查找时的磁盘I&#x2F;O次数</p>
+<p>为什么MySQL使用B+树作为索引？<br>查询效率高：B+树的高度较低，减少了磁盘I&#x2F;O操作次数<br>范围查询优化：B+树的叶子节点间通过指针相连，使得范围查询和顺序访问变得非常高效<br>支持全表扫描：由于叶子节点包含了所有数据的有序链表，全表扫描可以通过简单的链表遍历完成，无需访问非叶子节点<br>空间利用率高：内部节点不存储数据，可以容纳更多索引键，降低了树的高度，进一步提升了查询效率</p>
+<p>B+树何时分裂？<br>B+树在插入新键值对时，如果节点已满（达到预设的最大键值对数量），则会发生分裂</p>
+<h1 id="线上环境中JVM的CPU使用率异常飙升，怎么排查"><a href="#线上环境中JVM的CPU使用率异常飙升，怎么排查" class="headerlink" title="线上环境中JVM的CPU使用率异常飙升，怎么排查"></a>线上环境中JVM的CPU使用率异常飙升，怎么排查</h1><ol>
+<li><p>监控工具使用：<br>VisualVM、JConsole 或 Java Mission Control (JMC)：这些是JDK自带的工具，可以帮助你监控JVM的性能指标</p>
+</li>
+<li><p>定位问题进程和线程<br>使用top或htop命令查看系统中哪个Java进程CPU使用率高</p>
+</li>
+<li><p>分析堆栈和日志<br>分析jstack输出，寻找BLOCKED或大量重复的堆栈信息，这可能是死锁或线程阻塞的迹象</p>
+</li>
+<li><p>外部因素排查<br>排查DDoS攻击、Redis等外部服务被利用进行挖矿等安全事件</p>
+</li>
+</ol>
+<h1 id="jvm常见参数配置"><a href="#jvm常见参数配置" class="headerlink" title="jvm常见参数配置"></a>jvm常见参数配置</h1><p>内存配置参数<br>-Xms：指定JVM堆内存的初始大小。<br>-Xmx：设定JVM堆内存的最大大小。<br>-Xmn：设定年轻代（新生代）的大小。<br>-XX:PermSize（JDK 8之前）&#x2F; -XX:MetaspaceSize（JDK 8及之后）：指定方法区（永久代&#x2F;元空间）的初始大小。<br>-XX:MaxPermSize（JDK 8之前）&#x2F; -XX:MaxMetaspaceSize（JDK 8及之后）：设定方法区的最大大小。</p>
+<p>垃圾收集器配置参数<br>-XX:+UseSerialGC：使用串行垃圾收集器。<br>-XX:+UseParallelGC：使用并行垃圾收集器（新生代）。<br>-XX:+UseParallelOldGC：使用并行老年代收集器。<br>-XX:+UseConcMarkSweepGC：使用CMS垃圾收集器。<br>-XX:+UseG1GC：使用G1垃圾收集器。</p>
+<p>日志与监控参数<br>-verbose:gc：打印GC详细信息到标准输出。<br>-XX:+PrintGCDetails：打印GC的详细统计信息。<br>-Xloggc:<file>：将GC日志输出到指定文件。<br>-XX:+HeapDumpOnOutOfMemoryError：在发生OutOfMemoryError时生成堆转储文件。</p>
+<p>性能调优参数<br>-XX:SurvivorRatio：设置年轻代中Eden区与Survivor区的比例。<br>-XX:MaxTenuringThreshold：设置对象晋升到老年代的年龄阈值。<br>-XX:NewRatio：设置年轻代与老年代的大小比。<br>-XX:ThreadStackSize：设置线程栈大小</p>
+<p>其他重要参数<br>-Dproperty&#x3D;value：设置系统属性。<br>-server：指定使用Server模式的JVM，适用于长时间运行的服务程序，优化了启动后的执行性能。<br>-XX:+UnlockDiagnosticVMOptions：解锁某些诊断相关的非稳定参数。<br>-XX:+HeapDumpBeforeFullGC：在进行Full GC之前先做一次堆转储。</p>
+<h1 id="TCP是如何保证可靠传输的"><a href="#TCP是如何保证可靠传输的" class="headerlink" title="TCP是如何保证可靠传输的"></a>TCP是如何保证可靠传输的</h1><p>确认机制和重传机制：发送方将每个数据报文都标记一个唯一的序号，接收方收到数据后需要回复一个确认号，表示已经成功接收到了这个数据。发送方发送一段时间后没有收到确认就会重传。</p>
+<p>数据校验：TCP报文头有校验和，用于校验报文是否损坏</p>
+<p>滑动窗口：提供流量控制，当接收方来不及处理发送方的数据，能通过滑动窗口，提示发送方降低发送的速率，防止包丢失。</p>
+<p>数据合理分片和排序：发送方会将数据分片，接收方会缓存未按序到达的数据，重新排序后交给应用层</p>
+
+  </div>
+  
+</div>
+          </div>
+        </div>
+
+        <link rel="stylesheet" href="/css/footer.css">
+<div class="bottom-outer">
+  <div class="framework-info">
+  </div>
+</div>
+
+          
+            <!-- scripts list from theme config.yml -->
+            
+              <script src="/js/MiHoYo.js"></script>
+              
+                
+
+  </body>
+
+  </html>
