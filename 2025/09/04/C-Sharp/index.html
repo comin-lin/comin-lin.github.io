@@ -89,7 +89,66 @@ replay-btn" aria-hidden="true"></i></a>
 <li><p><strong>ASP.NET Core (基于 .NET Core &#x2F; .NET 5+)<strong>：现代、跨平台、高性能、开源的重写版本。它是构建新 Web 项目的</strong>默认和推荐选择</strong>。</p>
 </li>
 </ul>
-<p>C# ABP 框架（ASP.NET Boilerplate &#x2F; Application Building Platform）是基于 ASP.NET Core 构建的</p>
+<p>C# ABP 框架（ASP.NET Boilerplate &#x2F; Application Building Platform）是基于 ASP.NET Core 构建的非微软官方框架</p>
+<h1 id="ASP-NET-Core技术内幕与项目实现：基于DDD与前后端分离"><a href="#ASP-NET-Core技术内幕与项目实现：基于DDD与前后端分离" class="headerlink" title="ASP.NET Core技术内幕与项目实现：基于DDD与前后端分离"></a>ASP.NET Core技术内幕与项目实现：基于DDD与前后端分离</h1><p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/xc917563264/article/details/128756064">https://blog.csdn.net/xc917563264/article/details/128756064</a></p>
+<h3 id="NET-Core独立部署"><a href="#NET-Core独立部署" class="headerlink" title=".NET Core独立部署"></a>.NET Core独立部署</h3><p>可以把.NET Core运行时环境和开发的程序打包到一起部署。目标服务器就<strong>不需要预先安装任何 .NET Core 运行时或 SDK</strong>。<br><strong>在 Windows 系统上发布</strong> 最终会生成一个单独的、以你的项目名命名的 <code>.exe</code> 可执行文件。<br><strong>在 Linux &#x2F; macOS 系统上发布</strong> 生成的是一个<strong>没有后缀的单独可执行文件</strong>（在 Linux 上）或一个特殊的可执行文件（在 macOS 上）</p>
+<h3 id="NET-Core内置服务器"><a href="#NET-Core内置服务器" class="headerlink" title=".NET Core内置服务器"></a>.NET Core内置服务器</h3><p>ASP.NET Core程序内置了简单且高效的Web服务器—Kestrel。Kestrel被嵌入ASP.NET Core程序中运行，因此整个ASP.NET Core程序其实就是一个控制台程序。</p>
+<h3 id="NET-Core-异步编程"><a href="#NET-Core-异步编程" class="headerlink" title=".NET Core 异步编程"></a>.NET Core 异步编程</h3><p>C#中使用async声明一个异步方法，await调用一个异步方法</p>
+<h3 id="Entity-Framework-Core（EF-Core）"><a href="#Entity-Framework-Core（EF-Core）" class="headerlink" title="Entity Framework Core（EF Core）"></a>Entity Framework Core（EF Core）</h3><p>是一个ORM框架，用于提高开发效率，让开发人员减少对数据库的关注，即使不会写SQL也能实现数据的持久化。它的底层是ADO.NET，通过它访问数据库。<br>Code First模式：先编写实体类代码，生成数据库表结构<br>DataBase First模式：先创建数据库表结构，生成对应实体类</p>
+<p><strong>IEnumerable</strong> 与 <strong>IQueryable</strong><br>Enumerable类中定义的供普通集合用的Where等方法都是“客户端评估（把数据加载到内存，在内存中筛选数据）”，因此微软创造了IQueryable类型，它使用的是“服务器端评估（使用SQL语句在数据库服务器上完成数据筛选的过程）”。</p>
+<p><strong>DataReader 和 DataTable</strong></p>
+<p>DataReader的优点是客户端内存占用小，缺点是如果遍历读取数据并进行处理的过程缓慢的话，会导致程序占用数据库连接的时间较长，从而降低数据库服务器的并发连接能力；DataTable的优点是数据被快速地加载到了客户端内存中，因此不会较长时间地占用数据库连接，缺点是如果数据量大的话，客户端的内存占用会比较大。</p>
+<h3 id="ASP-NET-Core-Web-API基础"><a href="#ASP-NET-Core-Web-API基础" class="headerlink" title="ASP.NET Core Web API基础"></a>ASP.NET Core Web API基础</h3><p><strong>ASP.NET Core MVC既支持基于视图的MVC模式开发，也支持Web API开发和Razor Pages开发，我们常说的前后端分离是指Web API开发</strong></p>
+<p>控制器继承 <code>ControllerBase</code>，返回 <code>JsonResult</code>、<code>IActionResult</code> 等，用于构建 RESTful 服务</p>
+<h3 id="ASP-NET-Core（官方开源框架）"><a href="#ASP-NET-Core（官方开源框架）" class="headerlink" title="ASP.NET Core（官方开源框架）"></a>ASP.NET Core（官方开源框架）</h3><ol>
+<li><p><strong>掌握 C# 语言基础与高级特性</strong>：</p>
+<ul>
+<li><strong>基础</strong>：变量、数据类型、控制流、类、接口、继承、多态。</li>
+<li><strong>高级&#x2F;关键</strong>：<code>async</code>&#x2F;<code>await</code> 异步编程、LINQ、委托与事件、Lambda 表达式、泛型、反射（Reflection）、特性（Attributes）、<code>Span&lt;T&gt;</code> 和内存管理基础。这些是理解框架内部运作的关键。</li>
+<li><strong>资源</strong>：官方文档、《C# in Depth》等书籍。</li>
+</ul>
+</li>
+<li><p>**熟悉 .NET 运行时 (CLR&#x2F;CoreCLR) 和基础库 (BCL)**：</p>
+<ul>
+<li>了解程序集（Assembly）、类型系统、垃圾回收（GC）机制、<code>AppDomain</code>（.NET Framework）或程序集加载上下文（AssemblyLoadContext - .NET Core）的基本概念。</li>
+<li>熟悉常用的 BCL 类型，如 <code>Task</code>, <code>HttpClient</code>, <code>Stream</code>, <code>Configuration</code> 等。</li>
+</ul>
+</li>
+<li><p><strong>精通 ASP.NET Core 应用开发</strong>：</p>
+<ul>
+<li><strong>创建项目</strong>：熟练使用 <code>dotnet new</code> 命令行或 IDE 创建 Web API、MVC、Razor Pages 等项目。</li>
+<li><strong>核心概念实践</strong>：<ul>
+<li>**依赖注入 (DI)**：<code>IServiceCollection</code>, <code>IServiceProvider</code>, 生命周期（Singleton, Scoped, Transient）。</li>
+<li><strong>配置系统</strong>：<code>IConfiguration</code>, 各种配置源（JSON, 环境变量, 命令行等）。</li>
+<li>**中间件 (Middleware)**：理解请求处理管道（Request Pipeline），能编写自定义中间件。</li>
+<li>**路由 (Routing)**：Endpoint Routing, 属性路由（Attribute Routing）。</li>
+<li><strong>控制器 (Controllers) &#x2F; Razor Pages</strong>：模型绑定（Model Binding）、模型验证（Model Validation）、过滤器（Filters）。</li>
+<li>**日志 (Logging)**：<code>ILogger</code> 接口及不同日志提供程序。</li>
+<li>**主机 (Host)**：<code>IHostBuilder</code>, <code>IWebHostBuilder</code> (旧版), 通用主机（Generic Host）的概念。</li>
+</ul>
+</li>
+<li><strong>资源</strong>：微软官方 ASP.NET Core 文档是最佳起点，配合动手实践项目。</li>
+</ul>
+</li>
+</ol>
+<h3 id="ABP-（非微软官方开源框架）"><a href="#ABP-（非微软官方开源框架）" class="headerlink" title="ABP （非微软官方开源框架）"></a>ABP （非微软官方开源框架）</h3><p>官网 <a target="_blank" rel="noopener" href="http://www.aspnetboilerplate.com/">http://www.aspnetboilerplate.com</a><br>博客 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mienreal/p/4528470.html">https://www.cnblogs.com/mienreal/p/4528470.html</a></p>
+<p>ASP.NET Boilerplate 基于DDD的经典分层架构思想，实现了众多DDD的概念</p>
+<h4 id="ABP框架已实现了以下特性："><a href="#ABP框架已实现了以下特性：" class="headerlink" title="ABP框架已实现了以下特性："></a>ABP框架已实现了以下特性：</h4><ul>
+<li>多语言&#x2F;本地化支持</li>
+<li>多租户支持（每个租户的数据自动隔离，业务模块开发者不需要在保存和查询数据时写相应代码）</li>
+<li>软删除支持（继承相应的基类或实现相应接口，会自动实现软删除）</li>
+<li>统一的异常处理（应用层几乎不需要处理自己写异常处理代码）</li>
+<li>数据有效性验证（Asp.NET MVC只能做到Action方法的参数验证，ABP实现了Application层方法的参数有效性验证）</li>
+<li>日志记录（自动记录程序异常）</li>
+<li>模块化开发（每个模块有独立的EF DbContext，可单独指定数据库）</li>
+<li>Repository仓储模式（已实现了Entity Framework、NHibernate、MangoDB、内存数据库）</li>
+<li>Unit Of Work工作单元模式（为应用层和仓储层的方法自动实现数据库事务）</li>
+<li>EventBus实现领域事件(Domain Events)</li>
+<li>DLL嵌入资源管理</li>
+<li>通过Application Services自动创建Web Api层（不需要写ApiController层了）</li>
+<li>自动创建Javascript 的代理层来更方便使用Web Api</li>
+<li>封装一些Javascript 函数，更方便地使用ajax、消息框、通知组件、忙状态的遮罩层等</li>
+</ul>
 
   </div>
   
